@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index');
 
-Route::resource('users', 'UserController');
