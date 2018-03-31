@@ -27,3 +27,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', 'AdminController@index');
 });
 
+
+
+Route::resource('profissionals', 'ProfissionalController');
