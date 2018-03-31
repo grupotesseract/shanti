@@ -2,10 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Profissionals</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('profissionals.create') !!}">Add New</a>
-        </h1>
+        <h1>Listagem dos profissionais</h1>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -15,7 +12,15 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('profissionals.table')
+                    <div class="col-xs-12">
+                        @include('profissionals.table')
+                    </div>
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="btn btn-default" href="/profissionals/create"> <i class="fa fa-plus"></i> &nbsp; Adicionar um novo profissional</a>
+                    </div>
             </div>
         </div>
         <div class="text-center">

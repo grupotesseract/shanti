@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\ProfissionalDataTable;
+use Flash;
+use Response;
 use App\Http\Requests;
+use App\Repositories\FotoRepository;
+use App\DataTables\ProfissionalDataTable;
+use App\Http\Controllers\AppBaseController;
+use App\Repositories\ProfissionalRepository;
 use App\Http\Requests\CreateProfissionalRequest;
 use App\Http\Requests\UpdateProfissionalRequest;
-use App\Repositories\ProfissionalRepository;
-use Flash;
-use App\Http\Controllers\AppBaseController;
-use Response;
 
 class ProfissionalController extends AppBaseController
 {
     /** @var  ProfissionalRepository */
     private $profissionalRepository;
+    private $fotoRepository;
 
-    public function __construct(ProfissionalRepository $profissionalRepo)
+    public function __construct(ProfissionalRepository $profissionalRepo, FotoRepository $fotoRepo)
     {
+        $this->fotoRepository = $fotoRepo;
         $this->profissionalRepository = $profissionalRepo;
     }
 
@@ -55,9 +58,18 @@ class ProfissionalController extends AppBaseController
 
         $profissional = $this->profissionalRepository->create($input);
 
-        Flash::success('Profissional saved successfully.');
+        if ($request->file) {
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+            $profissional->fotoListagem()->save($foto);
 
-        return redirect(route('profissionals.index'));
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_profissional_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+        
+        Flash::success('Profissional cadastrado com sucesso.');
+        return redirect(route('profissionals.show', $profissional->id));
     }
 
     /**
@@ -137,14 +149,14 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
 
         $this->profissionalRepository->delete($id);
 
-        Flash::success('Profissional deleted successfully.');
+        Flash::success('Profissional removido com sucesso .');
 
         return redirect(route('profissionals.index'));
     }

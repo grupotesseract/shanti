@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Helpers\DeleteModelHelper;
 
 /**
  * Class Profissional
@@ -18,10 +19,8 @@ class Profissional extends Model
     use SoftDeletes;
 
     public $table = 'profissionals';
-    
 
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nome',
@@ -48,5 +47,35 @@ class Profissional extends Model
         'descricao_listagem' => 'required'
     ];
 
+    /**
+     * Array de relacoesDependentes que devem ser deletadas caso essa Entidade seja deletada
+     *
+     * @var array 
+     */
+    public $relacoesDependentes = [
+       'fotoListagem' 
+    ];
+
+
+    /**
+     * Bindando Model Events para controlar o delete
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        //Bindando o deleting para remover as relationships
+        static::deleting(function ($model) {
+            DeleteModelHelper::deleteRelationships($model);
+        });
+    }
+
+    /**
+     * Relação entre Profissional e Foto da listagem
+     */
+    public function fotoListagem()
+    {
+        return $this->morphOne(\App\Models\Foto::class, 'owner');
+    }
     
 }

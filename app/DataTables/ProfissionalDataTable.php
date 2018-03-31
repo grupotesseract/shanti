@@ -42,17 +42,11 @@ class ProfissionalDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '80px', 'title' => 'Ações'])
             ->parameters([
-                'dom'     => 'Bfrtip',
+                'dom'     => 'rt',
                 'order'   => [[0, 'desc']],
-                'buttons' => [
-                    'create',
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
-                ],
+                'language' => ['url' => '//cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json'],
             ]);
     }
 
@@ -64,8 +58,9 @@ class ProfissionalDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nome',
-            'descricao_listagem'
+            'nome' => ['title' => 'Nome do profissional'],
+            'descricao_listagem' => ['title' => 'Função que desempenha']
+
         ];
     }
 
