@@ -103,7 +103,7 @@ class FotoRepository extends BaseRepository
     }
 
     /**
-     * Override BaseRepository@delete
+     * Override BaseRepository@delete - para remover também do cloudinary
      * Delete a entity in repository by id.
      *
      * @param $id
@@ -119,6 +119,11 @@ class FotoRepository extends BaseRepository
     }
     
 
+    /**
+     * deleteLocal 
+     *
+     * @param mixed $id
+     */
     public function deleteLocal($id)
     {
         $Foto = $this->findWithoutFail($id);
