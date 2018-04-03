@@ -8,11 +8,136 @@
 
 /* Home Nav */
 
+header h5 {
+  color: #74283C;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+header .nav-media {
+  text-align: center;
+}
+
+header .nav-media a {
+  font-size: 30px;
+  color: #74283C;
+  margin-right: 3px;
+}
+
+.navbar {
+  border-top: 3px solid #74283C;
+  border-bottom: 3px solid #74283C;
+}
+
+.navbar .navbar-brand img {
+  width: 170px;
+  position: absolute;
+  margin-top: -129px;
+}
+
+.navbar a {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  font-weight: 700;
+  color: #74283C;
+}
+
+.navbar .active a {
+  font-weight: 700;
+}
+
 /* Home Body */
 
 /* Home Body */
+
+.col-home {
+  padding: 0 1.5rem;
+  margin-bottom: 4rem;
+}
+
+h4 {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  color: #606060;
+  font-family: "Merriweather", serif;
+}
+
+blockquote p {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 3rem;
+}
+
+.blockquote-footer {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-size: 0.9rem;
+}
+
+.carousel-home {
+  margin-top: 4rem;
+  border-radius: 20px;
+}
 
 /* Home Footer */
 
 /* Home Footer */
+
+.footer {
+  border-top: 3px solid #74283C;
+  text-align: center;
+}
+
+.footer h6 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+}
+
+.footer p {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-size: 0.9rem;
+}
+
+.footer p:nth-child(2) {
+  margin-bottom: 0.6rem;
+}
+
+.nav {
+  border-top: 3px solid #74283C;
+  padding: .5rem 1rem;
+}
+
+.nav a {
+  color: #74283C;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  font-weight: 700;
+  color: #74283C;
+}
+
+.nav .active a {
+  font-weight: 700;
+}
 

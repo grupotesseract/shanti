@@ -1,1 +1,47 @@
 /* Home Nav */
+header {
+	h5 {
+		color: $cor-1;
+		text-align: center;
+		font-family: $font-merri;
+		font-weight: 400;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.nav-media {
+		text-align: center;
+
+		a {
+			font-size: 30px;
+			color: $cor-1;
+			margin-right: 3px;
+		}
+	}
+}
+
+.navbar {
+	border-top: 3px solid $cor-1;
+	border-bottom: 3px solid $cor-1;
+
+	.navbar-brand img {
+		width: 170px;
+		position: absolute;
+		margin-top: -129px;
+	}
+
+	a {
+		color: $cor-1;
+		font-family: $font-merri;
+		font-weight: 500;
+
+		&:hover {
+			font-weight: 700;
+			color: $cor-1;
+		}
+	}
+
+	.active a {
+		font-weight: 700;
+	}
+}
