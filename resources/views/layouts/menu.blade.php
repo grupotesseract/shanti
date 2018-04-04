@@ -5,3 +5,7 @@
 </li>
  --}}
 
+<li class="{{ Request::is('profissionals*') ? 'active' : '' }}">
+    <a href="{!! route('profissionals.index') !!}"><i class="fa fa-group"></i><span>Quem Somos</span></a>
+</li>
+

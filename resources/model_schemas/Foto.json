@@ -1,0 +1,60 @@
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "image_name",
+        "dbType": "string",
+        "htmlType": ""
+    },
+    {
+        "name": "image_path",
+        "dbType": "string",
+        "htmlType": ""
+    },
+    {
+        "name": "image_extension",
+        "dbType": "string",
+        "htmlType": ""
+    },
+    {
+        "name": "owner_id",
+        "dbType": "integer",
+        "htmlType": ""
+    },
+    {
+        "name": "owner_type",
+        "dbType": "string",
+        "htmlType": ""
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

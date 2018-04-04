@@ -11,19 +11,22 @@
 |
  */
 
-
 Route::get('/', function () {
     return view('pages.home');
 });
 
-// Authentication Routes...
+Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
+
+// Rotas de login / logout
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-
 /** * Aplicando middlewares para as rotas do webadmin - Aqui entram as rotas que precisa estar logado */
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', 'AdminController@index');
+    Route::get('admin', 'AdminController@index');
+    Route::resource('profissionals', 'ProfissionalController');
 });
+
+
 
