@@ -1,7 +1,5 @@
 
-# Tesseract Laravel Boilerplate
-
-Projeto Laravel 5.5 para facilitar a criacao de novos projetos
+# Instituto Shanti 
 
 - Laravel 5.5
 - Laravel Generator
@@ -9,19 +7,27 @@ Projeto Laravel 5.5 para facilitar a criacao de novos projetos
 - Yajra DataTables v8
 - Languages / locale pt-BR
 
-## Clone com submodulos
+## Steps para Instalar e rodar
 
-`git clone --recursive https://github.com/grupotesseract/laravel-tesseract-boilerplate.git`
+### Clone c/ submodulos (laradock)
+- `git clone --recursive https://github.com/grupotesseract/laravel-tesseract-boilerplate.git`
 
-## Rodando o projeto
-
-Buildar Laradock
+### Buildar Laradock
 - `cd laradock`
 - `cp env-example .env` (editar caso seja necessario portas / BD's diferentes)
 - `docker-compose up -d nginx php-fpm postgres`
 - `docker-compose exec workspace composer install`
 
+### Setup .env
+- `cp .env-example .env`
 Acertar .env do projeto de acordo com as configs do laradock
+
+### Front-end packages
+- `npm install`
+- `npm run dev`
+
+### Migration e seed's
+- `docker-compose exec workspace php artisan migrate --seed`
 
 Se pá GGWP :+1:
 

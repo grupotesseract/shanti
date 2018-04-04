@@ -9,15 +9,21 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+
 
 Route::get('/', function () {
     return view('pages.home');
 });
 
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Auth::routes();
 
-Route::get('/admin', 'AdminController@index');
+/** * Aplicando middlewares para as rotas do webadmin - Aqui entram as rotas que precisa estar logado */
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', 'AdminController@index');
+});
 
-Route::resource('users', 'UserController');
