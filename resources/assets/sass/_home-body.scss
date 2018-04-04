@@ -1,1 +1,38 @@
 /* Home Body */
+
+.col-home {
+	padding: 0 1.5rem;
+	margin-bottom: 4rem;
+}
+
+h4 {
+	color: $cor-1;
+	font-family: $font-merri;
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+}
+
+p {
+	color: $cor-2;
+	font-family: $font-merri;
+}
+
+blockquote p {
+	color: $cor-1;
+	font-family: $font-merri;
+	font-size: 1rem;
+	font-weight: 600;
+	font-style: italic;
+	margin-top: 3rem;
+}
+
+.blockquote-footer {
+	color: $cor-1;
+	font-family: $font-merri;
+	font-size: 0.9rem;
+}
+
+.carousel-home {
+	margin-top: 4rem;
+	border-radius: 20px;
+}
