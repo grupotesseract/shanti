@@ -28,8 +28,8 @@ header .nav-media a {
 }
 
 .navbar {
-  border-top: 3px solid #74283C;
-  border-bottom: 3px solid #74283C;
+  border-top: 2px solid #74283C;
+  border-bottom: 2px solid #74283C;
 }
 
 .navbar .navbar-brand img {
@@ -45,12 +45,71 @@ header .nav-media a {
 }
 
 .navbar a:hover {
-  font-weight: 700;
+  font-weight: 500;
   color: #74283C;
 }
 
 .navbar .active a {
-  font-weight: 700;
+  font-weight: 500;
+}
+
+.navbar-mobile {
+  display: none !important;
+}
+
+.navbar-space {
+  display: none !important;
+}
+
+@media (max-width: 991.98px) {
+  header {
+    display: none !important;
+  }
+
+  .navbar {
+    border-top: none;
+    text-align: center;
+  }
+
+  .navbar .navbar-brand {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .navbar .navbar-brand img {
+    width: 65px;
+    position: static;
+    margin-top: auto;
+    margin-left: 66px;
+  }
+
+  .navbar .navbar-toggler-icon {
+    width: 40px;
+  }
+
+  .navbar .navbar-toggler-icon .icon-bar {
+    width: 100%;
+    height: 2px;
+    margin-bottom: 12px;
+    background-color: #74283C;
+  }
+
+  .navbar .navbar-nav {
+    margin-top: 12px;
+  }
+
+  .navbar-space {
+    display: block !important;
+    height: 83px;
+  }
+
+  .navbar-pc {
+    display: block !important;
+  }
+
+  .navbar-mobile {
+    display: none !important;
+  }
 }
 
 /* Home Body */
@@ -99,30 +158,63 @@ blockquote p {
 /* Home Footer */
 
 .footer {
-  border-top: 3px solid #74283C;
+  border-top: 2px solid #74283C;
   text-align: center;
+  padding: 1.5rem 0;
 }
 
 .footer h6 {
-  margin-top: 1rem;
+  margin-top: 0rem;
   margin-bottom: 1rem;
   color: #74283C;
   font-family: "Merriweather", serif;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.footer p {
+.footer a,
+.footer a:visited,
+.footer a:hover,
+.footer a:active {
   color: #74283C;
   font-family: "Merriweather", serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  line-height: 2.5;
 }
 
-.footer p:nth-child(2) {
-  margin-bottom: 0.6rem;
+.footer a i,
+.footer a:visited i,
+.footer a:hover i,
+.footer a:active i {
+  font-size: 25px;
+  position: relative;
+  top: 3px;
+  margin-right: 7px;
+}
+
+.footer-pc a:nth-child(2),
+.footer-pc a:nth-child(3),
+.footer-pc a:nth-child(5) {
+  margin-right: 10px;
+}
+
+.footer-mobile {
+  display: none !important;
+  text-align: left;
+}
+
+.footer-mobile h6 {
+  text-align: center;
+}
+
+.footer-mobile a {
+  display: block;
+  margin-left: 20px;
 }
 
 .nav {
-  border-top: 3px solid #74283C;
+  border-top: 2px solid #74283C;
   padding: .5rem 1rem;
 }
 
@@ -133,12 +225,38 @@ blockquote p {
 }
 
 .nav a:hover {
-  font-weight: 700;
+  font-weight: 500;
   color: #74283C;
 }
 
 .nav .active a {
-  font-weight: 700;
+  font-weight: 500;
+}
+
+.nav-mobile {
+  display: none !important;
+}
+
+@media (max-width: 991.98px) {
+  .footer-mobile {
+    display: block !important;
+  }
+
+  .footer-pc {
+    display: none !important;
+  }
+
+  .nav-mobile {
+    display: block !important;
+  }
+
+  .nav-pc {
+    display: none !important;
+  }
+
+  .nav li {
+    text-align: center;
+  }
 }
 
 /* Espaço Body */
