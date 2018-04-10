@@ -21,8 +21,8 @@ header {
 }
 
 .navbar {
-	border-top: 3px solid $cor-1;
-	border-bottom: 3px solid $cor-1;
+	border-top: 2px solid $cor-1;
+	border-bottom: 2px solid $cor-1;
 
 	.navbar-brand img {
 		width: 170px;
@@ -36,12 +36,62 @@ header {
 		font-weight: 500;
 
 		&:hover {
-			font-weight: 700;
+			font-weight: 500;
 			color: $cor-1;
 		}
 	}
 
 	.active a {
-		font-weight: 700;
+		font-weight: 500;
 	}
+}
+
+.navbar-mobile { display: none !important; }
+.navbar-space { display: none !important; }
+
+@media (max-width: 991.98px) {
+header {
+	display: none !important;
+}
+
+.navbar {
+	border-top: none;
+	text-align: center;
+
+	.navbar-brand {
+		margin: 0 auto;
+		padding: 0;
+
+		img {
+			width: 65px;
+			position: static;
+			margin-top: auto;
+			margin-left: 66px;
+		}
+	}
+
+	.navbar-toggler-icon {
+		width: 40px;
+
+		.icon-bar {
+			width: 100%;
+			height: 2px;
+			margin-bottom: 12px;
+			background-color: $cor-1;
+		}	
+	}
+
+	.navbar-nav {
+		margin-top: 12px;
+	}
+}
+
+.navbar-space {
+	display: block !important;
+	height: 83px;
+}
+
+.navbar-pc { display: block !important; }
+.navbar-mobile { display: none !important; }
+
 }
