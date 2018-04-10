@@ -148,11 +148,6 @@ blockquote p {
   font-size: 0.9rem;
 }
 
-.carousel-home {
-  margin-top: 4rem;
-  border-radius: 20px;
-}
-
 /* Home Footer */
 
 /* Home Footer */
@@ -262,4 +257,34 @@ blockquote p {
 /* Espaço Body */
 
 /* Espaço Body */
+
+.espaco-mobile {
+  display: none !important;
+}
+
+.carousel-espaco {
+  margin-top: 4rem;
+}
+
+@media (max-width: 991.98px) {
+  .espaco-pc {
+    display: none !important;
+  }
+
+  .espaco-mobile {
+    display: block !important;
+  }
+
+  h4 {
+    margin-top: 2rem;
+  }
+
+  .col-home {
+    margin-bottom: 2rem;
+  }
+
+  .carousel-espaco {
+    margin-top: 2rem;
+  }
+}
 

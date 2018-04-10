@@ -1,1 +1,25 @@
 /* Espaço Body */
+
+.espaco-mobile { display: none !important; }
+
+.carousel-espaco {
+	margin-top: 4rem;
+}
+
+@media (max-width: 991.98px) {
+.espaco-pc { display: none !important; }
+.espaco-mobile { display: block !important; }
+
+h4 {
+	margin-top: 2rem;
+}
+
+.col-home {
+	margin-bottom: 2rem;
+}
+
+.carousel-espaco {
+	margin-top: 2rem;
+}
+
+}

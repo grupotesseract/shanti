@@ -12,7 +12,7 @@
   </div>
 </header>
 
-<nav class="navbar navbar-pc">
+<nav class="navbar navbar-expand-lg navbar-pc">
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="images/logo-shanti.png">
