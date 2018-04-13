@@ -1,21 +1,21 @@
 /* Home Footer */
 
 .footer {
-	border-top: 2px solid $cor-1;
+	border-top: 2px solid $cor-vinho;
 	text-align: center;
 	padding: 1.5rem 0;
 
 	h6 {
 		margin-top: 0rem;
 		margin-bottom: 1rem;
-		color: $cor-1;
+		color: $cor-vinho;
 		font-family: $font-merri;
 		font-weight: 600;
 		font-size: 1.1rem;
 	}
 
 	a, a:visited, a:hover, a:active {
-		color: $cor-1;
+		color: $cor-vinho;
 		font-family: $font-merri;
 		font-size: 0.95rem;
 		text-decoration: none;
@@ -51,17 +51,17 @@
 }
 
 .nav {
-	border-top: 2px solid $cor-1;
+	border-top: 2px solid $cor-vinho;
 	padding: .5rem 1rem;
 
 	a {
-		color: $cor-1;
+		color: $cor-vinho;
 		font-family: $font-merri;
 		font-weight: 500;
 
 		&:hover {
 			font-weight: 500;
-			color: $cor-1;
+			color: $cor-vinho;
 		}
 	}
 

@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col col-home">
+		<div class="col col-espaco">
 			<h4>O ESPAÇO __</h4>
 			<p>Shanti, palavra sânscrita que significa PAZ, tornou-se uma síntese do objetivo deste Instituto, idealizado e fundado em fevereiro de 2015 pela professora de Yoga Gabriela Teixeira e pelo naturólogo João G. G. Maciel.</p>
 			<p>O Instituto Shanti oferece serviços voltados para a saúde integral, promoção da cultura de paz, do desenvolvimento sustentável e expansão da consciência.</p>
