@@ -1,33 +1,91 @@
 /* Home Body */
-
-.col-home {
-	padding: 0 1.5rem;
-	margin-bottom: 4rem;
-}
-
-h4 {
-	color: $cor-1;
+h1, h2, h3, h4, h5, h6 {
 	font-family: $font-merri;
-	margin-top: 4rem;
-	margin-bottom: 2rem;
 }
 
 p {
-	color: $cor-2;
+	color: $cor-chumbo;
 	font-family: $font-merri;
 }
 
-blockquote p {
-	color: $cor-1;
-	font-family: $font-merri;
-	font-size: 1rem;
-	font-weight: 600;
-	font-style: italic;
-	margin-top: 3rem;
+.capa-home {
+	width: 100%;
+	height: 450px;
+	background-image: url("/images/capa-home.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    h1 {
+    	color: $cor-branco;
+    	padding-top: 4rem;
+    	margin-bottom: 2rem;
+    	font-size: 1.8rem;
+    	width: 380px;
+    	font-style: italic;
+    }
+
+    h5 {
+    	color: $cor-branco;
+    }
 }
 
-.blockquote-footer {
-	color: $cor-1;
-	font-family: $font-merri;
-	font-size: 0.9rem;
+.footer-home {
+	h4 {
+		font-weight: 600;
+		color: $cor-vinho;
+		text-align: center;
+		border: 2px solid $cor-cinza;
+		border-radius: 5px;
+		padding: 0.8rem 0;
+		margin: 1rem 0;
+	}
+
+	.home-bola {
+		text-align: center;
+		margin: 1.5rem 0;
+
+		h5 {
+			font-weight: 700;
+			color: $cor-vinho;
+			text-align: center;
+			font-family: $font-exo;
+			margin: 1rem 0;
+		}
+
+		img {
+			border-radius: 50%;
+			width: 150px;
+		}
+	}
+
+	.footer-home-right {
+		text-align: left;
+		padding: 1.5rem 0 1.5rem 2rem;
+
+		h6 {
+			margin-top: 0rem;
+			margin-bottom: 0.8rem;
+			color: $cor-vinho;
+			font-family: $font-merri;
+			font-weight: 600;
+			font-size: 1.1rem;
+		}
+
+		a, a:visited, a:hover, a:active {
+			color: $cor-vinho;
+			font-family: $font-merri;
+			font-size: 0.95rem;
+			text-decoration: none;
+			line-height: 2;
+			display: block;
+
+			i {
+				font-size: 25px;
+				position: relative;
+				top: 3px;
+				margin-right: 7px;
+			}
+		}
+	}
 }
