@@ -18,23 +18,22 @@
 <div class="container footer-home">
 	<h4>Instituto de Ciência Corpo Mente</h4>
 	<div class="row">
-		<div class="col">
-			<div class="row">
-				<div class="col-4 home-bola">
-					<img src="images/300x300.jpg">
-					<h5>SERVIÇOS</h5>
-				</div>
-				<div class="col-4 home-bola">
-					<img src="images/300x300.jpg">
-					<h5>CURSOS</h5>
-				</div>
-				<div class="col-4 home-bola">
-					<img src="images/300x300.jpg">
-					<h5>EVENTOS</h5>
-				</div>
-			</div>
+		<div class="col home-bola">
+			<img src="images/300x300.jpg">
+			<h5>SERVIÇOS</h5>
 		</div>
-		<div class="col-4 footer-home-right">
+
+		<div class="col home-bola">
+			<img src="images/300x300.jpg">
+			<h5>CURSOS</h5>
+		</div>
+
+		<div class="col home-bola">
+			<img src="images/300x300.jpg">
+			<h5>EVENTOS</h5>
+		</div>
+		
+		<div class="col footer-home-right">
 			<h6>ONDE NOS ENCONTRAR</h6>
 			<a href="" target="_blank">
 				<i class="fa fa-map-marker" aria-hidden="true"></i>Rua Maria José, 12-17 | Bauru - SP

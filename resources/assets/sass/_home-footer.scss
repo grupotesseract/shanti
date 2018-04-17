@@ -38,16 +38,6 @@
 
 .footer-mobile {
 	display: none !important;
-	text-align: left;
-
-	h6 {
-		text-align: center;
-	}
-
-	a {
-		display: block;
-		margin-left: 20px;
-	}
 }
 
 .nav {
@@ -80,6 +70,33 @@
 
 	.nav-mobile { display: block !important;	}
 	.nav-pc { display: none !important; }
+
+	.footer {
+		text-align: left;
+		padding-top: 1.5rem;
+		padding-left: 1.5rem;
+
+		h6 {
+			font-size: 1.1rem;
+			margin-top: 0rem;
+			margin-left: 8px;
+		}
+
+		a, a:visited, a:hover, a:active {
+			font-size: 15px;
+			line-height: 2;
+			display: block;
+
+			i {
+				font-size: 22px;
+			    position: relative;
+			    top: 3px;
+			    width: 40px;
+			    margin-right: 0;
+			    text-align: center;
+			}
+		}
+	}
 
 	.nav {
 		li {
