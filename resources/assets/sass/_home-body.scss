@@ -38,19 +38,23 @@ p {
 		border: 2px solid $cor-cinza;
 		border-radius: 5px;
 		padding: 0.8rem 0;
-		margin: 1rem 0;
+		margin: 1rem 0 2rem;
+	}
+
+	.col {
+		padding: 0;
 	}
 
 	.home-bola {
 		text-align: center;
-		margin: 1.5rem 0;
+		margin-left: -70px;
 
 		h5 {
 			font-weight: 700;
 			color: $cor-vinho;
 			text-align: center;
 			font-family: $font-exo;
-			margin: 1rem 0;
+			margin: 1rem 0 2rem;
 		}
 
 		img {
@@ -61,7 +65,6 @@ p {
 
 	.footer-home-right {
 		text-align: left;
-		padding: 1.5rem 0 1.5rem 2rem;
 
 		h6 {
 			margin-top: 0rem;
@@ -69,23 +72,67 @@ p {
 			color: $cor-vinho;
 			font-family: $font-merri;
 			font-weight: 600;
-			font-size: 1.1rem;
+			font-size: 1rem;
+			margin-left: 8px;
 		}
 
 		a, a:visited, a:hover, a:active {
 			color: $cor-vinho;
 			font-family: $font-merri;
-			font-size: 0.95rem;
+			font-size: 15px;
 			text-decoration: none;
 			line-height: 2;
 			display: block;
 
 			i {
-				font-size: 25px;
-				position: relative;
-				top: 3px;
-				margin-right: 7px;
+				font-size: 22px;
+			    position: relative;
+			    top: 3px;
+			    width: 40px;
+			    text-align: center;
 			}
+		}
+	}
+}
+
+@media (max-width: 991.98px) {
+	.capa-home {
+		height: 350px;
+
+		.container {
+			padding: 0 0 0 1.5rem;
+		}
+
+		h1 {
+			width: 200px;
+    		padding-top: 1.5rem;
+    		font-size: 1.2rem;
+    		margin-bottom: 1rem;
+		}
+
+		h5 {
+			font-size: 1rem;
+		}
+	}
+
+	.footer-home {
+    	padding-bottom: 1.5rem;
+    	padding-top: 1rem;
+
+		h4 {
+			font-size: 1.1rem;
+			margin-top: 1.5rem;
+		}
+
+		.home-bola {
+			margin-left: 0px;
+			padding: 0 20px;
+		}
+
+		.footer-home-right {
+			padding-top: 1.5rem;
+			padding-left: 1.5rem;
+    		border-top: 2px solid $cor-vinho;
 		}
 	}
 }
