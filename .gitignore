@@ -96,6 +96,6 @@ typings/
 
 # dotenv environment variables file
 
-
-
-# End of https://www.gitignore.io/api/node,laravel
+# End of https://www.gitignore.io/api/node,laravelpublic/js
+public/css/
+public/js/

@@ -1,3 +1,6 @@
+/** Adicionando scss do bootstrap para possibilitar mixins etc.. **/
+@import "~bootstrap/scss/bootstrap";
+
 /* Variables */
 @import "home-variables";
 /* Home Nav */
@@ -9,3 +12,5 @@
 
 /* Espaço Body */
 @import "espaco-body";
+
+
