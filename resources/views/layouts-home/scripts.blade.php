@@ -7,5 +7,6 @@
 <!-- MDB core JavaScript
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js" integrity="sha256-crfkMD0BL2TtiwpbIlXF/SVmGSvOtgbMM8GBkibVKyc=" crossorigin="anonymous"></script>
 <!-- Javascript -->
 <script type="text/javascript" src="/js/home.js"></script>
