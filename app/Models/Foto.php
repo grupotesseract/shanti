@@ -28,6 +28,7 @@ class Foto extends Model
         'image_name',
         'image_path',
         'image_extension',
+        'cloudinary_id',
         'owner_id',
         'owner_type'
     ];
