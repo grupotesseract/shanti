@@ -25,8 +25,7 @@ class QuemSomosController extends Controller
      */
     public function getIndex(Request $request)
     {
-        dd('rota da pagina /quem-somos', $request);
-        return view('quem-somos.index');     
+        return view('pages.quem-somos');     
     }
     
 }
