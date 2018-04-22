@@ -1,15 +1,33 @@
-{!! Form::open(['route' => ['profissionals.destroy', $id], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('profissionals.show', $id) }}" class='btn btn-default btn-xs'>
-        <i class="glyphicon glyphicon-eye-open"></i>
-    </a>
+    @if ( !$profissional->ativo_listagem )
+    {!! Form::open(['url' => '/profissionals/'.$id.'/ativa-listagem']) !!}
+        {!! Form::button('<i class="fa fa-arrow-up"></i>', [
+            'type' => 'submit',
+            'class' => 'btn btn-info btn-xs',
+            'onclick' => "return confirm('Ativar a exibição desse profissional?')"
+        ]) !!}
+    {!! Form::close() !!}
+    @else
+    {!! Form::open(['url' => '/profissionals/'.$id.'/remove-listagem']) !!}
+        {!! Form::button('<i class="fa fa-arrow-down"></i>', [
+            'type' => 'submit',
+            'class' => 'btn btn-warning btn-xs',
+            'onclick' => "return confirm('Parar a exibição desse profissional?')"
+        ]) !!}
+    {!! Form::close() !!}
+@endif
+</div>
+<div class='btn-group'>
     <a href="{{ route('profissionals.edit', $id) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>
+</div>
+<div class='btn-group'>
+{!! Form::open(['route' => ['profissionals.destroy', $id], 'method' => 'delete']) !!}
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [
         'type' => 'submit',
         'class' => 'btn btn-danger btn-xs',
-        'onclick' => "return confirm('Are you sure?')"
+        'onclick' => "return confirm('Tem certeza?')"
     ]) !!}
-</div>
 {!! Form::close() !!}
+</div>

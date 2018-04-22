@@ -8,7 +8,7 @@
         @foreach ($profissionais as $Profissional)
         <div class="col">
             <a href="/profissional/{{ $Profissional->id }}">
-                <img src="{{ $Profissional->fotoListagem->urlCloudinary }}">
+                <img src="{{ $Profissional->linkFotoQuemSomos }}">
                 <h5>{{ $Profissional->nome }}</h5>
                 <h6>{{ $Profissional->descricao_listagem }}</h6>
             </a>

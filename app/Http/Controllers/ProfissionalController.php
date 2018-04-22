@@ -160,4 +160,46 @@ class ProfissionalController extends AppBaseController
 
         return redirect(route('profissionals.index'));
     }
+
+    /**
+     * Metodo que recebe o POST de ativar a exibição desse profissional em /quem-somos
+     *
+     * @param mixed $id
+     */
+    public function postAtivaListagem($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional não encontrado');
+
+            return redirect(route('profissionals.index'));
+        }
+
+        $retorno = $this->profissionalRepository->ativaProfissional($profissional);
+        Flash::success('Profissional ativado com sucesso.');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Metodo que recebe o POST de desativar a exibição dessa profissional em /quem-somos.
+     *
+     * @param mixed $id
+     */
+    public function postRemoveListagem($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional não encontrado');
+
+            return redirect(route('profissionals.index'));
+        }
+
+        $retorno = $this->profissionalRepository->desativaProfissional($profissional);
+        Flash::success('Profissional desativado com sucesso.');
+
+        return redirect()->back();
+    }
 }

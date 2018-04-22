@@ -14,6 +14,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5.0",
+        "unisharp/laravel-ckeditor": "^4.7",
         "yajra/laravel-datatables-buttons": "^3.0",
         "yajra/laravel-datatables-html": "^3.0",
         "yajra/laravel-datatables-oracle": "^8.0"
