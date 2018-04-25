@@ -18,7 +18,10 @@ class ProfissionalDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'profissionals.datatables_actions');
+        return $dataTable
+            ->addColumn('action', function ($model) {
+                return view('profissionals.datatables_actions')->with(['profissional' => $model, 'id' => $model->id]);
+            });
     }
 
     /**

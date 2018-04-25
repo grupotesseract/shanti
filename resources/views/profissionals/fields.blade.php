@@ -17,6 +17,9 @@
     ])
 </div>
 
+{{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}
+{!! Form::hidden('ativo_listagem',true) !!}
+
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

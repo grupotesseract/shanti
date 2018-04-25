@@ -25,7 +25,11 @@ class QuemSomosController extends Controller
      */
     public function getIndex(Request $request)
     {
-        return view('pages.quem-somos');     
+        $profissionais = $this->profRepository->getAtivos();
+
+        return view('pages.quem-somos')->with([
+            'profissionais' => $profissionais
+        ]);     
     }
     
 }

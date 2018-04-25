@@ -31,5 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profissionals', 'ProfissionalController');
 });
 
+Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
+Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
 
 

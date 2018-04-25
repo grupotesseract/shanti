@@ -30,4 +30,38 @@ class ProfissionalRepository extends BaseRepository
     {
         return Profissional::class;
     }
+
+    /**
+     * Retorna os Profissionais ativos.
+     *
+     * @return void
+     */
+    public function getAtivos()
+    {
+        return Profissional::ativos()->get();
+    }
+
+    /**
+     * Ativa a profissional para que passe a ser retornado via API.
+     *
+     * @return void
+     */
+    public function ativaProfissional(Profissional $profissional)
+    {
+        return $profissional->update([
+            'ativo_listagem' => true,
+        ]);
+    }
+
+    /**
+     * Desativa a profissional para que passe a ser retornada via API.
+     *
+     * @return void
+     */
+    public function desativaProfissional(Profissional $profissional)
+    {
+        return $profissional->update([
+            'ativo_listagem' => false,
+        ]);
+    }
 }

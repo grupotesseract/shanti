@@ -3,51 +3,18 @@
 @section('content')
 
 <div class="container quem-somos">
-	<h4>QUEM SOMOS ____</h4>	
-	<div class="row">
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-		<div class="col">
-			<a href="" target="_blank">
-				<img data-src="holder.js/240x240">
-				<h5>Grabriela do Prado Teixeira</h5>
-				<h6>Profissão...Atuação</h6>
-			</a>
-		</div>
-	</div>
+    <h4>QUEM SOMOS ____</h4>	
+    <div class="row">
+        @foreach ($profissionais as $Profissional)
+        <div class="col">
+            <a href="/profissional/{{ $Profissional->id }}">
+                <img src="{{ $Profissional->linkFotoQuemSomos }}">
+                <h5>{{ $Profissional->nome }}</h5>
+                <h6>{{ $Profissional->descricao_listagem }}</h6>
+            </a>
+        </div>
+        @endforeach
+    </div>
 </div>
 
 @endsection
