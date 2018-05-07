@@ -8,3 +8,12 @@ $cor-vinho: #74283C;
 $cor-chumbo: #606060;
 $cor-cinza: #D8D8D8;
 $cor-branco: #FFFFFF;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-merri;
+}
+
+p, li {
+	color: $cor-chumbo;
+	font-family: $font-merri;
+}

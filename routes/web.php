@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::get('espaco', function () {
     return view('pages.espaco');
 });
+// Rota temporária só para fazer o front
+Route::get('quem-somos-pessoal', function () {
+    return view('pages.quem-somos-pessoal');
+});
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
 
