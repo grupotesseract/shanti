@@ -25,6 +25,7 @@ class Profissional extends Model
     public $fillable = [
         'nome',
         'descricao_listagem',
+        'descricao_interna',
         'ativo_listagem',
     ];
 

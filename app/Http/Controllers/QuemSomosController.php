@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -31,5 +30,22 @@ class QuemSomosController extends Controller
             'profissionais' => $profissionais
         ]);     
     }
+
+    
+    /**
+     * getProfissional 
+     *
+     * @param Request $request
+     * @param mixed $id
+     */
+    public function getProfissional(Request $request, $id)
+    {
+        $profissional = $this->profRepository->findWithoutFail($id);
+
+        return view('pages.quem-somos-pessoal')->with([
+            'profissional' => $profissional
+        ]);     
+    }
+
     
 }

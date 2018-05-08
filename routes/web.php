@@ -19,10 +19,11 @@ Route::get('espaco', function () {
 });
 // Rota temporária só para fazer o front
 Route::get('quem-somos-pessoal', function () {
-    return view('pages.quem-somos-pessoal');
+    return view('pages.quem-somos-pessoal-bkp');
 });
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
+Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
 
 // Rotas de login / logout
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

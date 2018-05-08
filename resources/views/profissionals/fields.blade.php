@@ -21,6 +21,13 @@
 {!! Form::hidden('ativo_listagem',true) !!}
 
 
+<div class="col-xs-12 form-group">
+
+{{ Form::textarea('descricao_interna', old('descricao_interna'), ['class' => 'textarea-ck']) }}
+
+</div>
+
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}

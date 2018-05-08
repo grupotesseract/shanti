@@ -17,6 +17,7 @@ class CreateProfissionalsTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('descricao_listagem');
+            $table->longText('descricao_interna');
             $table->boolean('ativo_listagem');
             $table->timestamps();
             $table->softDeletes();
