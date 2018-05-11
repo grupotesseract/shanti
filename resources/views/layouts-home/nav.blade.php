@@ -33,7 +33,7 @@
           <a class="nav-link" href="quem-somos">QUEM SOMOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">SERVIÇOS</a>
+          <a class="nav-link" href="servicos-geral">SERVIÇOS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/">PROGRAMAÇÃO</a>

@@ -6,7 +6,7 @@
     <h4>SERVIÇOS ____</h4>
     <div class="row">
         <div class="col-12 col-lg-6">
-            <a href="">
+            <a href="servicos-interna">
                 <h5>NATUROLOGIA</h5>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Ayurveda</li>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Medicina Tradicional Chinesa</li>
@@ -25,7 +25,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6">
-            <a href="">
+            <a href="servicos-interna">
                 <h5>YOGA</h5>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Grupos</li>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Personal e Yogaterapia</li>
@@ -37,7 +37,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6">
-            <a href="">
+            <a href="servicos-interna">
                 <h5>TERAPIAS</h5>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Astropsicologia</li>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Massagem Ayurvédica</li>
@@ -51,7 +51,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6">
-            <a href="">
+            <a href="servicos-interna">
                 <h5>CURSOS, EVENTOS E OUTROS</h5>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>Astropsicologia</li>
                 <li><i class="fa fa-circle" aria-hidden="true"></i>EFT - Técnica de Libertação Emocional</li>
