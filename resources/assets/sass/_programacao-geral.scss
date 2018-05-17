@@ -1,0 +1,97 @@
+.programacao-geral {
+	padding-bottom: 3rem;
+
+	h4 {
+		color: $cor-vinho;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+		margin-left: 1.5rem;
+	}
+
+	h5 {
+		color: $cor-vinho;
+		margin-bottom: 0.7rem;
+	}
+
+	p {
+		margin-bottom: 0.7rem;
+	}
+
+	.col-12 {
+		margin-top: 2.5rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.caption {
+		position: absolute;
+		right: 15px;
+		text-align: center;
+		background-color: $cor-vinho;
+		color: $cor-branco;
+		margin: 15px 0 0;
+		padding: 5px 20px;
+		border-radius: 5px;
+		font-weight: 600;
+	}
+
+	a, a:visited, a:hover, a:active {
+		text-decoration: none;
+		i {
+			color: $cor-chumbo;
+		}
+	}
+
+	.nav {
+		padding: 0;
+		border-top: none;
+		margin: 0 0 3em;
+
+		a {
+			font-weight: 600;
+			border: 2px solid #74283C;
+			font-size: 1.3em;
+			padding: 3px 14px;
+			border-radius: 5px;
+			margin: 0 1em;
+		}
+	}
+
+	img {
+		width: 100%;
+		border-radius: 5px;
+	}
+
+	@include media-breakpoint-down(md) {
+		.col-12 {
+			margin-top: 2rem;
+
+			&:first-child {
+				margin-top: 2rem;
+			}
+		}
+
+		.align-self-end {
+			margin-top: 1rem;
+		}
+
+		h4 {
+			margin-left: 0;
+			font-size: 1.3rem;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.nav {
+			margin: 0 0 1rem;
+
+			a {
+				font-size: 0.95em;
+				padding: 3px 14px;
+				margin: 0 5px;
+			}
+		}
+	}
+}

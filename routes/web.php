@@ -27,7 +27,9 @@ Route::get('servicos-geral', function () {
 Route::get('servicos-interna', function () {
     return view('pages.servicos-interna');
 });
-
+Route::get('programacao-geral', function () {
+    return view('pages.programacao-geral');
+});
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
 

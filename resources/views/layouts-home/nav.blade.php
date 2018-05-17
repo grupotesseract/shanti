@@ -6,8 +6,8 @@
       <h5>Yoga, Naturologia, Meditação Coletiva, Cursos,<br>Grupos de Estudos, Vivências Artísticas ...</h5>
     </div>
     <div class="nav-media col align-self-center">
-      <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-      <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </header>
@@ -36,7 +36,7 @@
           <a class="nav-link" href="servicos-geral">SERVIÇOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">PROGRAMAÇÃO</a>
+          <a class="nav-link" href="programacao-geral">PROGRAMAÇÃO</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/">PORTIFÓLIO</a>
