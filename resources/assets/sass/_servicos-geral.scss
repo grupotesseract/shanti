@@ -1,48 +1,48 @@
 .servicos-geral {
-	padding-bottom: 3rem;
+    padding-bottom: 3rem;
 
-	h4 {
-		color: $cor-vinho;
-		margin-top: 3rem;
-		margin-bottom: 3rem;
-		margin-left: 1.5rem;
-	}
+    h4 {
+        color: $cor-vinho;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 1.5rem;
+    }
 
-	h5 {
-		color: $cor-chumbo;
-		margin-bottom: 1rem;
-		font-weight: 600;
-		text-decoration: underline;		
-	}
+    h5 {
+        color: $cor-chumbo;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        text-decoration: underline;		
+    }
 
-	a, a:visited, a:hover, a:active {
-		text-decoration: none;
-	}
+    a, a:visited, a:hover, a:active {
+        text-decoration: none;
+    }
 
-	a:hover {
-		h5 {
-			color: $cor-vinho;
-		}
-	}
+    a:hover {
+        h5 {
+            color: $cor-vinho;
+        }
+    }
 
-	.row {
-		text-align: center;
+    .row {
+        text-align: center;
 
-		div {
-			margin-bottom: 2rem;
-		}
+        div {
+            margin-bottom: 2rem;
+        }
 
-		li {
-			display: inline-block;
-			position: relative;
-			margin-left: 12px;
+        li {
+            display: inline-block;
+            position: relative;
+            margin-left: 12px;
 
-			i {
-				font-size: 5px;
-			    position: absolute;
-			    top: 10px;
-			    left: -10px;
-			}
-		}
-	}
+            i {
+                font-size: 5px;
+                position: absolute;
+                top: 10px;
+                left: -10px;
+            }
+        }
+    }
 }
