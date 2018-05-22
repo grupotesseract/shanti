@@ -36,19 +36,19 @@
 		<div class="col footer-home-right">
 			<h6>ONDE NOS ENCONTRAR</h6>
 			<a href="" target="_blank">
-				<i class="fa fa-map-marker" aria-hidden="true"></i>Rua Maria José, 12-17 | Bauru - SP
+				<i class="fas fa-map-marker-alt"></i>Rua Maria José, 12-17 | Bauru - SP
 			</a>
 			<a href="" target="_blank">
-				<i class="fa fa-phone" aria-hidden="true"></i>(14) 98832-5849
+				<i class="fas fa-phone-square"></i>(14) 98832-5849
 			</a>
 			<a href="" target="_blank">
-				<i class="fa fa-envelope" aria-hidden="true"></i>contato@institutoshanti.com<br>
+				<i class="fas fa-envelope"></i>contato@institutoshanti.com<br>
 			</a>
 			<a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank">
-				<i class="fa fa-instagram" aria-hidden="true"></i>@Shanticienciacorpomente
+				<i class="fab fa-instagram"></i>@Shanticienciacorpomente
 			</a>
 			<a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
-				<i class="fa fa-facebook-square" aria-hidden="true"></i>/Shanticienciacorpomente
+				<i class="fab fa-facebook-square"></i>/Shanticienciacorpomente
 			</a>
 		</div>
 	</div>
