@@ -1,0 +1,56 @@
+.servicos-interna {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+
+	h5, h6 {
+		color: $cor-vinho;
+		margin-bottom: 1rem;
+		font-weight: 600;
+		text-decoration: underline;		
+	}
+
+	.indent {
+		text-indent: 2rem;
+	}
+
+	blockquote {
+		margin-bottom: 3rem;
+	}
+
+	.titulo-borda {
+		border: 2px solid $cor-vinho;
+		padding: 5px;
+		text-align: center;
+		border-radius: 5px;
+		margin: 3rem auto;
+		text-decoration: none;
+	}
+
+	a, a:visited, a:hover, a:active {
+		text-decoration: none;
+	}
+
+	.coluna-2 {
+		@include media-breakpoint-up(lg) {
+			border-left: 2px solid $cor-vinho;
+		}
+
+		h6 {
+			margin-top: 2rem;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		.coluna-1, .coluna-2 {
+			padding: 0 2rem;
+		}
+	}
+}

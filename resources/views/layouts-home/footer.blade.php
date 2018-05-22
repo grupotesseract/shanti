@@ -38,13 +38,13 @@
 
 <ul class="nav justify-content-center nav-pc">
   <li class="nav-item active">
-    <a class="nav-link" href="#">O ESPAÇO</a>
+    <a class="nav-link" href="espaco">O ESPAÇO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">QUEM SOMOS</a>
+    <a class="nav-link" href="quem-somos">QUEM SOMOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">SERVIÇOS</a>
+    <a class="nav-link" href="servicos-geral">SERVIÇOS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">PROGRAMAÇÃO</a>
@@ -62,13 +62,13 @@
 
 <ul class="nav flex-column justify-content-center nav-mobile">
   <li class="nav-item active">
-    <a class="nav-link" href="#">O ESPAÇO</a>
+    <a class="nav-link" href="espaco">O ESPAÇO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">QUEM SOMOS</a>
+    <a class="nav-link" href="quem-somos">QUEM SOMOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">SERVIÇOS</a>
+    <a class="nav-link" href="servicos-geral">SERVIÇOS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">PROGRAMAÇÃO</a>
