@@ -24,11 +24,20 @@ Route::get('quem-somos-pessoal', function () {
 Route::get('servicos-geral', function () {
     return view('pages.servicos-geral');
 });
-Route::get('servicos-interna', function () {
-    return view('pages.servicos-interna');
+Route::get('servicos-interno', function () {
+    return view('pages.servicos-interno');
 });
 Route::get('programacao-geral', function () {
     return view('pages.programacao-geral');
+});
+Route::get('programacao-cursos-agendados', function () {
+    return view('pages.programacao-cursos-agendados');
+});
+Route::get('programacao-cursos-nao-agendados', function () {
+    return view('pages.programacao-cursos-nao-agendados');
+});
+Route::get('programacao-eventos', function () {
+    return view('pages.programacao-eventos');
 });
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
