@@ -10,7 +10,7 @@
 ## Steps para Instalar e rodar
 
 ### Clone c/ submodulos (laradock)
-- `git clone --recursive https://github.com/grupotesseract/laravel-tesseract-boilerplate.git`
+- `git clone --recursive https://github.com/grupotesseract/shanti.git`
 
 ### Buildar Laradock
 - `cd laradock`
