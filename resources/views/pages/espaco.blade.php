@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style type="text/css">
+	.navbar-nav li:nth-child(1) a {
+		font-weight: 600;
+	}
+</style>
+
 <div class="container">
 	<div class="espaco-mobile">
 		<div id="carouselExampleIndicators" class="carousel slide carousel-espaco" data-ride="carousel">

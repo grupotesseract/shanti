@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style type="text/css">
+    .navbar-nav li:nth-child(3) a {
+        font-weight: 600;
+    }
+</style>
+
 <div class="container servicos-geral">
     <h4>SERVIÇOS ____</h4>
     <div class="row">
