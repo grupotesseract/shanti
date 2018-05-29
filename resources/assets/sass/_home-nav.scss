@@ -45,7 +45,7 @@ header {
     }
 }
 
-@media (max-width: 991.98px) {
+@include media-breakpoint-down(sm) {
     header {
         display: none !important;
     }
@@ -53,6 +53,7 @@ header {
     .navbar {
         border-top: none;
         text-align: center;
+        background-color: white;
 
         .navbar-brand {
             margin: 0 auto;

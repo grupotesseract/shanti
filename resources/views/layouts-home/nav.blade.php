@@ -15,7 +15,7 @@
 {{--
 <div class="{{ !$agent-isMobile() ?: 'fixed-top' }}">
 --}}
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg {{ !$agent->isMobile() ?: 'fixed-top' }}">
   <div class="container">
     <a class="navbar-brand" href="/">
       <img src="images/logo-shanti.png">

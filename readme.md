@@ -16,8 +16,8 @@
 - `cd laradock`
 - `cp env-example .env` (editar caso seja necessario portas / BD's diferentes)
 - `docker-compose up -d nginx php-fpm postgres`
-- `docker-compose exec workspace composer install`
-- `docker-compose exec workspace php artisan key:generate`
+- `docker-compose exec --user=laradock workspace composer install`
+- `docker-compose exec --user=laradock workspace php artisan key:generate`
 
 ### Setup .env
 - `cp .env-example .env`
@@ -28,6 +28,6 @@ Acertar .env do projeto de acordo com as configs do laradock
 - `npm run dev`
 
 ### Migration e seed's
-- `docker-compose exec workspace php artisan migrate --seed`
+- `docker-compose exec--user=laradock workspace php artisan migrate --seed`
 
 Se pá GGWP :+1:
