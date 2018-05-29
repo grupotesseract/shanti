@@ -17,9 +17,27 @@ Route::get('/', function () {
 Route::get('espaco', function () {
     return view('pages.espaco');
 });
-// Rota temporária só para fazer o front
+// Rotas temporárias só para fazer o front
 Route::get('quem-somos-pessoal', function () {
     return view('pages.quem-somos-pessoal-bkp');
+});
+Route::get('servicos-geral', function () {
+    return view('pages.servicos-geral');
+});
+Route::get('servicos-interno', function () {
+    return view('pages.servicos-interno');
+});
+Route::get('programacao-geral', function () {
+    return view('pages.programacao-geral');
+});
+Route::get('programacao-cursos-agendados', function () {
+    return view('pages.programacao-cursos-agendados');
+});
+Route::get('programacao-cursos-nao-agendados', function () {
+    return view('pages.programacao-cursos-nao-agendados');
+});
+Route::get('programacao-eventos', function () {
+    return view('pages.programacao-eventos');
 });
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
