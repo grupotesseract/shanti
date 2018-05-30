@@ -28,6 +28,6 @@ Acertar .env do projeto de acordo com as configs do laradock
 - `npm run dev`
 
 ### Migration e seed's
-- `docker-compose exec--user=laradock workspace php artisan migrate --seed`
+- `docker-compose exec --user=laradock workspace php artisan migrate --seed`
 
 Se pá GGWP :+1:
