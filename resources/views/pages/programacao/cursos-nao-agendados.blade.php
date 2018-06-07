@@ -32,7 +32,7 @@
       </li>
     </ul>
 
-    @include('pages.programacao-cards')
+    @include('pages.programacao.cursos-nao-agendados-cards')
 </div>
 
 @endsection

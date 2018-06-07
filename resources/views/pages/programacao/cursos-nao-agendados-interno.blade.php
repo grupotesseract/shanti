@@ -25,10 +25,10 @@
 
     <ul class="nav justify-content-center nav-bottom">
       <li class="nav-item">
-        <a class="nav-link left active" href="programacao-cursos-agendados">AGENDADOS</a>
+        <a class="nav-link left" href="programacao-cursos-agendados">AGENDADOS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link right" href="programacao-cursos-nao-agendados">SEM DATA DEFINIDA</a>
+        <a class="nav-link right active" href="programacao-cursos-nao-agendados">SEM DATA DEFINIDA</a>
       </li>
     </ul>
 </div>
@@ -40,9 +40,9 @@
 <div class="container programacao-geral">
     <div class="row programacao-interno">
       <div class="col">
-        <h5>Nome do Evento Aqui Nome do Evento Aqui</h5>
+        <h5>Nome do Curso Aqui Nome do Curso Aqui</h5>
 
-        <p><span class="horario">27/02 | Terça</span><i class="far fa-clock fa-sm"></i> 16h00 às 20h00</p>
+        <p><span class="horario">27/02 | Terça</span><i class="far fa-clock fa-sm"></i> Horário à definir.</p>
 
         <p><span>Número de Vagas:</span> 30</p>
 

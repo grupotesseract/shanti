@@ -23,7 +23,7 @@
       </li>
     </ul>
 
-    @include('pages.programacao-cards')
+    @include('pages.programacao.eventos-cards')
 </div>
 
 @endsection

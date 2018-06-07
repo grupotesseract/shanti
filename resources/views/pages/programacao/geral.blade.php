@@ -19,11 +19,11 @@
         <a class="nav-link" href="programacao-cursos-agendados">Cursos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Eventos</a>
+        <a class="nav-link" href="programacao-eventos">Eventos</a>
       </li>
     </ul>
 
-    @include('pages.programacao-cards')
+    @include('pages.programacao.cursos-agendados-cards')
 </div>
 
 @endsection
