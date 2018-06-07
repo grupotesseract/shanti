@@ -1,0 +1,86 @@
+.portfolio {
+    padding-bottom: 0;    
+
+    h4 {
+        color: $cor-vinho;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        @include media-breakpoint-up(lg) {
+            margin-left: 90px;
+        }
+    }
+
+    h5 {
+        color: $cor-chumbo;
+        margin: 1rem 0 3rem;
+        font-weight: 600;
+        text-align: center;
+        @include media-breakpoint-down(sm) {
+            color: $cor-vinho;
+        }
+    }
+
+    .caixa {
+        position: relative;
+        width: 290px;
+        height: 290px;
+        @include media-breakpoint-up(lg) {
+            width: 450px;
+            height: 450px;
+        }
+        background-image: url("/images/projeto.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        display: flex;
+        margin: 0 auto;
+        border-radius: 5px;
+
+        p {
+            width: 80%;
+            margin: auto;
+            color: $cor-branco;
+            font-size: 1.2rem;
+            z-index: 1101;
+            display: none;
+        }
+    }    
+
+    a, a:visited, a:hover, a:active {
+        text-decoration: none;
+    }
+
+    a:hover {
+        h5 {
+            color: $cor-vinho;
+        }
+
+        .caixa {
+            &:before {
+                content: '';
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                //background-image: linear-gradient(to bottom right,$cor-vinho,$cor-vinho);
+                opacity: .8;
+                border-radius: 5px;
+                z-index: 1100;
+                animation-name: mudacor;
+                animation-duration: 0.5s;
+                animation-fill-mode: both;
+            }
+
+            @keyframes mudacor {
+                from { background-color: none; }
+                to { background-color: $cor-vinho; }
+            }
+        }
+
+        p {
+            display: block;
+        }
+    }
+}

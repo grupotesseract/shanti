@@ -48,15 +48,15 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/">PORTIFÓLIO</a>
+          <a class="nav-link" href="portfolio">PORTIFÓLIO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/">ARTIGOS</a>
+          <a class="nav-link" href="artigos">ARTIGOS</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/">CONTATO</a>
+          <a class="nav-link" href="contato">CONTATO</a>
         </li>
       </ul>
     </div>
