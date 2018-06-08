@@ -108,4 +108,19 @@ class Profissional extends Model
             . $this->fotoListagem->cloudinary_id
             . ".jpg";
     }
+
+
+    /**
+     * Relacao entre um profissional e os blocos de descricao que compoem a pagina interna do profissional
+     *
+     * @return void
+     */
+    public function blocosDescricao()
+    {
+        return $this->hasMany(\App\Models\BlocoDescricao::class);
+    }
+    
+
+
+
 }

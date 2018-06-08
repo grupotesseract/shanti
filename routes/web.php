@@ -58,3 +58,10 @@ Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAti
 Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
 
 
+
+
+Route::resource('blocoDescricaos', 'BlocoDescricaoController');
+
+
+
+Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');
