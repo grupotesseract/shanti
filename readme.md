@@ -7,6 +7,9 @@
 - Yajra DataTables v8
 - Languages / locale pt-BR
 
+## Timelapse do Desenvolvimento
+[![Watch the video](https://youtu.be/h9nZ7bwLjII)
+
 ## Steps para Instalar e rodar
 
 ### Clone c/ submodulos (laradock)
