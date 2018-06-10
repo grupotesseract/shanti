@@ -226,4 +226,6 @@ class ProfissionalController extends AppBaseController
 
         return redirect()->back();
     }
+
+
 }

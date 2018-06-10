@@ -22,14 +22,14 @@ class BlocoDescricao extends Model
     const TIPO_TEXTO = 2;
     const TIPO_BOTAO = 3;
     const TIPO_LISTA = 4;
-    const TIPO_FOTO = 5;
+    const TIPO_IMAGEM = 5;
 
     const TIPOS = [
         self::TIPO_CITACAO => 'CITACAO',
         self::TIPO_TEXTO => 'TEXTO',
         self::TIPO_BOTAO => 'BOTAO',
         self::TIPO_LISTA => 'LISTA',
-        self::TIPO_FOTO => 'FOTO'
+        self::TIPO_IMAGEM => 'IMAGEM'
     ];
 
     public $table = 'bloco_descricaos';
@@ -71,5 +71,27 @@ class BlocoDescricao extends Model
     {
         return $this->belongsTo(\App\Models\Profissional::class);
     }
+
+    /**
+     * Acessor para o nome do tipo mapeado a partir do integer do BD
+     */
+     public function getTipoTextoAttribute()
+     {
+        return self::TIPOS[$this->tipo];
+     }
+
+    /**
+     * Mutator para que possa adicionar o tipo por texto ou inteiro
+     */
+     public function setTipoAttribute($value)
+     {
+        $inteiro = is_int($value);
+        $value = $inteiro ? $value : array_search(strtoupper($value), self::TIPOS); 
+
+        return $this->attributes['tipo'] = $value;
+     }
+
+
+
     
 }

@@ -62,6 +62,4 @@ Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRe
 
 Route::resource('blocoDescricaos', 'BlocoDescricaoController');
 
-
-
 Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');

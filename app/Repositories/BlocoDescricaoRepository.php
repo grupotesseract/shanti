@@ -30,4 +30,24 @@ class BlocoDescricaoRepository extends BaseRepository
     {
         return BlocoDescricao::class;
     }
+
+    /**
+     * getFormPeloTipo 
+     *
+     * @param mixed $tipo
+     * @param mixed $blocosDescricao
+     */
+    public function getFormPeloTipo($tipo, $blocosDescricao=null)
+    {
+        $view = view('bloco_descricaos.partials.formulario-'.$tipo);
+        if ($blocosDescricao) {
+            $view = $view->with('blocosDescricao');
+        }
+            
+        return $view->render();
+    }
+    
+
+
+
 }

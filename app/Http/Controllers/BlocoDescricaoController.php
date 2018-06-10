@@ -59,9 +59,17 @@ class BlocoDescricaoController extends AppBaseController
 
         $blocoDescricao = $this->blocoDescricaoRepository->create($input);
 
-        Flash::success('Bloco Descricao saved successfully.');
+        if ($blocoDescricao) {
+            $viewFormulario = $this->blocoDescricaoRepository->getFormPeloTipo($blocoDescricao->tipoTexto);
+            $retorno = [
+                'titulo' => 'Insira as informações dessa '.strtolower($blocoDescricao->tipoTexto),
+                'formulario' => $viewFormulario,
+            ];
 
-        return redirect(route('blocoDescricaos.index'));
+            return response($retorno, 200);
+        }
+
+        return response(['erro' => true], 402);
     }
 
     /**
