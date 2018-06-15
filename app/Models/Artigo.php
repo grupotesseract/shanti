@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Artigo
  * @package App\Models
- * @version June 15, 2018, 7:15 pm BRT
+ * @version June 15, 2018, 8:36 pm BRT
  *
  * @property string nome
  * @property string arquivo
  */
 class Artigo extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, \Spatie\Tags\HasTags;
 
     public $table = 'artigos';
     

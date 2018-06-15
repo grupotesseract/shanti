@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ArtigoDataTable;
+use App\Http\Requests;
 use App\Http\Requests\CreateArtigoRequest;
 use App\Http\Requests\UpdateArtigoRequest;
 use App\Repositories\ArtigoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
+use App\Http\Controllers\AppBaseController;
 use Response;
 
 class ArtigoController extends AppBaseController
@@ -24,16 +24,12 @@ class ArtigoController extends AppBaseController
     /**
      * Display a listing of the Artigo.
      *
-     * @param Request $request
+     * @param ArtigoDataTable $artigoDataTable
      * @return Response
      */
-    public function index(Request $request)
+    public function index(ArtigoDataTable $artigoDataTable)
     {
-        $this->artigoRepository->pushCriteria(new RequestCriteria($request));
-        $artigos = $this->artigoRepository->all();
-
-        return view('artigos.index')
-            ->with('artigos', $artigos);
+        return $artigoDataTable->render('artigos.index');
     }
 
     /**

@@ -81,3 +81,5 @@ Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRe
 
 
 Route::resource('artigos', 'ArtigoController');
+
+Route::resource('artigos', 'ArtigoController');

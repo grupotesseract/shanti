@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class ArtigoRepository
  * @package App\Repositories
- * @version June 15, 2018, 7:15 pm BRT
+ * @version June 15, 2018, 8:36 pm BRT
  *
  * @method Artigo findWithoutFail($id, $columns = ['*'])
  * @method Artigo find($id, $columns = ['*'])
