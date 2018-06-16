@@ -149,4 +149,21 @@ class ArtigoController extends AppBaseController
 
         return redirect(route('artigos.index'));
     }
+
+    /**
+     * Listagem de Artigos na Home
+     * @param  string $tag Tag a ser mostrada
+     * @return View      View com os Artigos filtrados
+     */
+    public function indexHome($tag)
+    {
+        $artigos = $tag === 'todos' ? $this->artigoRepository->all() : $this->artigoRepository->withAllTags(['#'.$tag]);
+
+        return view('pages.artigos')->with('artigos', $artigos); 
+    }
+
+    public function downloadArtigo($id)
+    {
+        return $this->artigoRepository->downloadArtigo($id);
+    }
 }

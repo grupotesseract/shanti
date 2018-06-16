@@ -52,7 +52,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="artigos">ARTIGOS</a>
+          <a class="nav-link" href="artigosindex/todos">ARTIGOS</a>
         </li>
 
         <li class="nav-item">

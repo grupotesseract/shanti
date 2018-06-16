@@ -56,9 +56,8 @@ Route::get('portfolio-interno', function () {
 });
 
 /* Artigos */
-Route::get('artigosindex', function () {
-    return view('pages.artigos');
-});
+Route::get('artigosindex/{tag}', 'ArtigoController@indexHome');
+Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
 
 /* Contato */
 Route::get('contato', function () {
