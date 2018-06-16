@@ -14,13 +14,13 @@
 			<h4>ARTIGOS ____</h4>
 
 			<div class="tags">
-				<a href="/artigosindex/todos"><span class="active">Todos</span></a>
-				<a href="/artigosindex/yoga"><span>Yoga</span></a>
-				<a href="/artigosindex/terapia"><span>Terapia</span></a>
-				<a href="/artigosindex/naturologia"><span>Naturologia</span></a>
-				<a href="/artigosindex/medicina"><span>Medicina</span></a>
-				<a href="/artigosindex/grupos"><span>Grupos</span></a>
-				<a href="/artigosindex/mantras"><span>Mantras</span></a>
+				<a href="/artigosindex/todos"><span class="{{ Request::is('artigosindex/todos') ? 'active' : '' }}">Todos</span></a>
+				<a href="/artigosindex/yoga"><span class="{{ Request::is('artigosindex/yoga') ? 'active' : '' }}">Yoga</span></a>
+				<a href="/artigosindex/terapia"><span class="{{ Request::is('artigosindex/terapia') ? 'active' : '' }}">Terapia</span></a>
+				<a href="/artigosindex/naturologia"><span class="{{ Request::is('artigosindex/naturologia') ? 'active' : '' }}">Naturologia</span></a>
+				<a href="/artigosindex/medicina"><span class="{{ Request::is('artigosindex/medicina') ? 'active' : '' }}">Medicina</span></a>
+				<a href="/artigosindex/grupos"><span class="{{ Request::is('artigosindex/grupos') ? 'active' : '' }}">Grupos</span></a>
+				<a href="/artigosindex/mantras"><span class="{{ Request::is('artigosindex/mantras') ? 'active' : '' }}">Mantras</span></a>
 			</div>
 
 			@foreach($artigos as $artigo)
