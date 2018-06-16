@@ -13,6 +13,7 @@
 </section>
 <div class="content">
     @include('adminlte-templates::common.errors')
+    @include('flash::message')
     <div class="box box-primary">
 
         <div class="box-body">
@@ -48,31 +49,19 @@
                     @endforelse
                 </div>
                 <div class="col-xs-12" >
-                    {!! Form::open(['route' => 'blocoDescricaos.store', 'id' => 'form-adicionar-bloco-descricao']) !!}
-
-                    {!! Form::select('tipo', \App\Models\BlocoDescricao::TIPOS) !!} 
-                    {!! Form::hidden('profissional_id', $profissional->id) !!} 
-
-                    {!! Form::submit('Adicionar novo bloco de conteudo') !!}
-
-                    {!! Form::close() !!}
-
-                    <a href="#modal" role="button" class="btn btn-large btn-primary" data-target="#modal" data-toggle="modal">Launch Demo Modal</a>
-
                     @include('layouts.partials.modal', [
                         'modalId' => 'modal',
                         'modalTitle' => '<p id="modalTitle"> titulo </p> ',
                         'modalBody' => ' <div id="modalBody"> <p> <i class="fa fa-spinner fa-spin fa-4x"></i> </p> </div> ',
                     ])
-
                 </div>
                 <div class="col-xs-12">
                     <hr>
                 </div>
                 <div class="col-xs-12 text-center container-acoes-blocos-descricao">
-                    <button data-profissional="{{$profissional->id}}" data-tipo="texto" class="btn-controle-conteudo btn btn-default">
+                    <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=texto" data-profissional="{{$profissional->id}}" data-tipo="texto" class="btn btn-default">
                         <i class="fa fa-plus"></i> Texto
-                    </button>
+                    </a>
                     <button data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn-controle-conteudo btn btn-default">
                         <i class="fa fa-plus"></i> Imagem
                     </button>
@@ -129,6 +118,7 @@ function getFormBlocoConteudo(tipo, idProfissional){
             console.log(data);
             if (data.formulario){
                 mostrarModal(data.titulo, data.formulario);
+                bindBtnAddListagem();
             }
 
         },
@@ -159,8 +149,23 @@ function bindBotoesControleConteudo(){
 bindBotoesControleConteudo();
 
 
+function bindBtnAddListagem() {
+    $('.item-listagem .btn-add').click(function(ev) {
+        ev.preventDefault();
+        console.log(this); 
 
+        var divItemListagem = $(this).parents('.item-listagem');
+        var ordemAtual = divItemListagem.data('item');
 
+        var modelo = $(".item-modelo").clone();
+        var html = modelo.html();
+        var novo = html.replace('#ID#', ++ordemAtual).replace('item-modelo', '');
+        $(novo).insertAfter(divItemListagem);
+
+        $(this).find('i').removeClass('glyphicon-plus').addClass('glyphicon-trash');
+        $(this).addClass('btn-danger').removeClass('btn-add').addClass('btn-remover');
+    });
+}
 
 /**
 

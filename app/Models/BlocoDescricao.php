@@ -75,23 +75,50 @@ class BlocoDescricao extends Model
     /**
      * Acessor para o nome do tipo mapeado a partir do integer do BD
      */
-     public function getTipoTextoAttribute()
-     {
+    public function getTipoTextoAttribute()
+    {
         return self::TIPOS[$this->tipo];
-     }
+    }
 
     /**
      * Mutator para que possa adicionar o tipo por texto ou inteiro
      */
-     public function setTipoAttribute($value)
-     {
+    public function setTipoAttribute($value)
+    {
         $inteiro = is_int($value);
         $value = $inteiro ? $value : array_search(strtoupper($value), self::TIPOS); 
 
         return $this->attributes['tipo'] = $value;
-     }
+    }
+
+    /**
+     * Mutator para que possa adicionar o tipo por texto ou inteiro
+     */
+    public function setJsonConteudoAttribute($value)
+    {
+        $value = json_encode($value);
+        return $this->attributes['json_conteudo'] = $value;
+    }
 
 
 
+    /**
+     * Acessor para 
+     */
+    public function getConteudoAttribute()
+    {
+        return json_decode($this->json_conteudo);
+    }
+
+
+    /**
+     * Acessor para 
+     */
+    public function getItemsListagemAttribute()
+    {
+        $conteudo = $this->conteudo;
+        return $conteudo ? $conteudo->items : [];
+    }
+     
     
 }

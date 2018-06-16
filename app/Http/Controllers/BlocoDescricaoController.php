@@ -56,20 +56,15 @@ class BlocoDescricaoController extends AppBaseController
     public function store(CreateBlocoDescricaoRequest $request)
     {
         $input = $request->all();
-
         $blocoDescricao = $this->blocoDescricaoRepository->create($input);
 
-        if ($blocoDescricao) {
-            $viewFormulario = $this->blocoDescricaoRepository->getFormPeloTipo($blocoDescricao->tipoTexto);
-            $retorno = [
-                'titulo' => 'Insira as informações dessa '.strtolower($blocoDescricao->tipoTexto),
-                'formulario' => $viewFormulario,
-            ];
-
-            return response($retorno, 200);
+        if (!$blocoDescricao) {
+            Flash::error('Erro na criação do bloco de descricao');
+            return redirect()->back();
         }
 
-        return response(['erro' => true], 402);
+        Flash::success('Conteudo adicionado com sucesso!');
+        return redirect('profissionals/'.$blocoDescricao->profissional->id.'/informacoes-pagina-interna');
     }
 
     /**

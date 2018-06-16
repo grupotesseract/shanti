@@ -52,14 +52,15 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('admin', 'AdminController@index');
     Route::resource('profissionals', 'ProfissionalController');
+
+    Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
+    Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+
+    Route::resource('blocoDescricaos', 'BlocoDescricaoController');
+
+    Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');
+    Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
+
 });
 
-Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
-Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
 
-
-
-
-Route::resource('blocoDescricaos', 'BlocoDescricaoController');
-
-Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');

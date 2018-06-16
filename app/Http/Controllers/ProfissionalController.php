@@ -9,19 +9,23 @@ use App\Repositories\FotoRepository;
 use App\DataTables\ProfissionalDataTable;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\ProfissionalRepository;
+use App\Repositories\BlocoDescricaoRepository;
 use App\Http\Requests\CreateProfissionalRequest;
 use App\Http\Requests\UpdateProfissionalRequest;
+use App\Http\Requests\CreateBlocoDescricaoRequest;
 
 class ProfissionalController extends AppBaseController
 {
     /** @var  ProfissionalRepository */
     private $profissionalRepository;
     private $fotoRepository;
+    private $blocoRepository;
 
-    public function __construct(ProfissionalRepository $profissionalRepo, FotoRepository $fotoRepo)
+    public function __construct(ProfissionalRepository $profissionalRepo, FotoRepository $fotoRepo, BlocoDescricaoRepository $blocoRepo)
     {
         $this->fotoRepository = $fotoRepo;
         $this->profissionalRepository = $profissionalRepo;
+        $this->blocoRepository = $blocoRepo;
     }
 
     /**
@@ -225,6 +229,30 @@ class ProfissionalController extends AppBaseController
         Flash::success('Profissional desativado com sucesso.');
 
         return redirect()->back();
+    }
+
+
+    /**
+     * Mostra a view de criacao de um novo BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - Profissional
+     */
+    public function getCreateBlocoConteudo($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional not found');
+            return redirect(route('profissionals.index'));
+        }
+
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id);
+
+        return view('profissionals.partials.create-bloco-conteudo')
+            ->with('formulario', $formulario);
+
     }
 
 
