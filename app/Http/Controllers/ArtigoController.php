@@ -52,10 +52,11 @@ class ArtigoController extends AppBaseController
     public function store(CreateArtigoRequest $request)
     {
         $input = $request->all();
-
+        $input['arquivo'] = $request->arquivo->store('arquivos_artigos');
         $artigo = $this->artigoRepository->create($input);
+        $artigo->syncTags($input['tags']);
 
-        Flash::success('Artigo saved successfully.');
+        Flash::success('Artigo salvo com sucesso.');
 
         return redirect(route('artigos.index'));
     }
@@ -72,7 +73,7 @@ class ArtigoController extends AppBaseController
         $artigo = $this->artigoRepository->findWithoutFail($id);
 
         if (empty($artigo)) {
-            Flash::error('Artigo not found');
+            Flash::error('Artigo não encontrado');
 
             return redirect(route('artigos.index'));
         }
@@ -92,7 +93,7 @@ class ArtigoController extends AppBaseController
         $artigo = $this->artigoRepository->findWithoutFail($id);
 
         if (empty($artigo)) {
-            Flash::error('Artigo not found');
+            Flash::error('Artigo não encontrado');
 
             return redirect(route('artigos.index'));
         }
@@ -113,14 +114,14 @@ class ArtigoController extends AppBaseController
         $artigo = $this->artigoRepository->findWithoutFail($id);
 
         if (empty($artigo)) {
-            Flash::error('Artigo not found');
+            Flash::error('Artigo não encontrado');
 
             return redirect(route('artigos.index'));
         }
 
         $artigo = $this->artigoRepository->update($request->all(), $id);
 
-        Flash::success('Artigo updated successfully.');
+        Flash::success('Artigo atualizado com sucesso.');
 
         return redirect(route('artigos.index'));
     }
@@ -137,14 +138,14 @@ class ArtigoController extends AppBaseController
         $artigo = $this->artigoRepository->findWithoutFail($id);
 
         if (empty($artigo)) {
-            Flash::error('Artigo not found');
+            Flash::error('Artigo não encontrado');
 
             return redirect(route('artigos.index'));
         }
 
         $this->artigoRepository->delete($id);
 
-        Flash::success('Artigo deleted successfully.');
+        Flash::success('Artigo excluído com sucesso.');
 
         return redirect(route('artigos.index'));
     }

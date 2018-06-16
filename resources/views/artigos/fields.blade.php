@@ -13,7 +13,7 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('Tags', 'Tags:') !!}
-	{{ Form::select('tags[]', ['#yoga', '#terapia', '#naturologia', '#medicina', '#grupos', '#mantras'], null, ['class' => 'select2', 'multiple' => 'multiple']) }}
+	{{ Form::select('tags[]', ['#yoga' => '#yoga', '#terapia' => '#terapia', '#naturologia' => '#naturologia', '#medicina' =>'#medicina', '#grupos' =>'#grupos', '#mantras' =>'#mantras'], null, ['class' => 'select2', 'multiple' => 'multiple']) }}
 </div>
 <div class="clearfix"></div>
 
