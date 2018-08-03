@@ -20,9 +20,8 @@
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}
 {!! Form::hidden('ativo_listagem',true) !!}
 
-
 <div class="col-xs-12 form-group">
-
+{!! Form::label('descricao_interna', 'Descrição interna:') !!}
 {{ Form::textarea('descricao_interna', old('descricao_interna'), ['class' => 'textarea-ck']) }}
 
 </div>

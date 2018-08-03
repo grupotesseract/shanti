@@ -4,10 +4,14 @@
     {!! Form::open(['route' => 'blocoDescricaos.store']) !!}
 @endif
 
-{{-- Campos para o tipo TEXTO  --}}
-<div class="form-group col-sm-12">
-    {!! Form::label('texto', 'Conteudo da seção de texto:') !!}
-    {!! Form::textarea('texto', isset($blocosDescricao) ? $blocosDescricao->getConteudo('texto') : '', ['class' => 'form-control']) !!}
+{{-- Campos para o tipo CITACAO  --}}
+<div class="form-group col-sm-3">
+    {!! Form::label('autor', 'Nome do autor:') !!}
+    {!! Form::text('autor', isset($blocosDescricao) ? $blocosDescricao->getConteudo('autor') : '', ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-9">
+    {!! Form::label('texto', 'Conteudo da citação:') !!}
+    {!! Form::text('texto', isset($blocosDescricao) ? $blocosDescricao->getConteudo('texto') : '', ['class' => 'form-control']) !!}
 </div>
 
 {{-- Campos hidden --}}

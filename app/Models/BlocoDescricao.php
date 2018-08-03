@@ -134,9 +134,34 @@ class BlocoDescricao extends Model
             }
         }
 
+        if ($this->tipo == self::TIPO_CITACAO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('texto', $conteudo->texto)
+                    ->with('autor', $conteudo->autor);
+            }
+        }
+
 
         return ;
     }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function getConteudo($chave)
+    {
+        $conteudo = $this->conteudo;
+        if ($conteudo) {
+            return property_exists($conteudo, $chave) ? $conteudo->{$chave} : '';
+        }
+
+        return '*NAO ENCONTRADO*';
+    }
+    
      
     
 }

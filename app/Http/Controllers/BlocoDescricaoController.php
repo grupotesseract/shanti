@@ -55,7 +55,7 @@ class BlocoDescricaoController extends AppBaseController
      */
     public function store(CreateBlocoDescricaoRequest $request)
     {
-        $inputs = $this->blocoDescricaoRepository->preparaRequestParaCreate($request);
+        $inputs = $this->blocoDescricaoRepository->preparaRequestParaProcessar($request);
         $blocoDescricao = $this->blocoDescricaoRepository->create($inputs);
 
         if (!$blocoDescricao) {
@@ -117,7 +117,7 @@ class BlocoDescricaoController extends AppBaseController
      */
     public function update($id, UpdateBlocoDescricaoRequest $request)
     {
-        $inputs = $this->blocoDescricaoRepository->preparaRequestParaCreate($request);
+        $inputs = $this->blocoDescricaoRepository->preparaRequestParaProcessar($request);
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
         if (empty($blocoDescricao)) {

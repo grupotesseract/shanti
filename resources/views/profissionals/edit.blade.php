@@ -21,3 +21,8 @@
        </div>
    </div>
 @endsection
+
+
+@section('scripts')
+@include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
+@endsection

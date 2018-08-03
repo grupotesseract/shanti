@@ -43,28 +43,14 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-xs-2">
-                                    <div class='container-controles text-center'>
-                                        
-                                        <div class="item-controle">
-                                        {!! Form::open(['route' => ['blocoDescricaos.destroy', $blocoDescricao->id], 'method' => 'delete']) !!}
-                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i> Remover', [
-                                            'type' => 'submit',
-                                            'class' => 'btn btn-danger btn-xs',
-                                            'onclick' => "return confirm('Tem certeza?')"
-                                        ]) !!}
-                                        {!! Form::close() !!}
-                                        </div>
-                                        <br>
-                                        <div class="item-controle">
-                                            <a class="btn btn-xs btn-default" href="/profissionals/{{$profissional->id}}/edita-conteudo?tipo={{$blocoDescricao->tipoTexto}}&idBloco={{$blocoDescricao->id}}">
-                                                <i class="fa fa-pencil"></i> Editar
-                                            </a>
-                                        </div>
-                                    </div>
+                                <div class="col-xs-1">
+                                    @include('profissionals.partials.controles-blocos-conteudo')
+                                </div>
+                                <div class="col-xs-1">
+                                    {{$blocoDescricao->tipoTexto}}
                                 </div>
                                 <div class="col-xs-10">
-                                    {{$blocoDescricao->htmlRenderizado}}
+                                    {!! $blocoDescricao->htmlRenderizado !!}
                                 </div>
                             </div>
                         
@@ -74,13 +60,6 @@
                     @empty
                     <p> Não existem registros </p>
                     @endforelse
-                </div>
-                <div class="col-xs-12" >
-                    @include('layouts.partials.modal', [
-                        'modalId' => 'modal',
-                        'modalTitle' => '<p id="modalTitle"> titulo </p> ',
-                        'modalBody' => ' <div id="modalBody"> <p> <i class="fa fa-spinner fa-spin fa-4x"></i> </p> </div> ',
-                    ])
                 </div>
                 <div class="col-xs-12">
                     <hr>
@@ -95,9 +74,9 @@
                     <button data-profissional="{{$profissional->id}}" data-tipo="lista" class="btn-controle-conteudo btn btn-default">
                         <i class="fa fa-plus"></i> Lista
                     </button>
-                    <button data-profissional="{{$profissional->id}}" data-tipo="citacao" class="btn-controle-conteudo btn btn-default">
+                    <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=citacao" data-profissional="{{$profissional->id}}" data-tipo="citacao" class="btn btn-default">
                         <i class="fa fa-plus"></i> Citação
-                    </button>
+                    </a>
                     <button data-profissional="{{$profissional->id}}" data-tipo="botao" class="btn-controle-conteudo btn btn-default">
                         <i class="fa fa-plus"></i> Botão
                     </button>

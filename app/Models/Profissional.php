@@ -46,7 +46,8 @@ class Profissional extends Model
      */
     public static $rules = [
         'nome' => 'required',
-        'descricao_listagem' => 'required'
+        'descricao_listagem' => 'required',
+        'descricao_interna' => 'required'
     ];
 
     /**

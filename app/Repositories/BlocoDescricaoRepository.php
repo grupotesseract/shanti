@@ -56,11 +56,11 @@ class BlocoDescricaoRepository extends BaseRepository
      *
      * @return void
      */
-    public function preparaRequestParaCreate($request)
+    public function preparaRequestParaProcessar($request)
     {
         $retorno = array();
 
-        // Se for um bloco do tipo texto, só salvar com indice texto 
+        // Se for um bloco do tipo texto, o json deve ter a propriedade 'texto'
         if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_TEXTO)) {
 
             //Adicionando o campo necessario na request
@@ -70,6 +70,22 @@ class BlocoDescricaoRepository extends BaseRepository
 
             $retorno = $request->all();
             unset($retorno['texto']);
+        }
+
+        // Se for um bloco do tipo citação, o json deve ter a propriedade 'texto' e 'autor'
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_CITACAO)) {
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => [
+                    'texto' => $request->texto,
+                    'autor' => $request->autor
+                ]
+            ]);
+
+            $retorno = $request->all();
+            unset($retorno['texto']);
+            unset($retorno['autor']);
         }
 
         // Se for um bloco do tipo imagem, precisamos fazer o upload da imagem pro cloudinary
