@@ -17,7 +17,7 @@ class CreateBlocoDescricaosTable extends Migration
             $table->increments('id');
             $table->integer('tipo');
             $table->integer('ordem')->nullable();
-            $table->string('json_conteudo')->nullable();
+            $table->text('json_conteudo')->nullable();
             $table->timestamps();
 
             $table->unsignedInteger('profissional_id');

@@ -119,6 +119,24 @@ class BlocoDescricao extends Model
         $conteudo = $this->conteudo;
         return $conteudo ? $conteudo->items : [];
     }
+
+    /**
+     * Acessor para 
+     */
+    public function getHtmlRenderizadoAttribute()
+    {
+        $retorno = '';
+
+        if ($this->tipo == self::TIPO_TEXTO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return property_exists($conteudo,'texto') ? $conteudo->texto : '';
+            }
+        }
+
+
+        return ;
+    }
      
     
 }

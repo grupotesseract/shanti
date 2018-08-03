@@ -51,6 +51,49 @@ class BlocoDescricaoRepository extends BaseRepository
     }
     
 
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function preparaRequestParaCreate($request)
+    {
+        $retorno = array();
+
+        // Se for um bloco do tipo texto, só salvar com indice texto 
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_TEXTO)) {
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => ['texto' => $request->texto]
+            ]);
+
+            $retorno = $request->all();
+            unset($retorno['texto']);
+        }
+
+        // Se for um bloco do tipo imagem, precisamos fazer o upload da imagem pro cloudinary
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_IMAGEM)) {
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_profissional_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
 
 
+        return $retorno;
+
+    }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function requestTipoIgualA($request, int $tipo)
+    {
+        return (array_search(strtoupper($request->tipo), BlocoDescricao::TIPOS) == $tipo);
+    }
 }

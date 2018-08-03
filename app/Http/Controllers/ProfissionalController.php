@@ -160,6 +160,18 @@ class ProfissionalController extends AppBaseController
 
         $profissional = $this->profissionalRepository->update($request->all(), $id);
 
+        if ($request->file) {
+            $profissional->fotoListagem()->delete();
+
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+            $profissional->fotoListagem()->save($foto);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_profissional_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
         Flash::success('Profissional updated successfully.');
 
         return redirect(route('profissionals.index'));
@@ -255,5 +267,28 @@ class ProfissionalController extends AppBaseController
 
     }
 
+    /**
+     * Mostra a view de edição de um BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - Profissional
+     */
+    public function getEditBlocoConteudo($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional not found');
+            return redirect(route('profissionals.index'));
+        }
+
+        $Bloco = $this->blocoRepository->findWithoutFail(\Request::get('idBloco'));
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id, $Bloco);
+
+        return view('profissionals.partials.edit-bloco-conteudo')
+            ->with('formulario', $formulario);
+
+    }
 
 }

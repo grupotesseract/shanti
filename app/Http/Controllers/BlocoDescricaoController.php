@@ -55,8 +55,8 @@ class BlocoDescricaoController extends AppBaseController
      */
     public function store(CreateBlocoDescricaoRequest $request)
     {
-        $input = $request->all();
-        $blocoDescricao = $this->blocoDescricaoRepository->create($input);
+        $inputs = $this->blocoDescricaoRepository->preparaRequestParaCreate($request);
+        $blocoDescricao = $this->blocoDescricaoRepository->create($inputs);
 
         if (!$blocoDescricao) {
             Flash::error('Erro na criação do bloco de descricao');
@@ -79,7 +79,7 @@ class BlocoDescricaoController extends AppBaseController
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
         if (empty($blocoDescricao)) {
-            Flash::error('Bloco Descricao not found');
+            Flash::error('Bloco não encontrado');
 
             return redirect(route('blocoDescricaos.index'));
         }
@@ -99,7 +99,7 @@ class BlocoDescricaoController extends AppBaseController
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
         if (empty($blocoDescricao)) {
-            Flash::error('Bloco Descricao not found');
+            Flash::error('Bloco não encontrado');
 
             return redirect(route('blocoDescricaos.index'));
         }
@@ -117,19 +117,20 @@ class BlocoDescricaoController extends AppBaseController
      */
     public function update($id, UpdateBlocoDescricaoRequest $request)
     {
+        $inputs = $this->blocoDescricaoRepository->preparaRequestParaCreate($request);
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
         if (empty($blocoDescricao)) {
-            Flash::error('Bloco Descricao not found');
+            Flash::error('Bloco não encontrado');
 
             return redirect(route('blocoDescricaos.index'));
         }
 
-        $blocoDescricao = $this->blocoDescricaoRepository->update($request->all(), $id);
+        $blocoDescricao = $this->blocoDescricaoRepository->update($inputs, $id);
 
-        Flash::success('Bloco Descricao updated successfully.');
+        Flash::success('Bloco atualizado com sucesso');
 
-        return redirect(route('blocoDescricaos.index'));
+        return redirect('profissionals/'.$blocoDescricao->profissional_id.'/informacoes-pagina-interna');
     }
 
     /**
@@ -142,17 +143,18 @@ class BlocoDescricaoController extends AppBaseController
     public function destroy($id)
     {
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
+        $idProfissional = $blocoDescricao->profissional_id;
 
         if (empty($blocoDescricao)) {
-            Flash::error('Bloco Descricao not found');
+            Flash::error('Bloco não encontrado');
 
             return redirect(route('blocoDescricaos.index'));
         }
 
         $this->blocoDescricaoRepository->delete($id);
 
-        Flash::success('Bloco Descricao deleted successfully.');
+        Flash::success('Bloco removido com sucesso.');
 
-        return redirect(route('blocoDescricaos.index'));
+        return redirect('profissionals/'.$idProfissional.'/informacoes-pagina-interna');
     }
 }

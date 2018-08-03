@@ -6,8 +6,8 @@
 
 {{-- Campos para o tipo TEXTO  --}}
 <div class="form-group col-sm-12">
-    {!! Form::label('json_conteudo[texto]', 'Conteudo da seção de texto:') !!}
-    {!! Form::textarea('json_conteudo[texto]', isset($blocosDescricao) ? $blocosDescricao->conteudoTexto : '', ['class' => 'form-control']) !!}
+    {!! Form::label('texto', 'Conteudo da seção de texto:') !!}
+    {!! Form::textarea('texto', isset($blocosDescricao) ? $blocosDescricao->htmlRenderizado : '', ['class' => 'form-control']) !!}
 </div>
 
 {{-- Campos hidden --}}

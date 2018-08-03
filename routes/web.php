@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');
     Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
+    Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
 
 });
 
