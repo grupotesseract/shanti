@@ -28,7 +28,9 @@
                 <li class="col-12 col-md-5">Aulas em grupo e individuais</li>
             </div>
 
-            <h5 class="titulo-borda">Venha fazer uma aula experimental</h5>
+            <a href="#">
+                <h5 class="titulo-borda">Venha fazer uma aula experimental</h5>
+            </a>
 
             <img class="tabela-horarios" src="images/tabela-horarios.png">
         </div>

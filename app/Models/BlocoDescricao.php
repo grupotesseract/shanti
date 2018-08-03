@@ -152,7 +152,22 @@ class BlocoDescricao extends Model
             }
         }
 
-        return ;
+        if ($this->tipo == self::TIPO_BOTAO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('texto', $conteudo->texto)
+                    ->with('url', $conteudo->url);
+            }
+        }
+        
+        if ($this->tipo == self::TIPO_IMAGEM) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('src', $conteudo->src);
+            }
+        }
     }
 
     /**
@@ -202,9 +217,24 @@ class BlocoDescricao extends Model
             }
         }
 
-        return ;
+        if ($this->tipo == self::TIPO_BOTAO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('texto', $conteudo->texto)
+                    ->with('url', $conteudo->url)
+                    ->with('admin', true);
+            }
+        }
+
+        if ($this->tipo == self::TIPO_IMAGEM) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('src', $conteudo->src);
+            }
+        }
+
     }
-    
-     
     
 }

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\BlocoDescricao;
 use InfyOm\Generator\Common\BaseRepository;
 
+
 /**
  * Class BlocoDescricaoRepository
  * @package App\Repositories
@@ -104,14 +105,44 @@ class BlocoDescricaoRepository extends BaseRepository
             unset($retorno['items']);
         }
 
+        // Se for um bloco do tipo botao, o json deve ter a propriedade 'texto' e 'url'
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_BOTAO)) {
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => [
+                    'texto' => $request->texto,
+                    'url' => $request->url
+                ]
+            ]);
+
+            $retorno = $request->all();
+            unset($retorno['texto']);
+            unset($retorno['url']);
+        }
+
+
         // Se for um bloco do tipo imagem, precisamos fazer o upload da imagem pro cloudinary
         if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_IMAGEM)) {
+            
+            $this->fotoRepository = new FotoRepository(app());
             $foto = $this->fotoRepository->uploadAndCreate($request);
 
             //Upload p/ Cloudinary e delete local 
             $publicId = "shanti_profissional_".time();
             $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
             $this->fotoRepository->deleteLocal($foto->id);
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => [
+                    'src' => $foto->urlCloudinary,
+                ]
+            ]);
+
+            $retorno = $request->all();
+            unset($retorno['file']);
+
         }
 
 

@@ -68,18 +68,18 @@
                     <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=texto" data-profissional="{{$profissional->id}}" data-tipo="texto" class="btn btn-default">
                         <i class="fa fa-plus"></i> Texto
                     </a>
-                    <button data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn-controle-conteudo btn btn-default">
-                        <i class="fa fa-plus"></i> Imagem
-                    </button>
+                    <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=imagem" data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn btn-default">
+                        <i class="fa fa-plus"></i> Imagem 
+                    </a>
                     <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=lista" data-profissional="{{$profissional->id}}" data-tipo="lista" class="btn btn-default">
                         <i class="fa fa-plus"></i> Lista
                     </a>
                     <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=citacao" data-profissional="{{$profissional->id}}" data-tipo="citacao" class="btn btn-default">
                         <i class="fa fa-plus"></i> Citação
                     </a>
-                    <button data-profissional="{{$profissional->id}}" data-tipo="botao" class="btn-controle-conteudo btn btn-default">
+                    <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=botao" data-profissional="{{$profissional->id}}" data-tipo="botao" class="btn btn-default">
                         <i class="fa fa-plus"></i> Botão
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
