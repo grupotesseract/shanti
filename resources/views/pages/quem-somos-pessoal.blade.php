@@ -15,8 +15,13 @@
                {!! $profissional->descricao_interna !!}
             </div>
 
+            {{-- Para cada bloco de conteudo dinamico, renderiza o html  --}}
+            @foreach ($profissional->blocosDescricao as $blocoDescricao)
+                <div class="col-xs-12">
+                    {!! $blocoDescricao->htmlRenderizado !!}
+                </div>
+            @endforeach
 
-            <img class="tabela-horarios" src="images/tabela-horarios.png">
         </div>
     </div>
 </div>

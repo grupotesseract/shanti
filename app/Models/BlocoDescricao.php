@@ -143,6 +143,14 @@ class BlocoDescricao extends Model
             }
         }
 
+        if ($this->tipo == self::TIPO_LISTA) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('titulo', $conteudo->titulo)
+                    ->with('items', $conteudo->items);
+            }
+        }
 
         return ;
     }
@@ -160,6 +168,41 @@ class BlocoDescricao extends Model
         }
 
         return '*NAO ENCONTRADO*';
+    }
+    
+
+
+    public function getHtmlFormatadoAdminAttribute()
+    {
+        $retorno = '';
+
+        if ($this->tipo == self::TIPO_TEXTO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return property_exists($conteudo,'texto') ? $conteudo->texto : '';
+            }
+        }
+
+        if ($this->tipo == self::TIPO_CITACAO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('texto', $conteudo->texto)
+                    ->with('autor', $conteudo->autor);
+            }
+        }
+
+        if ($this->tipo == self::TIPO_LISTA) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('titulo', $conteudo->titulo)
+                    ->with('items', $conteudo->items)
+                    ->with('admin', true);
+            }
+        }
+
+        return ;
     }
     
      

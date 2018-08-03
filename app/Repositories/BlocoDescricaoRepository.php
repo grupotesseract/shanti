@@ -88,6 +88,22 @@ class BlocoDescricaoRepository extends BaseRepository
             unset($retorno['autor']);
         }
 
+        // Se for um bloco do tipo lista, o json deve ter a propriedade 'titulo' e 'items'
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_LISTA)) {
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => [
+                    'titulo' => $request->titulo,
+                    'items' => $request->items
+                ]
+            ]);
+
+            $retorno = $request->all();
+            unset($retorno['titulo']);
+            unset($retorno['items']);
+        }
+
         // Se for um bloco do tipo imagem, precisamos fazer o upload da imagem pro cloudinary
         if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_IMAGEM)) {
             $foto = $this->fotoRepository->uploadAndCreate($request);

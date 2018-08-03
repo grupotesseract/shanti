@@ -50,7 +50,7 @@
                                     {{$blocoDescricao->tipoTexto}}
                                 </div>
                                 <div class="col-xs-10">
-                                    {!! $blocoDescricao->htmlRenderizado !!}
+                                    {!! $blocoDescricao->htmlFormatadoAdmin !!}
                                 </div>
                             </div>
                         
@@ -71,9 +71,9 @@
                     <button data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn-controle-conteudo btn btn-default">
                         <i class="fa fa-plus"></i> Imagem
                     </button>
-                    <button data-profissional="{{$profissional->id}}" data-tipo="lista" class="btn-controle-conteudo btn btn-default">
+                    <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=lista" data-profissional="{{$profissional->id}}" data-tipo="lista" class="btn btn-default">
                         <i class="fa fa-plus"></i> Lista
-                    </button>
+                    </a>
                     <a href="/profissionals/{{$profissional->id}}/adiciona-conteudo?tipo=citacao" data-profissional="{{$profissional->id}}" data-tipo="citacao" class="btn btn-default">
                         <i class="fa fa-plus"></i> Citação
                     </a>
