@@ -1,2 +1,2 @@
 
-<img class="tabela-horarios" src="{{$src}}">
+<img style="max-width:100%" src="{{$src}}">

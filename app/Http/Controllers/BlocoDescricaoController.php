@@ -157,4 +157,32 @@ class BlocoDescricaoController extends AppBaseController
 
         return redirect('profissionals/'.$idProfissional.'/informacoes-pagina-interna');
     }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function postAlteraOrdem($id)
+    {
+        $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
+
+        if (empty($blocoDescricao)) {
+            Flash::error('Bloco não encontrado');
+            return redirect()->back();
+        }
+
+        $variacao = \Request::get('variacao');
+
+        $blocoDescricao->update([
+            'ordem' => $blocoDescricao->ordem+$variacao
+        ]);
+
+        Flash::success('Ordem alterada com sucesso');
+        return ['success' => true];
+    }
+    
+
+
+
 }

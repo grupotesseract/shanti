@@ -39,27 +39,27 @@
                 </div>
 
                 <div class="col-xs-12">
+                    <ul class="list-group lista-blocos">
                     @forelse ($profissional->blocosDescricao as $blocoDescricao)
-                    <ul class="list-group">
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-xs-1">
+                                <div class="col-xs-3">
                                     @include('profissionals.partials.controles-blocos-conteudo')
                                 </div>
                                 <div class="col-xs-1">
                                     {{$blocoDescricao->tipoTexto}}
                                 </div>
-                                <div class="col-xs-10">
+                                <div class="col-xs-8">
                                     {!! $blocoDescricao->htmlFormatadoAdmin !!}
                                 </div>
                             </div>
                         
                         </li>
-                    </ul>
 
                     @empty
                     <p> Não existem registros </p>
                     @endforelse
+                    </ul>
                 </div>
                 <div class="col-xs-12">
                     <hr>
@@ -91,12 +91,6 @@
 @include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
 
 <script>
-
-function mostrarModal(titulo, body){
-    $('.modal-title').html(titulo);
-    $('#modalBody').html(body);
-    $('#modal').modal('show');
-}
 
 function getFormBlocoConteudo(tipo, idProfissional){
 
@@ -146,37 +140,39 @@ function bindBotoesControleConteudo(){
         var idProfissional = $(ev.target).data('profissional');
        
         getFormBlocoConteudo(tipoBloco, idProfissional);
-        
-
     });
-
 }
 
 bindBotoesControleConteudo();
 
 
-function bindBtnAddListagem() {
-    $('.item-listagem .btn-add').click(function(ev) {
-        ev.preventDefault();
-        console.log(this); 
+function alteraOrdem(idBloco, qnt){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });      
 
-        var divItemListagem = $(this).parents('.item-listagem');
-        var ordemAtual = divItemListagem.data('item');
+    var params = {
+        variacao:qnt
+    }
 
-        var modelo = $(".item-modelo").clone();
-        var html = modelo.html();
-        var novo = html.replace('#ID#', ++ordemAtual).replace('item-modelo', '');
-        $(novo).insertAfter(divItemListagem);
-
-        $(this).find('i').removeClass('glyphicon-plus').addClass('glyphicon-trash');
-        $(this).addClass('btn-danger').removeClass('btn-add').addClass('btn-remover');
+    $.ajax({
+        url: '/blocoDescricaos/'+idBloco+'/altera-ordem',
+        type: 'POST',
+        dataType: 'json',
+        data: params,
+        complete: function (jqXHR, textStatus) {
+        },
+        success: function (data, textStatus, jqXHR) {
+            location.reload();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        }
     });
 }
 
-/**
 
-
-**/
 </script>
 
 

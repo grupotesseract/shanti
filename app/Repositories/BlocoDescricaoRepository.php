@@ -145,6 +145,7 @@ class BlocoDescricaoRepository extends BaseRepository
 
         }
 
+        $retorno['ordem'] = $this->model->max('ordem')+1;
 
         return $retorno;
 
