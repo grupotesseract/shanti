@@ -88,7 +88,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
             return redirect(route('profissionals.index'));
         }
 
@@ -109,7 +109,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
@@ -132,7 +132,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
@@ -153,7 +153,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
@@ -172,7 +172,7 @@ class ProfissionalController extends AppBaseController
             $this->fotoRepository->deleteLocal($foto->id);
         }
 
-        Flash::success('Profissional updated successfully.');
+        Flash::success('Profissional atualizado com sucesso.');
 
         return redirect(route('profissionals.index'));
     }
@@ -256,7 +256,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
             return redirect(route('profissionals.index'));
         }
 
@@ -279,7 +279,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
             return redirect(route('profissionals.index'));
         }
 

@@ -19,7 +19,7 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
-    <a href="/profissionals/{{$profissionalId}}/informacoes-pagina-interna" class="btn btn-default">Cancelar</a>
+    <a href="/profissionals/{{$profissionalId}}/edit" class="btn btn-default">Cancelar</a>
 </div>
 
 {!! Form::close() !!}
