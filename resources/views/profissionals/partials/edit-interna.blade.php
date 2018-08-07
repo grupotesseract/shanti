@@ -1,13 +1,8 @@
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="col-xs-6">
-                        <div class="col-xs-6 text-center">
-                            <img src="{{$profissional->linkFotoQuemSomos}}" alt="Foto da listagem do profissional"/>
-                        </div>
-                        <div class="col-xs-6">
-                            <button class="btn btn-default"><i class="fa fa-crop"></i> Cortar Foto</button>
-                            
-                        </div>
+                    <div class="col-xs-6 text-center">
+                        <img src="{{$profissional->linkFotoQuemSomos}}" alt="Foto da listagem do profissional"/>
+                        <br>
                     </div>
                     <div class="col-xs-6">
                         <h2>{{$profissional->nome}}</h2>
