@@ -62,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
     Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
     Route::post('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem');
+    Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem')->name('profissionals.altera-ordem');
 
 });
 

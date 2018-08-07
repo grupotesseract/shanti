@@ -1,16 +1,22 @@
 <div class='container-controles text-center'>
     <div class="col-xs-6">
-        <div>
-        <a class="btn btn-info btn-xs btn-controle-ordem" href="javascript:alteraOrdem({{$blocoDescricao->id}}, -1)">
-            <i class="fa fa-arrow-up"></i>
-        </a>
-        </div>
-        <br>
-        <div>
-        <a class="btn btn-info btn-xs btn-controle-ordem" href="javascript:alteraOrdem({{$blocoDescricao->id}}, 1)">
-            <i class="fa fa-arrow-down"></i>
-        </a>
-        </div>
+        @if ($qnt > 1)
+            @if ($key != 0)
+            <div>
+                <a class="btn btn-info btn-xs btn-controle-ordem" href="{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => -1]) }}">
+                    <i class="fa fa-arrow-up"></i>
+                </a>
+            </div>
+            @endif
+            <br>
+            @if ($key != ($qnt-1))
+            <div>
+                <a class="btn btn-info btn-xs btn-controle-ordem" href="{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => 1]) }}">
+                    <i class="fa fa-arrow-down"></i>
+                </a>
+            </div>
+            @endif        
+        @endif        
     </div>
     <div class="col-xs-6">
         <div class="item-controle">

@@ -64,7 +64,7 @@ class BlocoDescricaoController extends AppBaseController
         }
 
         Flash::success('Conteudo adicionado com sucesso!');
-        return redirect('profissionals/'.$blocoDescricao->profissional->id.'/informacoes-pagina-interna');
+        return redirect('profissionals/'.$blocoDescricao->profissional->id.'/edit');
     }
 
     /**
@@ -130,7 +130,7 @@ class BlocoDescricaoController extends AppBaseController
 
         Flash::success('Bloco atualizado com sucesso');
 
-        return redirect('profissionals/'.$blocoDescricao->profissional_id.'/informacoes-pagina-interna');
+        return redirect('profissionals/'.$blocoDescricao->profissional_id.'/edit');
     }
 
     /**
@@ -155,7 +155,7 @@ class BlocoDescricaoController extends AppBaseController
 
         Flash::success('Bloco removido com sucesso.');
 
-        return redirect('profissionals/'.$idProfissional.'/informacoes-pagina-interna');
+        return redirect('profissionals/'.$idProfissional.'/edit');
     }
 
     /**
@@ -173,13 +173,40 @@ class BlocoDescricaoController extends AppBaseController
         }
 
         $variacao = \Request::get('variacao');
+        $novaOrdem = 0;
+
+        //Se tiver uma variacao positiva, está aumentando a ordem, portanto trocar de lugar com o primeiro de ordem maior
+        if ($variacao > 0) {
+            $proximoBloco = $blocoDescricao
+                ->profissional
+                ->blocosOrdenados
+                ->where('ordem', '>', $blocoDescricao->ordem)
+                ->first();
+            $novaOrdem = $proximoBloco->ordem;
+        }
+
+        //Se tiver uma variacao negativa, está diminuindo a ordem, portanto trocar de lugar com o primeiro de ordem menor 
+        else {
+            $proximoBloco = $blocoDescricao
+                ->profissional
+                ->blocosOrdenados
+                ->where('ordem', '<', $blocoDescricao->ordem)
+                ->reverse()
+                ->first();
+            $novaOrdem = $proximoBloco->ordem;
+        
+        }
+
+        $proximoBloco->update([
+            'ordem' => $blocoDescricao->ordem
+        ]);
 
         $blocoDescricao->update([
-            'ordem' => $blocoDescricao->ordem+$variacao
+            'ordem' => $novaOrdem
         ]);
 
         Flash::success('Ordem alterada com sucesso');
-        return ['success' => true];
+        return redirect()->back();
     }
     
 

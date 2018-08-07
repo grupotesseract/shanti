@@ -22,7 +22,7 @@
 
 <div class="col-xs-12 form-group">
 {!! Form::label('descricao_interna', 'Descrição interna:') !!}
-{{ Form::textarea('descricao_interna', old('descricao_interna'), ['class' => 'textarea-ck']) }}
+{{ Form::textarea('descricao_interna', old('descricao_interna'), ['class' => 'form-control']) }}
 
 </div>
 

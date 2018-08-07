@@ -73,7 +73,7 @@ class ProfissionalController extends AppBaseController
         }
         
         Flash::success('Profissional cadastrado com sucesso.');
-        return redirect('/profissionals/'.$profissional->id.'/informacoes-pagina-interna');
+        return redirect('/profissionals/'.$profissional->id.'/edit');
     }
 
     /**

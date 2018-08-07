@@ -103,11 +103,17 @@ class Profissional extends Model
      */
     public function getLinkFotoQuemSomosAttribute()
     {
-        return "//res.cloudinary.com/"
-            . env('CLOUDINARY_CLOUD_NAME')
-            . "/image/upload/c_scale,g_center,h_240,w_240/"
-            . $this->fotoListagem->cloudinary_id
-            . ".jpg";
+        if ($this->fotoListagem) {
+
+            return "//res.cloudinary.com/"
+                . env('CLOUDINARY_CLOUD_NAME')
+                . "/image/upload/c_scale,g_center,h_240,w_240/"
+                . $this->fotoListagem->cloudinary_id
+                . ".jpg";
+        }
+
+        return '';
+
     }
 
 
@@ -121,6 +127,13 @@ class Profissional extends Model
         return $this->hasMany(\App\Models\BlocoDescricao::class);
     }
     
+    /**
+     * Acessor para 
+     */
+    public function getBlocosOrdenadosAttribute()
+    {
+        return $this->blocosDescricao()->orderBy('ordem')->get();
+    }
 
 
 
