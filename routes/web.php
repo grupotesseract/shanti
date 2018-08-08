@@ -36,6 +36,9 @@ Route::get('programacao-cursos-agendados', function () {
 Route::get('programacao-cursos-nao-agendados', function () {
     return view('pages.programacao-cursos-nao-agendados');
 });
+Route::get('programacao-cursos-interno', function () {
+    return view('pages.programacao-cursos-interno');
+});
 Route::get('programacao-eventos', function () {
     return view('pages.programacao-eventos');
 });

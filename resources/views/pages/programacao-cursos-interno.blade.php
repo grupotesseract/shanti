@@ -3,9 +3,9 @@
 @section('content')
 
 <style type="text/css">
-    .navbar-nav li:nth-child(4) a {
-        font-weight: 600;
-    }
+  .navbar-nav li:nth-child(4) a {
+    font-weight: 600;
+  }
 </style>
 
 <div class="container programacao-geral">
@@ -25,14 +25,16 @@
 
     <ul class="nav justify-content-center nav-bottom">
       <li class="nav-item">
-        <a class="nav-link left" href="programacao-cursos-agendados">AGENDADOS</a>
+        <a class="nav-link left active" href="programacao-cursos-agendados">AGENDADOS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link right active" href="programacao-cursos-nao-agendados">SEM DATA DEFINIDA</a>
+        <a class="nav-link right" href="programacao-cursos-nao-agendados">SEM DATA DEFINIDA</a>
       </li>
     </ul>
 
-    @include('pages.programacao-cards')
+    <div class="row justify-content-center">
+        
+    </div>
 </div>
 
 @endsection
