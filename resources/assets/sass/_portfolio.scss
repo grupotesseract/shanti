@@ -15,7 +15,7 @@
         margin: 1rem 0 3rem;
         font-weight: 600;
         text-align: center;
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             color: $cor-vinho;
         }
     }

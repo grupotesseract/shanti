@@ -9,7 +9,7 @@ $cor-chumbo: #606060;
 $cor-cinza: #D8D8D8;
 $cor-branco: #FFFFFF;
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
 	body {
 		padding-top: 99px;
 	}

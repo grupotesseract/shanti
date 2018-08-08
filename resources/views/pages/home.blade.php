@@ -19,7 +19,7 @@
 	<h4>Instituto de Ciência Corpo Mente</h4>
 
 	<div class="row">
-		<div class="col col-lg-8 home-bola">
+		<div class="col-12 col-lg-8 home-bola">
 			<a href="servicos-geral">
 				<img src="images/300x300.jpg">
 				<h5>SERVIÇOS</h5>
