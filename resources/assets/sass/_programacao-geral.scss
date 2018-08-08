@@ -217,13 +217,15 @@
 	.capa {
 		height: 500px;
 		border-radius: 5px;
+
 		@include media-breakpoint-down(md) {
 			height: 230px;
 			border-radius: 0;
 		}
+		
 		background-image: url("/images/capa-home.jpg");
-	    background-repeat: no-repeat;
-	    background-position: center;
-	    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 	}	
 }

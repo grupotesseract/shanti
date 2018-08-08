@@ -52,13 +52,13 @@
     <a class="nav-link" href="programacao-geral">PROGRAMAÇÃO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">PORTIFÓLIO</a>
+    <a class="nav-link" href="portifolio">PORTIFÓLIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">ARTIGOS</a>
+    <a class="nav-link" href="artigos">ARTIGOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">CONTATO</a>
+    <a class="nav-link" href="contato">CONTATO</a>
   </li>
   <li class="nav-item align-self-center">
     <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank">
@@ -86,12 +86,12 @@
     <a class="nav-link" href="programacao-geral">PROGRAMAÇÃO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">PORTIFÓLIO</a>
+    <a class="nav-link" href="portfolio">PORTIFÓLIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">ARTIGOS</a>
+    <a class="nav-link" href="artigos">ARTIGOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">CONTATO</a>
+    <a class="nav-link" href="contato">CONTATO</a>
   </li>
 </ul>

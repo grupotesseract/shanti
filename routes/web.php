@@ -47,6 +47,24 @@ Route::get('programacao-eventos-interno', function () {
     return view('pages.programacao.eventos-interno');
 });
 
+/* Portfólio */
+Route::get('portfolio', function () {
+    return view('pages.portfolio');
+});
+Route::get('portfolio-interno', function () {
+    return view('pages.portfolio-interno');
+});
+
+/* Artigos */
+Route::get('artigos', function () {
+    return view('pages.artigos');
+});
+
+/* Contato */
+Route::get('contato', function () {
+    return view('pages.contato');
+});
+
 // Rotas de login / logout
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

@@ -13,7 +13,9 @@
     <div class="row">
         @foreach ($profissionais as $Profissional)
         <div class="col">
-            <a href="/profissional/{{ $Profissional->id }}">
+            {{-- Voltar esse link após a página "quem-somos-pessoal" ficar pronta na área admin.
+            <a href="/profissional/{{ $Profissional->id }}"> --}}
+            <a href="quem-somos-pessoal">
                 <img src="{{ $Profissional->linkFotoQuemSomos }}">
                 <h5>{{ $Profissional->nome }}</h5>
                 <h6>{{ $Profissional->descricao_listagem }}</h6>
