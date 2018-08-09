@@ -17,38 +17,46 @@
 
 <div class="container footer-home">
 	<h4>Instituto de Ciência Corpo Mente</h4>
+
 	<div class="row">
-		<div class="col home-bola">
-			<img src="images/300x300.jpg">
-			<h5>SERVIÇOS</h5>
-		</div>
+		<div class="col-12 col-lg-8 home-bola">
+			<a href="servicos-geral">
+				<img src="images/300x300.jpg">
+				<h5>SERVIÇOS</h5>
+			</a>
 
-		<div class="col home-bola">
-			<img src="images/300x300.jpg">
-			<h5>CURSOS</h5>
-		</div>
+			<a href="programacao-cursos-agendados">
+				<img src="images/300x300.jpg">
+				<h5>CURSOS</h5>
+			</a>
 
-		<div class="col home-bola">
-			<img src="images/300x300.jpg">
-			<h5>EVENTOS</h5>
+			<a href="programacao-eventos">
+				<img src="images/300x300.jpg">
+				<h5>EVENTOS</h5>
+			</a>
 		</div>
 		
-		<div class="col footer-home-right">
+		<div class="col footer-home-right align-self-center">
 			<h6>ONDE NOS ENCONTRAR</h6>
-			<a href="" target="_blank">
-				<i class="fas fa-map-marker-alt"></i>Rua Maria José, 12-17 | Bauru - SP
+			
+			<a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
+				<i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
 			</a>
-			<a href="" target="_blank">
-				<i class="fas fa-phone-square"></i>(14) 98832-5849
+
+			<a href="+55-14-98832-5849" target="_blank">
+				<i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
 			</a>
-			<a href="" target="_blank">
-				<i class="fas fa-envelope"></i>contato@institutoshanti.com<br>
+
+			<a href="mailto:contato@institutoshanti.com" target="_blank">
+				<i class="fas fa-envelope fa-lg"></i>contato@institutoshanti.com<br>
 			</a>
+
 			<a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank">
-				<i class="fab fa-instagram"></i>@Shanticienciacorpomente
+				<i class="fab fa-instagram fa-lg"></i>@Shanticienciacorpomente
 			</a>
+
 			<a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
-				<i class="fab fa-facebook-square"></i>/Shanticienciacorpomente
+				<i class="fab fa-facebook-square fa-lg"></i>/Shanticienciacorpomente
 			</a>
 		</div>
 	</div>

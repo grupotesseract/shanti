@@ -12,12 +12,12 @@ header {
     }
 
     .nav-media {
-        text-align: center;
+        text-align: right;
 
         a {
             font-size: 30px;
             color: $cor-vinho;
-            margin-right: 3px;
+            margin-right: 0.6rem;
         }
     }
 }
@@ -36,22 +36,16 @@ header {
         color: $cor-vinho;
         font-family: $font-merri;
         font-weight: 500;
+        padding: 0.5rem 1.1rem !important;
 
         &:hover {
             font-weight: 500;
             color: $cor-vinho;
         }
     }
-
-    .active a {
-        font-weight: 500;
-    }
 }
 
-.navbar-mobile { display: none !important; }
-.navbar-space { display: none !important; }
-
-@media (max-width: 991.98px) {
+@include media-breakpoint-down(md) {
     header {
         display: none !important;
     }
@@ -59,6 +53,7 @@ header {
     .navbar {
         border-top: none;
         text-align: center;
+        background-color: white;
 
         .navbar-brand {
             margin: 0 auto;
@@ -87,13 +82,4 @@ header {
             margin-top: 12px;
         }
     }
-
-    .navbar-space {
-        display: block !important;
-        height: 83px;
-    }
-
-    .navbar-pc { display: block !important; }
-    .navbar-mobile { display: none !important; }
-
 }

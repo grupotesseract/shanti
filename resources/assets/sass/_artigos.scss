@@ -1,0 +1,57 @@
+.artigos {
+	padding-bottom: 2rem;
+
+	h4 {
+	    color: $cor-vinho;
+	    margin-top: 3rem;
+	    margin-bottom: 3rem;
+	}
+
+	a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: $cor-vinho;	
+  }
+
+	span {
+		color: $cor-vinho;
+		font-family: $font-merri;
+		font-weight: 600;
+		margin-right: 0.8rem;
+		display: inline-block;
+	}
+
+	.tags {
+		margin-bottom: 2rem;
+		text-align: left;
+		@include media-breakpoint-up(lg) {
+        text-align: center;
+    }
+
+		span {
+			color: $cor-chumbo;
+			border: 2px solid $cor-chumbo;
+			margin-right: 5px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-bottom: 5px;
+		}
+
+		.active {
+			color: $cor-vinho;
+			border-color: $cor-vinho;
+		}
+	}
+
+  .download {
+  	p {
+  		margin-bottom: 0.5rem;
+  	}
+
+		.botao-download {
+			padding-right: 0;
+			color: $cor-vinho;
+		}
+
+		margin-bottom: 2rem;
+  }
+}

@@ -10,11 +10,11 @@
 
 	h5 {
 		color: $cor-vinho;
-		margin-bottom: 0.7rem;
+		margin-bottom: 0.3rem;
 	}
 
 	p {
-		margin-bottom: 0.7rem;
+		margin-bottom: 0.3rem;
 	}
 
 	.col-12 {
@@ -101,6 +101,70 @@
 		border-radius: 5px;
 	}
 
+	.programacao-interno {
+		h5 {
+			text-align: center;
+			margin: 2rem 0;
+		}
+
+		p {
+			margin: 1rem 0;
+
+			span {
+				color: $cor-vinho;
+			}
+
+			.horario {
+				margin-right: 1rem;	
+			}
+		}
+
+		.sobre {
+			margin-top: 2rem;
+			font-weight: 600;
+		}
+
+		.forms {
+			text-align: center;
+			h5 {
+				margin: 3rem 0 1rem;
+			}
+
+			p {
+				margin: 1rem 0 3rem;
+			}
+		}
+
+		form {
+			@include media-breakpoint-up(lg) {
+				width: 800px;
+				margin: 0 auto;		
+			}
+
+			.button {
+			  text-align: center;
+			  button {
+				  color: $cor-branco;
+				  background-color: $cor-vinho;
+				  border: none;
+				  padding: 5px 35px;
+				  font-family: $font-exo;
+				  font-weight: 600;			  	
+			  }
+			}
+		}
+
+		.presenca {
+			font-style: italic;
+			margin: 3rem 0 0;
+
+			i {
+				color: $cor-vinho;
+				margin-left: 1rem;
+			}
+		}
+	}
+
 	@include media-breakpoint-down(md) {
 		.col-12 {
 			margin-top: 2rem;
@@ -140,4 +204,28 @@
 			}
 		}
 	}
+}
+
+.capa-container {
+	@include media-breakpoint-down(md) {
+		padding: 0;
+	}
+
+	max-width: 1140px;
+	padding: 0 15px;
+
+	.capa {
+		height: 500px;
+		border-radius: 5px;
+
+		@include media-breakpoint-down(md) {
+			height: 230px;
+			border-radius: 0;
+		}
+		
+		background-image: url("/images/capa-home.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	}	
 }
