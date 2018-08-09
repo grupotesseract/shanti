@@ -60,9 +60,8 @@ Route::get('portfolio-interno', function () {
 });
 
 /* Artigos */
-Route::get('artigos', function () {
-    return view('pages.artigos');
-});
+Route::get('artigos-geral/{tag}', 'ArtigoController@indexHome');
+Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
 
 /* Contato */
 Route::get('contato', function () {
@@ -95,3 +94,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
 Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+
+
+Route::resource('artigos', 'ArtigoController');
+
+Route::resource('artigos', 'ArtigoController');

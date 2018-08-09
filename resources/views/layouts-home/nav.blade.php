@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg {{ !$agent->isMobile() ?: 'fixed-top' }}">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="images/logo-shanti.png">
+      <img src="/images/logo-shanti.png">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/artigos">ARTIGOS</a>
+          <a class="nav-link" href="/artigos-geral/todos">ARTIGOS</a>
         </li>
 
         <li class="nav-item">
