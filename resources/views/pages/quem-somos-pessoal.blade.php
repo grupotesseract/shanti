@@ -23,7 +23,7 @@
 
             {{-- Para cada bloco de conteudo dinamico, renderiza o html  --}}
             @foreach ($profissional->blocosDescricao as $blocoDescricao)
-                <div class="col-xs-12">
+                <div class="col-xs-12 bloco-descricao">
                     {!! $blocoDescricao->htmlRenderizado !!}
                 </div>
             @endforeach

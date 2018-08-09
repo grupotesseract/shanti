@@ -7,7 +7,7 @@
 {{-- Campos para o tipo TEXTO  --}}
 <div class="form-group col-sm-12">
     {!! Form::label('texto', 'Conteudo da seção de texto:') !!}
-    {!! Form::textarea('texto', isset($blocosDescricao) ? $blocosDescricao->getConteudo('texto') : '', ['class' => 'form-control']) !!}
+    {!! Form::textarea('texto', isset($blocosDescricao) ? $blocosDescricao->getConteudo('texto') : '', ['class' => 'form-control textarea-ck']) !!}
 </div>
 
 {{-- Campos hidden --}}

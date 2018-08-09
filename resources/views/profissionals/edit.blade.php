@@ -19,13 +19,13 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="tab_1">
                     @include('adminlte-templates::common.errors')
-                            <div class="row">
-                                {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true]) !!}
+                    <div class="row">
+                        {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true]) !!}
 
-                                @include('profissionals.fields')
+                        @include('profissionals.fields')
 
-                                {!! Form::close() !!}
-                            </div>
+                        {!! Form::close() !!}
+                    </div>
 
                 </div>
                 <!-- /.tab-pane -->
@@ -37,10 +37,6 @@
             <!-- /.tab-content -->
         </div>
 
-        {{--
-        --}}
-
-
     </div>
 @endsection
 
@@ -48,8 +44,7 @@
 @section('scripts')
     @include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
 
-
-<script>
+    <script>
 
 function getFormBlocoConteudo(tipo, idProfissional){
 
@@ -97,15 +92,13 @@ function bindBotoesControleConteudo(){
 
         var tipoBloco = $(ev.target).data('tipo');
         var idProfissional = $(ev.target).data('profissional');
-       
+
         getFormBlocoConteudo(tipoBloco, idProfissional);
     });
 }
 
 bindBotoesControleConteudo();
 
-</script>
-
-
+    </script>
 
 @endsection

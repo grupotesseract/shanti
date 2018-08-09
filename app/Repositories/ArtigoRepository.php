@@ -42,11 +42,15 @@ class ArtigoRepository extends BaseRepository
     {
         return Artigo::withAllTags($tag)->get();
     }
-
     
+    /**
+     * Metodo para fazer o download de 1 Artigo
+     * @param mixed $id
+     */
     public function downloadArtigo($id)
     {
         $artigo = Artigo::find($id);
-        return Storage::download($artigo->arquivo, $artigo->nome);
+        preg_match("/\..*$/", $artigo->arquivo, $extensao);
+        return Storage::download($artigo->arquivo, $artigo->nome.$extensao[0]);
     }
 }

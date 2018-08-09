@@ -49,7 +49,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/artigos-geral/todos">ARTIGOS</a>
+          <a class="nav-link" href="/artigos/todos">ARTIGOS</a>
         </li>
 
         <li class="nav-item">

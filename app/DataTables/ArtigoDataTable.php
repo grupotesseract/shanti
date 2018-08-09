@@ -44,7 +44,7 @@ class ArtigoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px', 'title' => 'Ações'])
             ->parameters([
-                'dom'     => 'Bfrtip',
+                'dom'     => 'rtip',
                 'order'   => [[0, 'desc']],
                 'buttons' => [                    
                     'reset',
@@ -62,7 +62,8 @@ class ArtigoDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nome'
+            'nome',
+            'categorias' => ['title' => 'Categorias', 'data' => 'nomeTags']
         ];
     }
 

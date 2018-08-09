@@ -52,13 +52,13 @@ class ArtigoController extends AppBaseController
     public function store(CreateArtigoRequest $request)
     {
         $input = $request->all();
-        $input['arquivo'] = $request->arquivo->store('arquivos_artigos');
+        $input['arquivo'] = $request->arquivo->store('artigos_artigos');
         $artigo = $this->artigoRepository->create($input);
         $artigo->syncTags($input['tags']);
 
         Flash::success('Artigo salvo com sucesso.');
 
-        return redirect(route('artigos.index'));
+        return redirect(route('admin-artigos.index'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ArtigoController extends AppBaseController
         if (empty($artigo)) {
             Flash::error('Artigo não encontrado');
 
-            return redirect(route('artigos.index'));
+            return redirect(route('admin-artigos.index'));
         }
 
         return view('artigos.show')->with('artigo', $artigo);
@@ -95,7 +95,7 @@ class ArtigoController extends AppBaseController
         if (empty($artigo)) {
             Flash::error('Artigo não encontrado');
 
-            return redirect(route('artigos.index'));
+            return redirect(route('admin-artigos.index'));
         }
 
         return view('artigos.edit')->with('artigo', $artigo);
@@ -116,14 +116,14 @@ class ArtigoController extends AppBaseController
         if (empty($artigo)) {
             Flash::error('Artigo não encontrado');
 
-            return redirect(route('artigos.index'));
+            return redirect(route('admin-artigos.index'));
         }
 
         $artigo = $this->artigoRepository->update($request->all(), $id);
 
         Flash::success('Artigo atualizado com sucesso.');
 
-        return redirect(route('artigos.index'));
+        return redirect(route('admin-artigos.index'));
     }
 
     /**
@@ -140,14 +140,14 @@ class ArtigoController extends AppBaseController
         if (empty($artigo)) {
             Flash::error('Artigo não encontrado');
 
-            return redirect(route('artigos.index'));
+            return redirect(route('admin-artigos.index'));
         }
 
         $this->artigoRepository->delete($id);
 
         Flash::success('Artigo excluído com sucesso.');
 
-        return redirect(route('artigos.index'));
+        return redirect(route('admin-artigos.index'));
     }
 
     /**

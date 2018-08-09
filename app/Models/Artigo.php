@@ -48,5 +48,20 @@ class Artigo extends Model
         'arquivo' => 'required'
     ];
 
+    public $appends = [
+        'nomeTags',
+    ];
+
+
+
+
+    /**
+     * Acessor para 
+     */
+    public function getNomeTagsAttribute()
+    {
+        $tags = implode(', ', $this->tags->pluck('name')->all());
+        return $tags;
+    }
     
 }

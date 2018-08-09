@@ -12,7 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'artigos.store', 'files' => true]) !!}
+                    {!! Form::open(['route' => 'admin-artigos.store', 'files' => true]) !!}
 
                         @include('artigos.fields')
 

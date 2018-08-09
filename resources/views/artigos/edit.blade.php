@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($artigo, ['route' => ['artigos.update', $artigo->id], 'method' => 'patch']) !!}
+                   {!! Form::model($artigo, ['route' => ['admin-artigos.update', $artigo->id], 'method' => 'patch']) !!}
 
                         @include('artigos.fields')
 
