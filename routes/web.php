@@ -48,6 +48,7 @@ Route::get('programacao-eventos-interno', function () {
 });
 
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
+Route::get('quem-somos/{id}', 'QuemSomosController@getProfissional');
 Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
 
 /* Portfólio */

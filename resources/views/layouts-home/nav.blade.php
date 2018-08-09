@@ -12,9 +12,6 @@
   </div>
 </header>
 
-{{--
-<div class="{{ !$agent-isMobile() ?: 'fixed-top' }}">
---}}
 <nav class="navbar navbar-expand-lg {{ !$agent->isMobile() ?: 'fixed-top' }}">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -32,31 +29,31 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="espaco">O ESPAÇO</a>
+          <a class="nav-link" href="/espaco">O ESPAÇO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="quem-somos">QUEM SOMOS</a>
+          <a class="nav-link" href="/quem-somos">QUEM SOMOS</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="servicos-geral">SERVIÇOS</a>
+          <a class="nav-link" href="/servicos-geral">SERVIÇOS</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="programacao-geral">PROGRAMAÇÃO</a>
+          <a class="nav-link" href="/programacao-geral">PROGRAMAÇÃO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="portfolio">PORTIFÓLIO</a>
+          <a class="nav-link" href="/portfolio">PORTIFÓLIO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="artigos">ARTIGOS</a>
+          <a class="nav-link" href="/artigos">ARTIGOS</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contato">CONTATO</a>
+          <a class="nav-link" href="/contato">CONTATO</a>
         </li>
       </ul>
     </div>
