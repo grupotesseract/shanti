@@ -13,7 +13,7 @@ Route::get('espaco', function () {
 /* Quem somos */
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
 Route::get('quem-somos-pessoal', function () {
-    return view('pages.quem-somos-pessoal');
+    return view('pages.quem-somos-pessoal-bkp');
 });
 
 /* Serviços */
@@ -47,6 +47,10 @@ Route::get('programacao-eventos-interno', function () {
     return view('pages.programacao.eventos-interno');
 });
 
+Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
+Route::get('quem-somos/{id}', 'QuemSomosController@getProfissional');
+Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
+
 /* Portfólio */
 Route::get('portfolio', function () {
     return view('pages.portfolio');
@@ -56,9 +60,8 @@ Route::get('portfolio-interno', function () {
 });
 
 /* Artigos */
-Route::get('artigos', function () {
-    return view('pages.artigos');
-});
+Route::get('artigos/{tag}', 'ArtigoController@indexHome');
+Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
 
 /* Contato */
 Route::get('contato', function () {
@@ -74,7 +77,21 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('admin', 'AdminController@index');
     Route::resource('profissionals', 'ProfissionalController');
+
+    Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
+    Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+
+    Route::resource('blocoDescricaos', 'BlocoDescricaoController');
+
+    Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');
+    Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
+    Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
+    Route::post('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem');
+    Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem')->name('profissionals.altera-ordem');
+
 });
+
 
 Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
 Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+Route::resource('admin-artigos', 'ArtigoController');

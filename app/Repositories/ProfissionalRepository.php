@@ -38,7 +38,7 @@ class ProfissionalRepository extends BaseRepository
      */
     public function getAtivos()
     {
-        return Profissional::ativos()->get();
+        return Profissional::ativos()->orderByRaw('RANDOM()')->get();
     }
 
     /**

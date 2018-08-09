@@ -62,7 +62,7 @@ class ProfissionalDataTable extends DataTable
     {
         return [
             'nome' => ['title' => 'Nome do profissional'],
-            'descricao_listagem' => ['title' => 'Função que desempenha']
+            'descricao_listagem' => ['title' => 'Descrição da listagem']
 
         ];
     }

@@ -25,6 +25,7 @@ class Profissional extends Model
     public $fillable = [
         'nome',
         'descricao_listagem',
+        'descricao_interna',
         'ativo_listagem',
     ];
 
@@ -45,7 +46,8 @@ class Profissional extends Model
      */
     public static $rules = [
         'nome' => 'required',
-        'descricao_listagem' => 'required'
+        'descricao_listagem' => 'required',
+        'descricao_interna' => 'required'
     ];
 
     /**
@@ -101,10 +103,38 @@ class Profissional extends Model
      */
     public function getLinkFotoQuemSomosAttribute()
     {
-        return "//res.cloudinary.com/"
-            . env('CLOUDINARY_CLOUD_NAME')
-            . "/image/upload/c_scale,g_center,h_240,w_240/"
-            . $this->fotoListagem->cloudinary_id
-            . ".jpg";
+        if ($this->fotoListagem) {
+
+            return "//res.cloudinary.com/"
+                . env('CLOUDINARY_CLOUD_NAME')
+                . "/image/upload/c_scale,g_center,h_240,w_240/"
+                . $this->fotoListagem->cloudinary_id
+                . ".jpg";
+        }
+
+        return '';
+
     }
+
+
+    /**
+     * Relacao entre um profissional e os blocos de descricao que compoem a pagina interna do profissional
+     *
+     * @return void
+     */
+    public function blocosDescricao()
+    {
+        return $this->hasMany(\App\Models\BlocoDescricao::class);
+    }
+    
+    /**
+     * Acessor para 
+     */
+    public function getBlocosOrdenadosAttribute()
+    {
+        return $this->blocosDescricao()->orderBy('ordem')->get();
+    }
+
+
+
 }

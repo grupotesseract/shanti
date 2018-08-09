@@ -9,19 +9,23 @@ use App\Repositories\FotoRepository;
 use App\DataTables\ProfissionalDataTable;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\ProfissionalRepository;
+use App\Repositories\BlocoDescricaoRepository;
 use App\Http\Requests\CreateProfissionalRequest;
 use App\Http\Requests\UpdateProfissionalRequest;
+use App\Http\Requests\CreateBlocoDescricaoRequest;
 
 class ProfissionalController extends AppBaseController
 {
     /** @var  ProfissionalRepository */
     private $profissionalRepository;
     private $fotoRepository;
+    private $blocoRepository;
 
-    public function __construct(ProfissionalRepository $profissionalRepo, FotoRepository $fotoRepo)
+    public function __construct(ProfissionalRepository $profissionalRepo, FotoRepository $fotoRepo, BlocoDescricaoRepository $blocoRepo)
     {
         $this->fotoRepository = $fotoRepo;
         $this->profissionalRepository = $profissionalRepo;
+        $this->blocoRepository = $blocoRepo;
     }
 
     /**
@@ -69,8 +73,29 @@ class ProfissionalController extends AppBaseController
         }
         
         Flash::success('Profissional cadastrado com sucesso.');
-        return redirect(route('profissionals.show', $profissional->id));
+        return redirect('/profissionals/'.$profissional->id.'/edit');
     }
+
+    /**
+     * Display the specified Profissional.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function getEditPaginaInterna($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional não encontrado');
+            return redirect(route('profissionals.index'));
+        }
+
+        return view('profissionals.partials.edit-interna')->with('profissional', $profissional);
+    }
+
+
 
     /**
      * Display the specified Profissional.
@@ -84,13 +109,16 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
 
         return view('profissionals.show')->with('profissional', $profissional);
     }
+
+
+
 
     /**
      * Show the form for editing the specified Profissional.
@@ -104,7 +132,7 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
@@ -125,14 +153,26 @@ class ProfissionalController extends AppBaseController
         $profissional = $this->profissionalRepository->findWithoutFail($id);
 
         if (empty($profissional)) {
-            Flash::error('Profissional not found');
+            Flash::error('Profissional não encontrado');
 
             return redirect(route('profissionals.index'));
         }
 
         $profissional = $this->profissionalRepository->update($request->all(), $id);
 
-        Flash::success('Profissional updated successfully.');
+        if ($request->file) {
+            $profissional->fotoListagem()->delete();
+
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+            $profissional->fotoListagem()->save($foto);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_profissional_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
+        Flash::success('Profissional atualizado com sucesso.');
 
         return redirect(route('profissionals.index'));
     }
@@ -202,4 +242,53 @@ class ProfissionalController extends AppBaseController
 
         return redirect()->back();
     }
+
+
+    /**
+     * Mostra a view de criacao de um novo BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - Profissional
+     */
+    public function getCreateBlocoConteudo($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional não encontrado');
+            return redirect(route('profissionals.index'));
+        }
+
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id);
+
+        return view('profissionals.partials.create-bloco-conteudo')
+            ->with('formulario', $formulario);
+
+    }
+
+    /**
+     * Mostra a view de edição de um BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - Profissional
+     */
+    public function getEditBlocoConteudo($id)
+    {
+        $profissional = $this->profissionalRepository->findWithoutFail($id);
+
+        if (empty($profissional)) {
+            Flash::error('Profissional não encontrado');
+            return redirect(route('profissionals.index'));
+        }
+
+        $Bloco = $this->blocoRepository->findWithoutFail(\Request::get('idBloco'));
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id, $Bloco);
+
+        return view('profissionals.partials.edit-bloco-conteudo')
+            ->with('formulario', $formulario);
+
+    }
+
 }

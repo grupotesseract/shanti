@@ -176,7 +176,9 @@ return [
         // Images, intervention para handling e Cloudder para o cloudinary
         Intervention\Image\ImageServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
-        
+
+        //WYSWYG Editor
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         /*
          * Application Service Providers...
