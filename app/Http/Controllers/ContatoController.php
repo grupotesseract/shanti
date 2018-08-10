@@ -25,8 +25,7 @@ class ContatoController extends Controller
     {
         \Flash::success('Obrigado, entraremos em contato.');
 
-        \Mail::to('renatoo.agomes@gmail.com')
-            ->send(new \App\Mail\EmailContato($request->nome, $request->email, $request->telefone, $request->observacao));
+        \Mail::send(new \App\Mail\EmailContato($request->nome, $request->email, $request->telefone, $request->observacao));
 
         return redirect()->back();
     }
