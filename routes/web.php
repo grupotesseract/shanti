@@ -12,17 +12,11 @@ Route::get('espaco', function () {
 
 /* Quem somos */
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
-Route::get('quem-somos-pessoal', function () {
-    return view('pages.quem-somos-pessoal-bkp');
-});
 
 /* Serviços */
-Route::get('servicos-geral', function () {
-    return view('pages.servicos-geral');
-});
-Route::get('servicos-interno', function () {
-    return view('pages.servicos-interno');
-});
+Route::get('servicos', 'ServicosController@getIndex');
+Route::get('servicos/{id}', 'ServicosController@getServico');
+
 
 /* Programação */
 Route::get('programacao-geral', function () {
@@ -95,3 +89,6 @@ Route::middleware(['auth'])->group(function () {
 Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
 Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
 Route::resource('admin-artigos', 'ArtigoController');
+
+
+Route::resource('grupoServicos', 'GrupoServicoController');
