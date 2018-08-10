@@ -1,15 +1,15 @@
 <div class='btn-group'>
     @if ( !$profissional->ativo_listagem )
     {!! Form::open(['url' => '/profissionals/'.$id.'/ativa-listagem']) !!}
-        {!! Form::button('<i class="fa fa-arrow-up"></i>', [
+        {!! Form::button('<i class="fa fa-eye"></i>', [
             'type' => 'submit',
-            'class' => 'btn btn-info btn-xs',
+            'class' => 'btn btn-default btn-xs',
             'onclick' => "return confirm('Ativar a exibição desse profissional?')"
         ]) !!}
     {!! Form::close() !!}
     @else
     {!! Form::open(['url' => '/profissionals/'.$id.'/remove-listagem']) !!}
-        {!! Form::button('<i class="fa fa-arrow-down"></i>', [
+        {!! Form::button('<i class="fa fa-eye-slash"></i>', [
             'type' => 'submit',
             'class' => 'btn btn-warning btn-xs',
             'onclick' => "return confirm('Parar a exibição desse profissional?')"
