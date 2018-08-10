@@ -1,0 +1,59 @@
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "titulo",
+        "dbType": "string",
+        "validations": "required",
+        "htmlType": "text"
+    },
+    {
+        "name": "descricao_grupo",
+        "dbType": "string",
+        "validations": "required",
+        "htmlType": "textarea"
+    },
+    {
+        "name": "descricao_servicos",
+        "dbType": "string",
+        "validations": "required",
+        "htmlType": "textarea"
+    },
+    {
+        "name": "lista_servicos",
+        "dbType": "json",
+        "validations": "required",
+        "htmlType": "text"
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

@@ -13,3 +13,7 @@
     <a href="{!! route('admin-artigos.index') !!}"><i class="fa fa-book"></i><span>Artigos</span></a>
 </li>
 
+<li class="{{ Request::is('grupoServicos*') ? 'active' : '' }}">
+    <a href="{!! route('grupoServicos.index') !!}"><i class="fa fa-wrench"></i><span>Servicos</span></a>
+</li>
+

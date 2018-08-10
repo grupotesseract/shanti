@@ -37,7 +37,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/servicos-geral">SERVIÇOS</a>
+          <a class="nav-link" href="/servicos">SERVIÇOS</a>
         </li>
 
         <li class="nav-item">
