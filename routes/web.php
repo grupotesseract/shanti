@@ -57,10 +57,9 @@ Route::get('portfolio-interno', function () {
 Route::get('artigos/{tag}', 'ArtigoController@indexHome');
 Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
 
-/* Contato */
-Route::get('contato', function () {
-    return view('pages.contato');
-});
+Route::get('contato','ContatoController@getIndex'); 
+Route::post('contato','ContatoController@postContato')->name('contato-send'); 
+
 
 // Rotas de login / logout
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
