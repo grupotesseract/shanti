@@ -15,6 +15,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5.0",
+        "orangehill/iseed": "^2.5",
         "spatie/laravel-tags": "^2.0",
         "unisharp/laravel-ckeditor": "^4.7",
         "yajra/laravel-datatables-buttons": "^3.0",
