@@ -14,6 +14,6 @@
 </li>
 
 <li class="{{ Request::is('grupoServicos*') ? 'active' : '' }}">
-    <a href="{!! route('grupoServicos.index') !!}"><i class="fa fa-wrench"></i><span>Servicos</span></a>
+    <a href="{!! route('grupoServicos.index') !!}"><i class="fa fa-wrench"></i><span>Serviços</span></a>
 </li>
 

@@ -3,7 +3,7 @@
         @if ($qnt > 1)
             @if ($key != 0)
             <div>
-                <a class="btn btn-info btn-xs btn-controle-ordem" href="{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => -1]) }}">
+                <a class="btn btn-info btn-xs btn-controle-ordem" href="javascript:void(0);" onclick="alteraOrdemAjax(this,'{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => -1]) }}')">
                     <i class="fa fa-arrow-up"></i>
                 </a>
             </div>
@@ -11,7 +11,7 @@
             <br>
             @if ($key != ($qnt-1))
             <div>
-                <a class="btn btn-info btn-xs btn-controle-ordem" href="{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => 1]) }}">
+                <a class="btn btn-info btn-xs btn-controle-ordem" href="javascript:void(0);" onclick="alteraOrdemAjax(this,'{{ route('profissionals.altera-ordem', ['id' => $blocoDescricao->id, 'variacao' => 1]) }}')">
                     <i class="fa fa-arrow-down"></i>
                 </a>
             </div>
@@ -36,3 +36,7 @@
         </div>
     </div>
 </div>
+
+<script>
+
+</script>

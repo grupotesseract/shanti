@@ -64,7 +64,7 @@ class GrupoServicosTableSeeder extends Seeder
 <h2>YOGA PARA CASAIS</h2>
 
 <p>Utilizando todas as t&eacute;cnicas da Yoga, os exerc&iacute;cios em dupla tem como objetivo, aumentar a percep&ccedil;&atilde;o de si mesmo e do outro. O contato , a respira&ccedil;&atilde;o do parceiro e a confian&ccedil;a, resgatam , estimulam e fortalecem o v&iacute;nculo amoroso.</p>',
-                'lista_servicos' => '"Grupos, Personal e Yogaterapia, Yoga para gestantes, Yoga para crian\\u00e7as, Yoga para pais e filhos, Yoga Hormonal, Yoga para casais"',
+                'lista_servicos' => '"Grupos, Personal e Yogaterapia, Yoga para gestantes, Yoga para crianças, Yoga para pais e filhos, Yoga Hormonal, Yoga para casais"',
             ));
         \App\Models\GrupoServico::create(array (
                 'titulo' => 'NATUROLOGIA',
@@ -173,7 +173,7 @@ Regress&atilde;o:</h2>
 
 <p>S&atilde;o ess&ecirc;ncias de cristais elaboradas com a finalidade de recarregar a energia vital do corpo f&iacute;sico e emocional, possibilitando seu pleno equil&iacute;brio e funcionamento.<br />
 &nbsp;</p>',
-                'lista_servicos' => '"Astropsicologia, Massagem Ayurv\\u00e9dica, Psicologia Transpessoal, Regress\\u00e3o, Orienta\\u00e7\\u00e3o Familiar, Orienta\\u00e7\\u00e3o \\u00e0 pais, Tarot Terap\\u00eautico, Thetahealing, Ess\\u00eancia de Cristais de Oz"',
+                'lista_servicos' => '"Astropsicologia, Massagem Ayurvédica, Psicologia Transpessoal, Regressão, Orientação Familiar, Orientação á pais, Tarot Terapêutico, Thetahealing, Essência de Cristais de Oz"',
             ));
         
     }

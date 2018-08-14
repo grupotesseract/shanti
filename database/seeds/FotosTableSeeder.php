@@ -25,19 +25,11 @@ class FotosTableSeeder extends Seeder
                 'owner_type' => 'App\\Models\\Profissional',
             ));
         \App\Models\Foto::create(array (
-                'cloudinary_id' => 'shanti_profissional_1533779536',
-                'image_name' => '1533779536',
-                'image_path' => '/var/www/public/uploads/',
-                'image_extension' => 'png',
-                'owner_id' => NULL,
-                'owner_type' => NULL,
-            ));
-        \App\Models\Foto::create(array (
                 'cloudinary_id' => 'shanti_profissional_1533780130',
                 'image_name' => '1533780130',
                 'image_path' => '/var/www/public/uploads/',
                 'image_extension' => 'jpeg',
-                'owner_id' => 2,
+                'owner_id' => 3,
                 'owner_type' => 'App\\Models\\Profissional',
             ));
         \App\Models\Foto::create(array (
@@ -45,15 +37,7 @@ class FotosTableSeeder extends Seeder
                 'image_name' => '1533780510',
                 'image_path' => '/var/www/public/uploads/',
                 'image_extension' => 'jpg',
-                'owner_id' => 3,
-                'owner_type' => 'App\\Models\\Profissional',
-            ));
-        \App\Models\Foto::create(array (
-                'cloudinary_id' => 'shanti_profissional_1533780554',
-                'image_name' => '1533780554',
-                'image_path' => '/var/www/public/uploads/',
-                'image_extension' => 'jpg',
-                'owner_id' => 3,
+                'owner_id' => 2,
                 'owner_type' => 'App\\Models\\Profissional',
             ));
         

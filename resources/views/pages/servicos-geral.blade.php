@@ -16,7 +16,7 @@
                 <a href="/servicos/{{$Grupo->id}}">
                     <h5>{{$Grupo->titulo}}</h5>
                     @foreach ($Grupo->arrayServicos as $Servico)
-                        <li><i class="fas fa-circle"></i></i>{{$Servico}}</li>
+                        <li><i class="fas fa-circle"></i></i>{!! html_entity_decode($Servico) !!}</li>
                     @endforeach
                 </a>
             </div>

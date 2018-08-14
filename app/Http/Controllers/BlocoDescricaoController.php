@@ -163,7 +163,7 @@ class BlocoDescricaoController extends AppBaseController
      *
      * @return void
      */
-    public function postAlteraOrdem($id)
+    public function getAlteraOrdem($id)
     {
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
@@ -205,8 +205,11 @@ class BlocoDescricaoController extends AppBaseController
             'ordem' => $novaOrdem
         ]);
 
-        Flash::success('Ordem alterada com sucesso');
-        return redirect()->back();
+        $view = view('profissionals.partials.listagem-blocos-descricao')
+            ->with('profissional', $blocoDescricao->profissional)
+            ->render();
+
+        return ['view' => $view];
     }
     
 

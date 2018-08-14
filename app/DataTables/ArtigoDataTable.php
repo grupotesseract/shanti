@@ -44,7 +44,7 @@ class ArtigoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px', 'title' => 'Ações'])
             ->parameters([
-                'dom'     => 'rtip',
+                'dom'     => 'rt',
                 'order'   => [[0, 'desc']],
                 'buttons' => [                    
                     'reset',

@@ -137,6 +137,10 @@ class BlocoDescricao extends Model
         if ($this->tipo == self::TIPO_CITACAO) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
+                \Log::info("\n### AQUIII!! ");
+                \Log::info(json_encode($this));
+                \Log::info(json_encode($conteudo));
+
                 return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('texto', $conteudo->texto)
                     ->with('autor', $conteudo->autor);
@@ -231,7 +235,8 @@ class BlocoDescricao extends Model
             $conteudo = $this->conteudo;
             if ($conteudo) {
                 return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('src', $conteudo->src);
+                    ->with('src', $conteudo->src)
+                    ->with('admin', true);
             }
         }
 

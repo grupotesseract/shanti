@@ -17,8 +17,12 @@ class GrupoServicoDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'grupo_servicos.datatables_actions');
+        return $dataTable
+            ->addColumn('titulo', function ($model) {
+                return view('grupo_servicos.partials.link-edit')->with(['model' => $model]);
+            })
+            ->addColumn('action', 'grupo_servicos.datatables_actions')
+            ->rawColumns(['titulo', 'action']);
     }
 
     /**
@@ -44,7 +48,7 @@ class GrupoServicoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px'])
             ->parameters([
-                'dom'     => 'rtip',
+                'dom'     => 'rt',
                 'order'   => [[0, 'desc']],
                 'buttons' => [
                     'create',
@@ -65,9 +69,7 @@ class GrupoServicoDataTable extends DataTable
     {
         return [
             'titulo',
-            'descricao_grupo',
-            'descricao_servicos',
-            'lista_servicos'
+            'lista_servicos' => ['title' => 'Lista de Serviços'],
         ];
     }
 
