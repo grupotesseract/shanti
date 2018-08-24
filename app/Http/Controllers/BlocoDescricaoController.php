@@ -161,9 +161,12 @@ class BlocoDescricaoController extends AppBaseController
     }
 
     /**
-     * undocumented function
+     * Metodo para alterar a ordem de 2 blocos de 1 owner
      *
-     * @return void
+     * A request deve vir com o parametro 'variacao' (1 || -1) indicando se deve trocar de ordem p/ cima ou p/ baixo
+     *
+     * @param int $id - ID do bloco que sera movido ('para cima' ou 'para baixo' na ordem de exibicao)
+     * @return array - Com o indice 'view' que contem a listagem dos blocos renderizados com a ordem nova.
      */
     public function getAlteraOrdem($id)
     {
@@ -180,7 +183,7 @@ class BlocoDescricaoController extends AppBaseController
         //Se tiver uma variacao positiva, está aumentando a ordem, portanto trocar de lugar com o primeiro de ordem maior
         if ($variacao > 0) {
             $proximoBloco = $blocoDescricao
-                ->profissional
+                ->owner
                 ->blocosOrdenados
                 ->where('ordem', '>', $blocoDescricao->ordem)
                 ->first();
@@ -190,7 +193,7 @@ class BlocoDescricaoController extends AppBaseController
         //Se tiver uma variacao negativa, está diminuindo a ordem, portanto trocar de lugar com o primeiro de ordem menor 
         else {
             $proximoBloco = $blocoDescricao
-                ->profissional
+                ->owner
                 ->blocosOrdenados
                 ->where('ordem', '<', $blocoDescricao->ordem)
                 ->reverse()
@@ -207,8 +210,8 @@ class BlocoDescricaoController extends AppBaseController
             'ordem' => $novaOrdem
         ]);
 
-        $view = view('profissionals.partials.listagem-blocos-descricao')
-            ->with('profissional', $blocoDescricao->profissional)
+        $view = view('bloco_descricaos.partials.listagem-blocos-descricao')
+            ->with('owner', $blocoDescricao->owner)
             ->render();
 
         return ['view' => $view];

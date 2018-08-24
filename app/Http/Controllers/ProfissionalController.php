@@ -83,27 +83,6 @@ class ProfissionalController extends AppBaseController
      *
      * @return Response
      */
-    public function getEditPaginaInterna($id)
-    {
-        $profissional = $this->profissionalRepository->findWithoutFail($id);
-
-        if (empty($profissional)) {
-            Flash::error('Profissional não encontrado');
-            return redirect(route('profissionals.index'));
-        }
-
-        return view('profissionals.partials.edit-interna')->with('profissional', $profissional);
-    }
-
-
-
-    /**
-     * Display the specified Profissional.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
     public function show($id)
     {
         $profissional = $this->profissionalRepository->findWithoutFail($id);
