@@ -124,7 +124,6 @@ class BlocoDescricaoController extends AppBaseController
 
         if (empty($blocoDescricao)) {
             Flash::error('Bloco não encontrado');
-
             return redirect(route('blocoDescricaos.index'));
         }
 
@@ -156,7 +155,6 @@ class BlocoDescricaoController extends AppBaseController
         Flash::success('Bloco removido com sucesso.');
 
         $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
-
         return redirect($urlRedirect);
     }
 
@@ -166,7 +164,7 @@ class BlocoDescricaoController extends AppBaseController
      * A request deve vir com o parametro 'variacao' (1 || -1) indicando se deve trocar de ordem p/ cima ou p/ baixo
      *
      * @param int $id - ID do bloco que sera movido ('para cima' ou 'para baixo' na ordem de exibicao)
-     * @return array - Com o indice 'view' que contem a listagem dos blocos renderizados com a ordem nova.
+     * @return array - Com o indice 'view' que contem o html da listagem dos blocos renderizados com a ordem nova.
      */
     public function getAlteraOrdem($id)
     {

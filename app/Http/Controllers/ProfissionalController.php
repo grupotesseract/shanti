@@ -242,7 +242,7 @@ class ProfissionalController extends AppBaseController
         //Pegando a view de create do bloco de conteudo de acordo com o tipo e passando quem sera o 'owner'
         $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional);
 
-        return view('profissionals.partials.create-bloco-conteudo')
+        return view('bloco_descricaos.partials.create-bloco-conteudo')
             ->with('formulario', $formulario);
 
     }
@@ -266,7 +266,7 @@ class ProfissionalController extends AppBaseController
         $Bloco = $this->blocoRepository->findWithoutFail(\Request::get('idBloco'));
         $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional, $Bloco);
 
-        return view('profissionals.partials.edit-bloco-conteudo')
+        return view('bloco_descricaos.partials.edit-bloco-conteudo')
             ->with('formulario', $formulario);
 
     }
