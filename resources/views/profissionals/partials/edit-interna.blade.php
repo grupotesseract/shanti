@@ -25,7 +25,7 @@
         <a href="adiciona-conteudo?tipo=texto" data-profissional="{{$profissional->id}}" data-tipo="texto" class="btn btn-primary">
             <i class="fa fa-plus"></i> Texto
         </a>
-        <a href="/adiciona-conteudo?tipo=imagem" data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn btn-primary">
+        <a href="adiciona-conteudo?tipo=imagem" data-profissional="{{$profissional->id}}" data-tipo="imagem" class="btn btn-primary">
             <i class="fa fa-plus"></i> Imagem 
         </a>
         <a href="adiciona-conteudo?tipo=lista" data-profissional="{{$profissional->id}}" data-tipo="lista" class="btn btn-primary">

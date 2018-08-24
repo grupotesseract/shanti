@@ -33,15 +33,16 @@ class BlocoDescricaoRepository extends BaseRepository
     }
 
     /**
-     * getFormPeloTipo 
+     * Metodo que retorna o formulario p/ create||update de acordo com o tipo do bloco.
      *
-     * @param mixed $tipo
-     * @param mixed $blocosDescricao
+     * @param string $tipo - TIPO do bloco que determinará o HTML final.
+     * @param Model $owner - owner do bloco, para as FK's
+     * @param Model $blocosDescricao - o próprio BlocoDescricao caso esteja editando.
      */
-    public function getViewFormularioPeloTipo($tipo, $profissionalId,  $blocosDescricao=null)
+    public function getViewFormularioPeloTipo($tipo, $owner,  $blocosDescricao=null)
     {
         $view = view('bloco_descricaos.partials.formulario-'.strtoupper($tipo))
-            ->with('profissionalId', $profissionalId)
+            ->with('owner', $owner)
             ->with('tipo', $tipo);
 
         if ($blocosDescricao) {

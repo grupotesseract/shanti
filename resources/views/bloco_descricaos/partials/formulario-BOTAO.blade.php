@@ -15,14 +15,15 @@
 </div>
 
 {{-- Campos hidden --}}
-{{ Form::hidden('profissional_id', $profissionalId) }}
+{{ Form::hidden('owner_id', $owner->id) }}
+{{ Form::hidden('owner_type', get_class($owner)) }}
 {{ Form::hidden('tipo', $tipo) }}
 
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
-    <a href="/profissionals/{{$profissionalId}}/edit" class="btn btn-default">Cancelar</a>
+    <a href="edit" class="btn btn-default">Cancelar</a>
 </div>
 
 {!! Form::close() !!}

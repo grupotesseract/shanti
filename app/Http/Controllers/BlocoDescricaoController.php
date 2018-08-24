@@ -64,7 +64,9 @@ class BlocoDescricaoController extends AppBaseController
         }
 
         Flash::success('Conteudo adicionado com sucesso!');
-        return redirect('profissionals/'.$blocoDescricao->profissional->id.'/edit');
+
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+        return redirect($urlRedirect);
     }
 
     /**
@@ -130,7 +132,8 @@ class BlocoDescricaoController extends AppBaseController
 
         Flash::success('Bloco atualizado com sucesso');
 
-        return redirect('profissionals/'.$blocoDescricao->profissional_id.'/edit');
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+        return redirect($urlRedirect);
     }
 
     /**
@@ -143,19 +146,18 @@ class BlocoDescricaoController extends AppBaseController
     public function destroy($id)
     {
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
-        $idProfissional = $blocoDescricao->profissional_id;
 
         if (empty($blocoDescricao)) {
             Flash::error('Bloco não encontrado');
-
             return redirect(route('blocoDescricaos.index'));
         }
 
         $this->blocoDescricaoRepository->delete($id);
-
         Flash::success('Bloco removido com sucesso.');
 
-        return redirect('profissionals/'.$idProfissional.'/edit');
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+
+        return redirect($urlRedirect);
     }
 
     /**

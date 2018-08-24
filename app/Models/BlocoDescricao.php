@@ -37,8 +37,6 @@ class BlocoDescricao extends Model
     ];
 
     public $table = 'bloco_descricaos';
-    
-    protected $dates = ['deleted_at'];
 
     public $fillable = [
         'owner_id',
@@ -114,7 +112,7 @@ class BlocoDescricao extends Model
 
 
     /**
-     * Acessor para 
+     * Acessor para obter os Items de um Bloco do TIPO_LISTA
      */
     public function getItemsListagemAttribute()
     {
@@ -175,6 +173,7 @@ class BlocoDescricao extends Model
             }
         }
     }
+
 
     /**
      * undocumented function

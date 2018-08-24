@@ -16,6 +16,9 @@ use App\Helpers\DeleteModelHelper;
  */
 class Profissional extends Model
 {
+    //constance para obter o nome da resource que identifica as actions dos controllers a partir da classe
+    const ROUTE_RESOURCE = 'profissionals';
+
     use SoftDeletes;
 
     public $table = 'profissionals';
