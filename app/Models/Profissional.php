@@ -56,7 +56,8 @@ class Profissional extends Model
      * @var array 
      */
     public $relacoesDependentes = [
-       'fotoListagem' 
+       'fotoListagem',
+       'blocosDescricao' 
     ];
 
 
@@ -80,7 +81,6 @@ class Profissional extends Model
     {
         return $this->morphOne(\App\Models\Foto::class, 'owner');
     }
-
 
     /**
      * Scope para aplicar na query filtrando por.
@@ -116,7 +116,6 @@ class Profissional extends Model
 
     }
 
-
     /**
      * Relacao entre um profissional e os blocos de descricao que compoem a pagina interna do profissional
      *
@@ -124,17 +123,17 @@ class Profissional extends Model
      */
     public function blocosDescricao()
     {
-        return $this->hasMany(\App\Models\BlocoDescricao::class);
+        return $this->morphMany(\App\Models\BlocoDescricao::class, 'owner');
     }
     
+
     /**
-     * Acessor para 
+     * Acessor para obter os blocos de descricao ja ordenados
      */
     public function getBlocosOrdenadosAttribute()
     {
         return $this->blocosDescricao()->orderBy('ordem')->get();
     }
-
 
 
 }

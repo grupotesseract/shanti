@@ -20,8 +20,8 @@ class CreateBlocoDescricaosTable extends Migration
             $table->text('json_conteudo')->nullable();
             $table->timestamps();
 
-            $table->unsignedInteger('profissional_id');
-            $table->foreign('profissional_id')->references('id')->on('profissionals');
+            $table->integer('owner_id')->nullable();
+            $table->string('owner_type')->nullable();
         });
     }
 

@@ -90,3 +90,6 @@ Route::resource('admin-artigos', 'ArtigoController');
 
 
 Route::resource('grupoServicos', 'GrupoServicoController');
+
+
+Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');

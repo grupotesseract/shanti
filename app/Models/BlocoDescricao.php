@@ -24,6 +24,10 @@ class BlocoDescricao extends Model
     const TIPO_LISTA = 4;
     const TIPO_IMAGEM = 5;
 
+    /**
+     * Array com valores dos inteiros e nomes de cada tipo 
+     * para referenciar nas views que devem ser renderizadas
+     */
     const TIPOS = [
         self::TIPO_CITACAO => 'CITACAO',
         self::TIPO_TEXTO => 'TEXTO',
@@ -33,11 +37,12 @@ class BlocoDescricao extends Model
     ];
 
     public $table = 'bloco_descricaos';
-
+    
     protected $dates = ['deleted_at'];
 
     public $fillable = [
-        'profissional_id',
+        'owner_id',
+        'owner_type',
         'tipo',
         'ordem',
         'json_conteudo'
@@ -60,16 +65,15 @@ class BlocoDescricao extends Model
      * @var array
      */
     public static $rules = [
-        'profissional_id' => 'required|exists:profissionals,id',
     ];
 
 
     /**
-     * Relacao de pertencimento á um Profissional 
+     * Os BlocosDescricao podem pertencer a um TrabalhoPortfolio ou um Profissional
      */
-    public function Profissional()
+    public function owner()
     {
-        return $this->belongsTo(\App\Models\Profissional::class);
+        return $this->morphTo();
     }
 
     /**
@@ -92,7 +96,7 @@ class BlocoDescricao extends Model
     }
 
     /**
-     * Mutator para que possa adicionar o tipo por texto ou inteiro
+     * Mutator para que faca o json_encode do conteudo antes de salvar no BD
      */
     public function setJsonConteudoAttribute($value)
     {
@@ -100,10 +104,8 @@ class BlocoDescricao extends Model
         return $this->attributes['json_conteudo'] = $value;
     }
 
-
-
     /**
-     * Acessor para 
+     * Acessor para o conteudo do bloco, já aplicando o json_decode
      */
     public function getConteudoAttribute()
     {
@@ -191,6 +193,12 @@ class BlocoDescricao extends Model
     
 
 
+    /**
+     * Acessor para obter o HTML ja formatado de um BlocoDescricao
+     * Pega as informacoes necessarias e envia para a view certa de acordo com o tipo do bloco, 
+     *
+     * @return string - HTML de cada bloco. 
+     */
     public function getHtmlFormatadoAdminAttribute()
     {
         $retorno = '';
@@ -231,6 +239,7 @@ class BlocoDescricao extends Model
             }
         }
 
+        //Se for do tipo imagem, retornar a view do tipo correspondente
         if ($this->tipo == self::TIPO_IMAGEM) {
             $conteudo = $this->conteudo;
             if ($conteudo) {

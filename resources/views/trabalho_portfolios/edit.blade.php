@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Profissional
+            Trabalho Portfolio
         </h1>
    </section>
    <div class="content">
@@ -11,18 +11,13 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true]) !!}
+                   {!! Form::model($trabalhoPortfolio, ['route' => ['trabalhoPortfolios.update', $trabalhoPortfolio->id], 'method' => 'patch']) !!}
 
-                        @include('profissionals.fields')
+                        @include('trabalho_portfolios.fields')
 
                    {!! Form::close() !!}
                </div>
            </div>
        </div>
    </div>
-@endsection
-
-
-@section('scripts')
-@include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
 @endsection

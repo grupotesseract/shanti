@@ -30,7 +30,7 @@
         </div>
         <br>
         <div class="item-controle">
-            <a class="btn btn-xs btn-default" href="/profissionals/{{$profissional->id}}/edita-conteudo?tipo={{$blocoDescricao->tipoTexto}}&idBloco={{$blocoDescricao->id}}">
+            <a class="btn btn-xs btn-default" href="edita-conteudo?tipo={{$blocoDescricao->tipoTexto}}&idBloco={{$blocoDescricao->id}}">
                 <i class="fa fa-pencil"></i> Editar
             </a>
         </div>
