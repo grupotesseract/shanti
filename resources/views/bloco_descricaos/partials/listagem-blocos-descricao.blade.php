@@ -13,7 +13,7 @@
                     {{$blocoDescricao->tipoTexto}}
                 </div>
                 <div class="col-xs-8">
-                    {!! $blocoDescricao->htmlFormatadoAdmin !!}
+                    {!! $blocoDescricao->getHtmlFormatado(true) !!}
                 </div>
             </div>
 

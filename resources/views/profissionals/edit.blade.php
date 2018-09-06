@@ -29,8 +29,8 @@
         @include('flash::message')
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Informações gerais</a></li>
-                <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Página interna</a></li>
+                <li class="@if (\Request::get('tab') != 'tab_2') active @endif"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Informações gerais</a></li>
+                <li class="@if (\Request::get('tab') == 'tab_2') active @endif"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Página interna</a></li>
                 <li class="pull-right"> <a target="_blank" href="/quem-somos/{{$profissional->id}}" class="btn btn-primary"> 
                         <i class="fa fa-eye"></i> Ver página do profissional</a>
                 </li>
@@ -39,7 +39,7 @@
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="tab_1">
+                <div class="tab-pane @if (\Request::get('tab') != 'tab_2') active @endif" id="tab_1">
                     @include('adminlte-templates::common.errors')
                     <div class="row">
                         {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true]) !!}
@@ -51,7 +51,7 @@
 
                 </div>
                 <!-- /.tab-pane -->
-                <div class="tab-pane" id="tab_2">
+                <div class="tab-pane @if (\Request::get('tab') == 'tab_2') active @endif" id="tab_2">
                     @include('profissionals.partials.edit-interna')
                 </div>
                 <!-- /.tab-pane -->

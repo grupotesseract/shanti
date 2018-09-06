@@ -9,7 +9,7 @@
     <a href="adiciona-conteudo?tipo=lista" class="btn btn-primary">
         <i class="fa fa-plus"></i> Lista
     </a>
-    <a href="adiciona-conteudo?tipo=citacaocao" class="btn btn-primary">
+    <a href="adiciona-conteudo?tipo=citacao" class="btn btn-primary">
         <i class="fa fa-plus"></i> Citação
     </a>
     <a href="adiciona-conteudo?tipo=botao" class="btn btn-primary">

@@ -121,61 +121,7 @@ class BlocoDescricao extends Model
     }
 
     /**
-     * Acessor para 
-     */
-    public function getHtmlRenderizadoAttribute()
-    {
-        $retorno = '';
-
-        if ($this->tipo == self::TIPO_TEXTO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return property_exists($conteudo,'texto') ? $conteudo->texto : '';
-            }
-        }
-
-        if ($this->tipo == self::TIPO_CITACAO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                \Log::info("\n### AQUIII!! ");
-                \Log::info(json_encode($this));
-                \Log::info(json_encode($conteudo));
-
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('texto', $conteudo->texto)
-                    ->with('autor', $conteudo->autor);
-            }
-        }
-
-        if ($this->tipo == self::TIPO_LISTA) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('titulo', $conteudo->titulo)
-                    ->with('items', $conteudo->items);
-            }
-        }
-
-        if ($this->tipo == self::TIPO_BOTAO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('texto', $conteudo->texto)
-                    ->with('url', $conteudo->url);
-            }
-        }
-        
-        if ($this->tipo == self::TIPO_IMAGEM) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('src', $conteudo->src);
-            }
-        }
-    }
-
-    /**
-     * undocumented function
+     * Funcao para acessar um indice especifico dentro do json decoded do bloco. 
      *
      * @return void
      */
@@ -190,12 +136,12 @@ class BlocoDescricao extends Model
     }
 
     /**
-     * Acessor para obter o HTML ja formatado de um BlocoDescricao - Para a área ADMIN (alteracoes para aparecer na listagem)
-     * Pega as informacoes necessarias e envia para a view certa de acordo com o tipo do bloco, 
+     * Metodo para obter o HTML ja formatado do BlocoDescricao - 
      *
+     * @param $isAdmin - Se está sendo renderizado na área admin
      * @return string - HTML de cada bloco. 
      */
-    public function getHtmlFormatadoAdminAttribute()
+    public function getHtmlFormatado($isAdmin=false)
     {
         $retorno = '';
 
@@ -218,20 +164,23 @@ class BlocoDescricao extends Model
         if ($this->tipo == self::TIPO_LISTA) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('titulo', $conteudo->titulo)
-                    ->with('items', $conteudo->items)
-                    ->with('admin', true);
+                    ->with('items', $conteudo->items);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
             }
         }
 
         if ($this->tipo == self::TIPO_BOTAO) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('texto', $conteudo->texto)
-                    ->with('url', $conteudo->url)
-                    ->with('admin', true);
+                    ->with('url', $conteudo->url);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
+                
             }
         }
 
@@ -239,9 +188,10 @@ class BlocoDescricao extends Model
         if ($this->tipo == self::TIPO_IMAGEM) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('src', $conteudo->src)
-                    ->with('admin', true);
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('src', $conteudo->src);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
             }
         }
 

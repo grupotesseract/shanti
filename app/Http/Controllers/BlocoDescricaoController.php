@@ -66,7 +66,7 @@ class BlocoDescricaoController extends AppBaseController
         Flash::success('Conteudo adicionado com sucesso!');
 
         $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
-        return redirect($urlRedirect);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
@@ -132,7 +132,7 @@ class BlocoDescricaoController extends AppBaseController
         Flash::success('Bloco atualizado com sucesso');
 
         $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
-        return redirect($urlRedirect);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
@@ -155,7 +155,7 @@ class BlocoDescricaoController extends AppBaseController
         Flash::success('Bloco removido com sucesso.');
 
         $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
-        return redirect($urlRedirect);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
