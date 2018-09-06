@@ -174,7 +174,6 @@ class BlocoDescricao extends Model
         }
     }
 
-
     /**
      * undocumented function
      *
@@ -189,11 +188,9 @@ class BlocoDescricao extends Model
 
         return '*NAO ENCONTRADO*';
     }
-    
-
 
     /**
-     * Acessor para obter o HTML ja formatado de um BlocoDescricao
+     * Acessor para obter o HTML ja formatado de um BlocoDescricao - Para a área ADMIN (alteracoes para aparecer na listagem)
      * Pega as informacoes necessarias e envia para a view certa de acordo com o tipo do bloco, 
      *
      * @return string - HTML de cada bloco. 

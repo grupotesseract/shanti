@@ -17,7 +17,7 @@
     </div>
 
     {{-- Incluindo listagem de blocos que formam a descricao interna --}}
-    <div class="col-xs-12 container-blocos-descricao">
+    <div id="container-blocos-descricao" class="col-xs-12 container-blocos-descricao">
         @include('bloco_descricaos.partials.listagem-blocos-descricao', [
             'owner' => $profissional
         ])
