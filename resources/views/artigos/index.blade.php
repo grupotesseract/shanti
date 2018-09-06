@@ -2,10 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Artigos</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('admin-artigos.create') !!}">Incluir</a>
-        </h1>
+        <h1>Listagem de artigos</h1>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -15,7 +12,16 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('artigos.table')
+                    <div class="col-xs-12">
+                        @include('artigos.table')
+                    </div>
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="btn btn-default" style="margin-top: 1rem;margin-bottom: 5px" href="{!! route('admin-artigos.create') !!}"> <i class="fa fa-plus"></i> Adicionar um novo artigo</a>
+                    </div>
+                    
             </div>
         </div>
         <div class="text-center">

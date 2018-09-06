@@ -64,7 +64,9 @@ class BlocoDescricaoController extends AppBaseController
         }
 
         Flash::success('Conteudo adicionado com sucesso!');
-        return redirect('profissionals/'.$blocoDescricao->profissional->id.'/edit');
+
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
@@ -122,7 +124,6 @@ class BlocoDescricaoController extends AppBaseController
 
         if (empty($blocoDescricao)) {
             Flash::error('Bloco não encontrado');
-
             return redirect(route('blocoDescricaos.index'));
         }
 
@@ -130,7 +131,8 @@ class BlocoDescricaoController extends AppBaseController
 
         Flash::success('Bloco atualizado com sucesso');
 
-        return redirect('profissionals/'.$blocoDescricao->profissional_id.'/edit');
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
@@ -143,27 +145,28 @@ class BlocoDescricaoController extends AppBaseController
     public function destroy($id)
     {
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
-        $idProfissional = $blocoDescricao->profissional_id;
 
         if (empty($blocoDescricao)) {
             Flash::error('Bloco não encontrado');
-
             return redirect(route('blocoDescricaos.index'));
         }
 
         $this->blocoDescricaoRepository->delete($id);
-
         Flash::success('Bloco removido com sucesso.');
 
-        return redirect('profissionals/'.$idProfissional.'/edit');
+        $urlRedirect = route($blocoDescricao->owner::ROUTE_RESOURCE.'.edit', $blocoDescricao->owner->id);
+        return redirect($urlRedirect."?tab=tab_2");
     }
 
     /**
-     * undocumented function
+     * Metodo para alterar a ordem de 2 blocos de 1 owner
      *
-     * @return void
+     * A request deve vir com o parametro 'variacao' (1 || -1) indicando se deve trocar de ordem p/ cima ou p/ baixo
+     *
+     * @param int $id - ID do bloco que sera movido ('para cima' ou 'para baixo' na ordem de exibicao)
+     * @return array - Com o indice 'view' que contem o html da listagem dos blocos renderizados com a ordem nova.
      */
-    public function postAlteraOrdem($id)
+    public function getAlteraOrdem($id)
     {
         $blocoDescricao = $this->blocoDescricaoRepository->findWithoutFail($id);
 
@@ -178,7 +181,7 @@ class BlocoDescricaoController extends AppBaseController
         //Se tiver uma variacao positiva, está aumentando a ordem, portanto trocar de lugar com o primeiro de ordem maior
         if ($variacao > 0) {
             $proximoBloco = $blocoDescricao
-                ->profissional
+                ->owner
                 ->blocosOrdenados
                 ->where('ordem', '>', $blocoDescricao->ordem)
                 ->first();
@@ -188,7 +191,7 @@ class BlocoDescricaoController extends AppBaseController
         //Se tiver uma variacao negativa, está diminuindo a ordem, portanto trocar de lugar com o primeiro de ordem menor 
         else {
             $proximoBloco = $blocoDescricao
-                ->profissional
+                ->owner
                 ->blocosOrdenados
                 ->where('ordem', '<', $blocoDescricao->ordem)
                 ->reverse()
@@ -205,8 +208,11 @@ class BlocoDescricaoController extends AppBaseController
             'ordem' => $novaOrdem
         ]);
 
-        Flash::success('Ordem alterada com sucesso');
-        return redirect()->back();
+        $view = view('bloco_descricaos.partials.listagem-blocos-descricao')
+            ->with('owner', $blocoDescricao->owner)
+            ->render();
+
+        return ['view' => $view];
     }
     
 

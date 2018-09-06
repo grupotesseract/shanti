@@ -6,7 +6,7 @@
 
   <br>
 
-  <a href="+55-14-98832-5849" target="_blank">
+  <a href="tel:5514988325849" target="_blank">
     <i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
   </a>
 
@@ -21,7 +21,7 @@
     <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
   </a>
 
-  <a href="+55-14-98832-5849" target="_blank">
+  <a href="tel:5514988325849" target="_blank">
     <i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
   </a>
 

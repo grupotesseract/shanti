@@ -3,8 +3,12 @@
     padding-bottom: 3rem;
 
     .container-html-dinamico {
-        h2 {
+        h1,h2,h3 {
             font-size: 1rem;
+            color: $cor-vinho;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-decoration: underline;		
         }
     }
 

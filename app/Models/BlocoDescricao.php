@@ -24,6 +24,10 @@ class BlocoDescricao extends Model
     const TIPO_LISTA = 4;
     const TIPO_IMAGEM = 5;
 
+    /**
+     * Array com valores dos inteiros e nomes de cada tipo 
+     * para referenciar nas views que devem ser renderizadas
+     */
     const TIPOS = [
         self::TIPO_CITACAO => 'CITACAO',
         self::TIPO_TEXTO => 'TEXTO',
@@ -34,10 +38,9 @@ class BlocoDescricao extends Model
 
     public $table = 'bloco_descricaos';
 
-    protected $dates = ['deleted_at'];
-
     public $fillable = [
-        'profissional_id',
+        'owner_id',
+        'owner_type',
         'tipo',
         'ordem',
         'json_conteudo'
@@ -60,16 +63,15 @@ class BlocoDescricao extends Model
      * @var array
      */
     public static $rules = [
-        'profissional_id' => 'required|exists:profissionals,id',
     ];
 
 
     /**
-     * Relacao de pertencimento á um Profissional 
+     * Os BlocosDescricao podem pertencer a um TrabalhoPortfolio ou um Profissional
      */
-    public function Profissional()
+    public function owner()
     {
-        return $this->belongsTo(\App\Models\Profissional::class);
+        return $this->morphTo();
     }
 
     /**
@@ -92,7 +94,7 @@ class BlocoDescricao extends Model
     }
 
     /**
-     * Mutator para que possa adicionar o tipo por texto ou inteiro
+     * Mutator para que faca o json_encode do conteudo antes de salvar no BD
      */
     public function setJsonConteudoAttribute($value)
     {
@@ -100,10 +102,8 @@ class BlocoDescricao extends Model
         return $this->attributes['json_conteudo'] = $value;
     }
 
-
-
     /**
-     * Acessor para 
+     * Acessor para o conteudo do bloco, já aplicando o json_decode
      */
     public function getConteudoAttribute()
     {
@@ -112,7 +112,7 @@ class BlocoDescricao extends Model
 
 
     /**
-     * Acessor para 
+     * Acessor para obter os Items de um Bloco do TIPO_LISTA
      */
     public function getItemsListagemAttribute()
     {
@@ -121,57 +121,7 @@ class BlocoDescricao extends Model
     }
 
     /**
-     * Acessor para 
-     */
-    public function getHtmlRenderizadoAttribute()
-    {
-        $retorno = '';
-
-        if ($this->tipo == self::TIPO_TEXTO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return property_exists($conteudo,'texto') ? $conteudo->texto : '';
-            }
-        }
-
-        if ($this->tipo == self::TIPO_CITACAO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('texto', $conteudo->texto)
-                    ->with('autor', $conteudo->autor);
-            }
-        }
-
-        if ($this->tipo == self::TIPO_LISTA) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('titulo', $conteudo->titulo)
-                    ->with('items', $conteudo->items);
-            }
-        }
-
-        if ($this->tipo == self::TIPO_BOTAO) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('texto', $conteudo->texto)
-                    ->with('url', $conteudo->url);
-            }
-        }
-        
-        if ($this->tipo == self::TIPO_IMAGEM) {
-            $conteudo = $this->conteudo;
-            if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
-                    ->with('src', $conteudo->src);
-            }
-        }
-    }
-
-    /**
-     * undocumented function
+     * Funcao para acessar um indice especifico dentro do json decoded do bloco. 
      *
      * @return void
      */
@@ -184,10 +134,14 @@ class BlocoDescricao extends Model
 
         return '*NAO ENCONTRADO*';
     }
-    
 
-
-    public function getHtmlFormatadoAdminAttribute()
+    /**
+     * Metodo para obter o HTML ja formatado do BlocoDescricao - 
+     *
+     * @param $isAdmin - Se está sendo renderizado na área admin
+     * @return string - HTML de cada bloco. 
+     */
+    public function getHtmlFormatado($isAdmin=false)
     {
         $retorno = '';
 
@@ -210,28 +164,34 @@ class BlocoDescricao extends Model
         if ($this->tipo == self::TIPO_LISTA) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('titulo', $conteudo->titulo)
-                    ->with('items', $conteudo->items)
-                    ->with('admin', true);
+                    ->with('items', $conteudo->items);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
             }
         }
 
         if ($this->tipo == self::TIPO_BOTAO) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('texto', $conteudo->texto)
-                    ->with('url', $conteudo->url)
-                    ->with('admin', true);
+                    ->with('url', $conteudo->url);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
+                
             }
         }
 
+        //Se for do tipo imagem, retornar a view do tipo correspondente
         if ($this->tipo == self::TIPO_IMAGEM) {
             $conteudo = $this->conteudo;
             if ($conteudo) {
-                return view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
                     ->with('src', $conteudo->src);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
             }
         }
 

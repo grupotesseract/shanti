@@ -83,27 +83,6 @@ class ProfissionalController extends AppBaseController
      *
      * @return Response
      */
-    public function getEditPaginaInterna($id)
-    {
-        $profissional = $this->profissionalRepository->findWithoutFail($id);
-
-        if (empty($profissional)) {
-            Flash::error('Profissional não encontrado');
-            return redirect(route('profissionals.index'));
-        }
-
-        return view('profissionals.partials.edit-interna')->with('profissional', $profissional);
-    }
-
-
-
-    /**
-     * Display the specified Profissional.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
     public function show($id)
     {
         $profissional = $this->profissionalRepository->findWithoutFail($id);
@@ -260,9 +239,10 @@ class ProfissionalController extends AppBaseController
             return redirect(route('profissionals.index'));
         }
 
-        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id);
+        //Pegando a view de create do bloco de conteudo de acordo com o tipo e passando quem sera o 'owner'
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional);
 
-        return view('profissionals.partials.create-bloco-conteudo')
+        return view('bloco_descricaos.partials.create-bloco-conteudo')
             ->with('formulario', $formulario);
 
     }
@@ -284,9 +264,9 @@ class ProfissionalController extends AppBaseController
         }
 
         $Bloco = $this->blocoRepository->findWithoutFail(\Request::get('idBloco'));
-        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional->id, $Bloco);
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $profissional, $Bloco);
 
-        return view('profissionals.partials.edit-bloco-conteudo')
+        return view('bloco_descricaos.partials.edit-bloco-conteudo')
             ->with('formulario', $formulario);
 
     }

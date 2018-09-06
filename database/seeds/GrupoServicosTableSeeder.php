@@ -16,10 +16,7 @@ class GrupoServicosTableSeeder extends Seeder
 
         \DB::table('grupo_servicos')->delete();
         
-        \DB::table('grupo_servicos')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
+        \App\Models\GrupoServico::create(array (
                 'titulo' => 'YOGA',
                 'descricao_grupo' => '<p>&nbsp; &nbsp; &nbsp;Yoga &eacute; um caminho que permite ao ser humano expressar e recuperar suas potencialidades, &eacute; uma ferramenta de promo&ccedil;&atilde;o da sa&uacute;de integral, uma vez que considera o corpo-mente humano em toda sua complexidade e em todos os seus aspectos: f&iacute;sicos, mentais e espirituais. A pr&aacute;tica do Yoga permite ao indiv&iacute;duo entrar em contato com o que h&aacute; de mais profundo em si, trazendo-lhe maior autoconhecimento, autocontrole e bem estar, al&eacute;m de promover o equil&iacute;brio psicofisiol&oacute;gico e possibilitar a autonomia do praticante, apresentando-se tamb&eacute;m como uma excelente ferramenta terap&ecirc;utica.</p>',
                 'descricao_servicos' => '<h2>GRUPOS</h2>
@@ -67,14 +64,9 @@ class GrupoServicosTableSeeder extends Seeder
 <h2>YOGA PARA CASAIS</h2>
 
 <p>Utilizando todas as t&eacute;cnicas da Yoga, os exerc&iacute;cios em dupla tem como objetivo, aumentar a percep&ccedil;&atilde;o de si mesmo e do outro. O contato , a respira&ccedil;&atilde;o do parceiro e a confian&ccedil;a, resgatam , estimulam e fortalecem o v&iacute;nculo amoroso.</p>',
-                'lista_servicos' => '"Grupos, Personal e Yogaterapia, Yoga para gestantes, Yoga para crian\\u00e7as, Yoga para pais e filhos, Yoga Hormonal, Yoga para casais"',
-                'created_at' => '2018-08-09 22:09:00',
-                'updated_at' => '2018-08-09 22:59:31',
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
+                'lista_servicos' => '"Grupos, Personal e Yogaterapia, Yoga para gestantes, Yoga para crianças, Yoga para pais e filhos, Yoga Hormonal, Yoga para casais"',
+            ));
+        \App\Models\GrupoServico::create(array (
                 'titulo' => 'NATUROLOGIA',
             'descricao_grupo' => '<p>Com base nas Medicinas Tradicionais Indiana (Ayurveda), Chinesa e Ind&iacute;gena a Naturologia atua na recupera&ccedil;&atilde;o e promo&ccedil;&atilde;o da sa&uacute;de integral, tratando os sintomas e suas causas mais profundas de forma segura e eficiente.</p>',
                 'descricao_servicos' => '<h2>Ayurveda</h2>
@@ -132,13 +124,8 @@ class GrupoServicosTableSeeder extends Seeder
 
 <p>Pr&aacute;tica que utiliza est&iacute;mulos em &aacute;reas reflexas com finalidade terap&ecirc;utica. Parte do princ&iacute;pio que o corpo se encontra atravessado por meridianos que o dividem em diferentes regi&otilde;es, cada uma destas regi&otilde;es tem o seu reflexo, principalmente nos p&eacute;s, m&atilde;os e orelhas (chamados microssistemas). S&atilde;o estimulados pontos chave que permitem a reativa&ccedil;&atilde;o da homeostase (capacidade autorreguladora do organismo) dos &oacute;rg&atilde;os e regi&otilde;es do corpo.&nbsp;</p>',
                 'lista_servicos' => '"Aromaterapia, Auriculoterapia, Cristalterapia, Cromopuntura, Fitoterapia, Florais de Bach, Geoterapia, Hidroterapia, Iridologia, Massoterapia, Reflexoterapia"',
-                'created_at' => '2018-08-09 23:07:19',
-                'updated_at' => '2018-08-09 23:07:19',
-                'deleted_at' => NULL,
-            ),
-            2 => 
-            array (
-                'id' => 3,
+            ));
+        \App\Models\GrupoServico::create(array (
                 'titulo' => 'TERAPIAS',
                 'descricao_grupo' => '<p>...</p>',
             'descricao_servicos' => '<h2>Astropsicologia (...)</h2>
@@ -186,13 +173,8 @@ Regress&atilde;o:</h2>
 
 <p>S&atilde;o ess&ecirc;ncias de cristais elaboradas com a finalidade de recarregar a energia vital do corpo f&iacute;sico e emocional, possibilitando seu pleno equil&iacute;brio e funcionamento.<br />
 &nbsp;</p>',
-                'lista_servicos' => '"Astropsicologia, Massagem Ayurv\\u00e9dica, Psicologia Transpessoal, Regress\\u00e3o, Orienta\\u00e7\\u00e3o Familiar, Orienta\\u00e7\\u00e3o \\u00e0 pais, Tarot Terap\\u00eautico, Thetahealing, Ess\\u00eancia de Cristais de Oz"',
-                'created_at' => '2018-08-09 23:13:39',
-                'updated_at' => '2018-08-09 23:13:39',
-                'deleted_at' => NULL,
-            ),
-        ));
-        
+                'lista_servicos' => '"Astropsicologia, Massagem Ayurvédica, Psicologia Transpessoal, Regressão, Orientação Familiar, Orientação á pais, Tarot Terapêutico, Thetahealing, Essência de Cristais de Oz"',
+            ));
         
     }
 }

@@ -12,6 +12,8 @@ Route::get('espaco', function () {
 
 /* Quem somos */
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
+Route::get('quem-somos/{id}', 'QuemSomosController@getProfissional');
+Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
 
 /* Serviços */
 Route::get('servicos', 'ServicosController@getIndex');
@@ -41,9 +43,6 @@ Route::get('programacao-eventos-interno', function () {
     return view('pages.programacao.eventos-interno');
 });
 
-Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
-Route::get('quem-somos/{id}', 'QuemSomosController@getProfissional');
-Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
 
 /* Portfólio */
 Route::get('portfolio', function () {
@@ -53,13 +52,15 @@ Route::get('portfolio-interno', function () {
     return view('pages.portfolio-interno');
 });
 
+
 /* Artigos */
 Route::get('artigos/{tag}', 'ArtigoController@indexHome');
 Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
 
+
+/* Contato */
 Route::get('contato','ContatoController@getIndex'); 
 Route::post('contato','ContatoController@postContato')->name('contato-send'); 
-
 
 // Rotas de login / logout
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -76,11 +77,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('blocoDescricaos', 'BlocoDescricaoController');
 
-    Route::get('profissionals/{id}/informacoes-pagina-interna','ProfissionalController@getEditPaginaInterna');
     Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
     Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
-    Route::post('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem');
-    Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@postAlteraOrdem')->name('profissionals.altera-ordem');
+    Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@getAlteraOrdem')->name('bloco_descricaos.altera-ordem');
 
 });
 
@@ -91,3 +90,6 @@ Route::resource('admin-artigos', 'ArtigoController');
 
 
 Route::resource('grupoServicos', 'GrupoServicoController');
+
+
+Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
