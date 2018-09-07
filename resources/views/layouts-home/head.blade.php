@@ -15,4 +15,5 @@
 
     <!-- CSS/SASS -->
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/_blocosConteudo.css">
 </head>

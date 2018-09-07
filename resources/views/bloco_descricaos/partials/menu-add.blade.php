@@ -15,4 +15,7 @@
     <a href="adiciona-conteudo?tipo=botao" class="btn btn-primary">
         <i class="fa fa-plus"></i> Botão
     </a>
+    <a href="adiciona-conteudo?tipo=video" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Vídeo
+    </a>
 </div>

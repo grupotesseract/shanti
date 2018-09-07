@@ -54,11 +54,13 @@ class BlocoDescricaoRepository extends BaseRepository
     
 
     /**
-     * undocumented function
+     * Metodo para tratar a Request de create/update e trata ela de acordo com o tipo do Bloco
      *
-     * @return void
+     * @param $request - 
+     *
+     * @return array
      */
-    public function preparaRequestParaProcessar($request)
+    public function preparaRequestParaProcessar($request) : array
     {
         $retorno = array();
 
@@ -144,6 +146,19 @@ class BlocoDescricaoRepository extends BaseRepository
             $retorno = $request->all();
             unset($retorno['file']);
 
+        }
+
+        // Se for um bloco do tipo video, precisamos salvar a url 
+        if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_VIDEO)) {
+
+            //Adicionando o campo necessario na request
+            $request->request->add([
+                'json_conteudo' => [
+                    'url' => $request->url
+                ]
+            ]);
+
+            $retorno = $request->all();
         }
 
         $retorno['ordem'] = $this->model->max('ordem')+1;
