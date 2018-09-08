@@ -1,0 +1,23 @@
+@extends('layouts.app')
+
+@section('content')
+    <section class="content-header">
+        <h1>
+            Trabalho Portfolio
+        </h1>
+   </section>
+   <div class="content">
+       @include('adminlte-templates::common.errors')
+       <div class="box box-primary">
+           <div class="box-body">
+               <div class="row">
+                   {!! Form::model($trabalhoPortfolio, ['route' => ['trabalhoPortfolios.update', $trabalhoPortfolio->id], 'method' => 'patch', 'files'=> true]) !!}
+
+                        @include('trabalho_portfolios.fields')
+
+                   {!! Form::close() !!}
+               </div>
+           </div>
+       </div>
+   </div>
+@endsection
