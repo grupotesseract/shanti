@@ -138,5 +138,19 @@ class Profissional extends Model
         return $this->blocosDescricao()->orderBy('ordem')->get();
     }
 
+    /**
+     * Acessor para o conteudo da pagina interna ja formatado
+     */
+    public function getConteudoPaginaInternaAttribute()
+    {
+        $retorno = "";
+
+        foreach ($this->blocosDescricao as $Bloco) {
+            $retorno .= $Bloco->getHtmlFormatado();
+        }
+
+        return $retorno;
+    }
+
 
 }

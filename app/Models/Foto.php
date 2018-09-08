@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Foto extends Model
 {
-    use SoftDeletes;
+    const TIPO_CAPA = 1;
 
     public $table = 'fotos';
 
@@ -29,6 +29,7 @@ class Foto extends Model
         'image_path',
         'image_extension',
         'cloudinary_id',
+        'tipo',
         'owner_id',
         'owner_type'
     ];

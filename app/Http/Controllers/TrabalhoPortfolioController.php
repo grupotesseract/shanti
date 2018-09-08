@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Flash;
 use Response;
 use App\Http\Requests;
+use App\Http\Requests\FotoRequest;
 use App\Repositories\FotoRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\BlocoDescricaoRepository;
@@ -97,7 +98,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho Portfolio not found');
+            Flash::error('Trabalho do portfólio não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -117,7 +118,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho Portfolio not found');
+            Flash::error('Trabalho do portfólio não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -138,7 +139,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho Portfolio not found');
+            Flash::error('Trabalho do portfólio não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -146,7 +147,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->update($request->all(), $id);
 
         if ($request->file) {
-            $trabalhoPortfolio->fotoListagem->delete();
+            $trabalhoPortfolio->fotoListagem()->first()->delete();
 
             $foto = $this->fotoRepository->uploadAndCreate($request);
             $trabalhoPortfolio->fotoListagem()->save($foto);
@@ -174,7 +175,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho Portfolio not found');
+            Flash::error('Trabalho do portfólio não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -277,6 +278,54 @@ class TrabalhoPortfolioController extends AppBaseController
     }
 
 
+    /**
+     * Metodo para exibir a pagina interna de um trabalho do portfolio
+     *
+     * @return void
+     */
+    public function getShowPortfolio($id)
+    {
+        $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
+
+        if (empty($trabalhoPortfolio)) {
+            Flash::error('trabalhoPortfolio não encontrado');
+            return redirect(route('trabalhoPortfolios.index'));
+        }
+
+        return view('pages.portfolio-interno')->with(["trabalhoPortfolio" => $trabalhoPortfolio]);
+    }
+    
 
 
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function postTrocaFotoCapa(FotoRequest $request, $id)
+    {
+        $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
+
+        if (empty($trabalhoPortfolio)) {
+            Flash::error('Trabalho do portfólio não encontrado!');
+            return redirect(route('trabalhoPortfolios.index'));
+        }
+
+        if ($request->file) {
+            $trabalhoPortfolio->fotoCapa->delete();
+
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+            $trabalhoPortfolio->fotoCapa()->save($foto);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_trabalhoPortfolio_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
+        Flash::success('Foto de capa atualizada com sucesso.');
+
+        return redirect()->back();
+    }
+    
 }

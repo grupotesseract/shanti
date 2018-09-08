@@ -70,11 +70,29 @@ class TrabalhoPortfolio extends Model
     }
 
     /**
+     * Relação de polimorfica com fotos
+     *
+     * @return void
+     */
+    public function fotos()
+    {
+        return $this->morphMany(\App\Models\Foto::class, 'owner');
+    }
+
+    /**
      * Relação entre TrabalhoPortfolio e Foto da listagem
      */
     public function fotoListagem()
     {
-        return $this->morphOne(\App\Models\Foto::class, 'owner');
+        return $this->fotos()->whereNull('tipo');
+    }
+
+    /**
+     * Relação entre TrabalhoPortfolio e Foto de capa
+     */
+    public function fotoCapa()
+    {
+        return $this->fotos()->where('tipo', \App\Models\Foto::TIPO_CAPA);
     }
 
     /**
@@ -84,7 +102,6 @@ class TrabalhoPortfolio extends Model
     {
         return $query->where('ativo_listagem', true);
     }
-
 
     /**
      * Acessor para o texto de 'Sim' ou 'Não' dependendo da propriedade $ativo_listagem.
@@ -99,12 +116,12 @@ class TrabalhoPortfolio extends Model
      */
     public function getLinkFotoListagemAttribute()
     {
-        if ($this->fotoListagem) {
+        if ($this->fotoListagem()->first()) {
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_450,q_auto/"
-                . $this->fotoListagem->cloudinary_id
+                . "/image/upload/c_scale,w_600,q_auto/"
+                . $this->fotoListagem()->first()->cloudinary_id
                 . ".jpg";
         }
 

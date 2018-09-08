@@ -1,231 +1,231 @@
 .programacao-geral {
-	padding-bottom: 3rem;
+    padding-bottom: 3rem;
 
-	h4 {
-		color: $cor-vinho;
-		margin-top: 3rem;
-		margin-bottom: 3rem;
-		margin-left: 1.5rem;
-	}
+    h4 {
+        color: $cor-vinho;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 1.5rem;
+    }
 
-	h5 {
-		color: $cor-vinho;
-		margin-bottom: 0.3rem;
-	}
+    h5 {
+        color: $cor-vinho;
+        margin-bottom: 0.3rem;
+    }
 
-	p {
-		margin-bottom: 0.3rem;
-	}
+    p {
+        margin-bottom: 0.3rem;
+    }
 
-	.col-12 {
-		margin-top: 2.5rem;
+    .col-12 {
+        margin-top: 2.5rem;
 
-		&:first-child {
-			margin-top: 0;
-		}
-	}
+        &:first-child {
+            margin-top: 0;
+        }
+    }
 
-	.caption {
-		position: absolute;
-		right: 15px;
-		text-align: center;
-		background-color: $cor-vinho;
-		color: $cor-branco;
-		margin: 15px 0 0;
-		padding: 5px 20px;
-		border-radius: 5px;
-		font-weight: 600;
-	}
+    .caption {
+        position: absolute;
+        right: 15px;
+        text-align: center;
+        background-color: $cor-vinho;
+        color: $cor-branco;
+        margin: 15px 0 0;
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
 
-	a, a:visited, a:hover, a:active {
-		text-decoration: none;
-		i {
-			color: $cor-chumbo;
-		}
-	}
+    a, a:visited, a:hover, a:active {
+        text-decoration: none;
+        i {
+            color: $cor-chumbo;
+        }
+    }
 
-	.nav-top {
-		padding: 0;
-		border-top: none;
-		margin: 0 0 3em;
+    .nav-top {
+        padding: 0;
+        border-top: none;
+        margin: 0 0 3em;
 
-		a {
-			font-weight: 600;
-			border: 2px solid $cor-chumbo;
-			color: $cor-chumbo;
-			font-size: 1.3em;
-			padding: 3px 14px;
-			border-radius: 5px;
-			margin: 0 1em;
-		}
+        a {
+            font-weight: 600;
+            border: 2px solid $cor-chumbo;
+            color: $cor-chumbo;
+            font-size: 1.3em;
+            padding: 3px 14px;
+            border-radius: 5px;
+            margin: 0 1em;
+        }
 
-		.active {
-			border-color: $cor-vinho;
-			color: $cor-vinho;			
-		}
-	}
+        .active {
+            border-color: $cor-vinho;
+            color: $cor-vinho;			
+        }
+    }
 
-	.nav-bottom {
-		padding: 0;
-		border-top: none;
-		margin: 0 0 3em;
+    .nav-bottom {
+        padding: 0;
+        border-top: none;
+        margin: 0 0 3em;
 
-		a {
-			font-weight: 600;
-			border: 2px solid $cor-chumbo;
-			color: $cor-chumbo;
-			font-size: 1em;
-			padding: 3px 14px;
-			margin: 0;
-		}
+        a {
+            font-weight: 600;
+            border: 2px solid $cor-chumbo;
+            color: $cor-chumbo;
+            font-size: 1em;
+            padding: 3px 14px;
+            margin: 0;
+        }
 
-		.left {
-			border-radius:  5px 0 0 5px;
-			border-right: none;
-		}
+        .left {
+            border-radius:  5px 0 0 5px;
+            border-right: none;
+        }
 
-		.right {
-			border-radius: 0 5px 5px 0;
-			border-left: none;
-		}
+        .right {
+            border-radius: 0 5px 5px 0;
+            border-left: none;
+        }
 
-		.active {
-			border-color: $cor-vinho;
-			background-color: $cor-vinho;
-			color: $cor-branco;
-		}
-	}
+        .active {
+            border-color: $cor-vinho;
+            background-color: $cor-vinho;
+            color: $cor-branco;
+        }
+    }
 
-	img {
-		width: 100%;
-		border-radius: 5px;
-	}
+    img {
+        width: 100%;
+        border-radius: 5px;
+    }
 
-	.programacao-interno {
-		h5 {
-			text-align: center;
-			margin: 2rem 0;
-		}
+    .programacao-interno {
+        h5 {
+            text-align: center;
+            margin: 2rem 0;
+        }
 
-		p {
-			margin: 1rem 0;
+        p {
+            margin: 1rem 0;
 
-			span {
-				color: $cor-vinho;
-			}
+            span {
+                color: $cor-vinho;
+            }
 
-			.horario {
-				margin-right: 1rem;	
-			}
-		}
+            .horario {
+                margin-right: 1rem;	
+            }
+        }
 
-		.sobre {
-			margin-top: 2rem;
-			font-weight: 600;
-		}
+        .sobre {
+            margin-top: 2rem;
+            font-weight: 600;
+        }
 
-		.forms {
-			text-align: center;
-			h5 {
-				margin: 3rem 0 1rem;
-			}
+        .forms {
+            text-align: center;
+            h5 {
+                margin: 3rem 0 1rem;
+            }
 
-			p {
-				margin: 1rem 0 3rem;
-			}
-		}
+            p {
+                margin: 1rem 0 3rem;
+            }
+        }
 
-		form {
-			@include media-breakpoint-up(lg) {
-				width: 800px;
-				margin: 0 auto;		
-			}
+        form {
+            @include media-breakpoint-up(lg) {
+                width: 800px;
+                margin: 0 auto;		
+            }
 
-			.button {
-			  text-align: center;
-			  button {
-				  color: $cor-branco;
-				  background-color: $cor-vinho;
-				  border: none;
-				  padding: 5px 35px;
-				  font-family: $font-exo;
-				  font-weight: 600;			  	
-			  }
-			}
-		}
+            .button {
+                text-align: center;
+                button {
+                    color: $cor-branco;
+                    background-color: $cor-vinho;
+                    border: none;
+                    padding: 5px 35px;
+                    font-family: $font-exo;
+                    font-weight: 600;			  	
+                }
+            }
+        }
 
-		.presenca {
-			font-style: italic;
-			margin: 3rem 0 0;
+        .presenca {
+            font-style: italic;
+            margin: 3rem 0 0;
 
-			i {
-				color: $cor-vinho;
-				margin-left: 1rem;
-			}
-		}
-	}
+            i {
+                color: $cor-vinho;
+                margin-left: 1rem;
+            }
+        }
+    }
 
-	@include media-breakpoint-down(md) {
-		.col-12 {
-			margin-top: 2rem;
+    @include media-breakpoint-down(md) {
+        .col-12 {
+            margin-top: 2rem;
 
-			&:first-child {
-				margin-top: 2rem;
-			}
-		}
+            &:first-child {
+                margin-top: 2rem;
+            }
+        }
 
-		.align-self-end {
-			margin-top: 1rem;
-		}
+        .align-self-end {
+            margin-top: 1rem;
+        }
 
-		h4 {
-			margin-left: 0;
-			font-size: 1.3rem;
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-		}
+        h4 {
+            margin-left: 0;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
 
-		.nav-top {
-			margin: 0 0 1.5rem;
+        .nav-top {
+            margin: 0 0 1.5rem;
 
-			a {
-				font-size: 0.95em;
-				padding: 3px 14px;
-				margin: 0 5px;
-			}
-		}
+            a {
+                font-size: 0.95em;
+                padding: 3px 14px;
+                margin: 0 5px;
+            }
+        }
 
-		.nav-bottom {
-			margin: 0 0 1.5rem;
+        .nav-bottom {
+            margin: 0 0 1.5rem;
 
-			a {
-				font-size: 0.9em;
-				padding: 3px 9px;
-			}
-		}
-	}
+            a {
+                font-size: 0.9em;
+                padding: 3px 9px;
+            }
+        }
+    }
 }
 
 .capa-container {
-	@include media-breakpoint-down(md) {
-		padding: 0;
-	}
+    @include media-breakpoint-down(md) {
+        padding: 0;
+    }
 
-	max-width: 1140px;
-	padding: 0 15px;
+    max-width: 1140px;
+    padding: 0 15px;
 
-	.capa {
-		height: 500px;
-		border-radius: 5px;
+    .capa {
+        height: 500px;
+        border-radius: 5px;
 
-		@include media-breakpoint-down(md) {
-			height: 230px;
-			border-radius: 0;
-		}
-		
-		background-image: url("/images/capa-home.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-	}	
+        @include media-breakpoint-down(md) {
+            height: 230px;
+            border-radius: 0;
+        }
+
+        background-image: url("/images/capa-home.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }	
 }

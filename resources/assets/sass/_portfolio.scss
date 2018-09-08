@@ -4,7 +4,8 @@
     h4 {
         color: $cor-vinho;
         margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
         @include media-breakpoint-up(lg) {
             margin-left: 90px;
         }
