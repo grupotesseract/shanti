@@ -146,7 +146,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->update($request->all(), $id);
 
         if ($request->file) {
-            $trabalhoPortfolio->fotoListagem()->delete();
+            $trabalhoPortfolio->fotoListagem->delete();
 
             $foto = $this->fotoRepository->uploadAndCreate($request);
             $trabalhoPortfolio->fotoListagem()->save($foto);

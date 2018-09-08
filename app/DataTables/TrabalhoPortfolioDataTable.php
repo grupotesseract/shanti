@@ -17,8 +17,15 @@ class TrabalhoPortfolioDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        return $dataTable->addColumn('nome', function ($model) {
+                return '<a href="/trabalhoPortfolios/'.$model->id.'/edit">'.$model->nome.'</a>';
+            })
+            ->addColumn('action', function ($model) {
+                return view('trabalho_portfolios.datatables_actions')->with(['trabalhoPortfolio' => $model, 'id' => $model->id]);
+            })
+            ->rawColumns(['nome', 'action']);
 
-        return $dataTable->addColumn('action', 'trabalho_portfolios.datatables_actions');
+
     }
 
     /**

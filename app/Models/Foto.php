@@ -62,8 +62,15 @@ class Foto extends Model
     {
         parent::boot();
 
-        /** Binding the delete model event to destroy the filesystem archive **/
+        static::deleting(function ($photo) {
+            \Log::info("\nAbout to destroy:");
+            \Log::info(json_encode($photo));
+            return \Cloudder::destroyImage($photo->cloudinary_id);
+        });
+
+        /** Deletando o arquivo do cloudinary  e do filesystem se existir **/
         static::deleted(function ($photo) {
+
             if (\File::exists($photo->fullPath)) {
                 \File::delete($photo->fullPath);
             }

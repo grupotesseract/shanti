@@ -90,3 +90,6 @@ Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRe
 Route::resource('admin-artigos', 'ArtigoController');
 Route::resource('grupoServicos', 'GrupoServicoController');
 Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
+Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
+Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
+
