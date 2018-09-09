@@ -7,7 +7,7 @@
     }
 
     div.tab-content {
-        margin-top: 3.5rem;
+        margin-top: 1rem;
     }
 
     .center-center {

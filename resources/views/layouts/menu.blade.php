@@ -17,3 +17,7 @@
     <a href="{!! route('grupoServicos.index') !!}"><i class="fa fa-wrench"></i><span>Serviços</span></a>
 </li>
 
+<li class="{{ Request::is('trabalhoPortfolios*') ? 'active' : '' }}">
+    <a href="{!! route('trabalhoPortfolios.index') !!}"><i class="fa fa-briefcase"></i><span>Portfólio</span></a>
+</li>
+

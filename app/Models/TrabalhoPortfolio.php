@@ -3,35 +3,28 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Helpers\DeleteModelHelper;
 
 /**
- * Class Profissional
+ * Class TrabalhoPortfolio
  * @package App\Models
- * @version March 30, 2018, 9:56 pm BRT
+ * @version September 7, 2018, 9:11 pm BRT
  *
  * @property string nome
  * @property string descricao_listagem
  */
-class Profissional extends Model
+class TrabalhoPortfolio extends Model
 {
     //constance para obter o nome da resource que identifica as actions dos controllers a partir da classe
-    const ROUTE_RESOURCE = 'profissionals';
+    const ROUTE_RESOURCE = 'trabalhoPortfolios';
 
-    use SoftDeletes;
-
-    public $table = 'profissionals';
-
-    protected $dates = ['deleted_at'];
+    public $table = 'trabalho_portfolios';
 
     public $fillable = [
         'nome',
         'descricao_listagem',
-        'descricao_interna',
         'ativo_listagem',
-    ];
-
+    ]; 
     /**
      * The attributes that should be casted to native types.
      *
@@ -49,8 +42,7 @@ class Profissional extends Model
      */
     public static $rules = [
         'nome' => 'required',
-        'descricao_listagem' => 'required',
-        'descricao_interna' => 'required'
+        'descricao_listagem' => 'required'
     ];
 
     /**
@@ -78,15 +70,33 @@ class Profissional extends Model
     }
 
     /**
-     * Relação entre Profissional e Foto da listagem
+     * Relação de polimorfica com fotos
+     *
+     * @return void
      */
-    public function fotoListagem()
+    public function fotos()
     {
-        return $this->morphOne(\App\Models\Foto::class, 'owner');
+        return $this->morphMany(\App\Models\Foto::class, 'owner');
     }
 
     /**
-     * Scope para aplicar na query filtrando por.
+     * Relação entre TrabalhoPortfolio e Foto da listagem
+     */
+    public function fotoListagem()
+    {
+        return $this->fotos()->whereNull('tipo');
+    }
+
+    /**
+     * Relação entre TrabalhoPortfolio e Foto de capa
+     */
+    public function fotoCapa()
+    {
+        return $this->fotos()->where('tipo', \App\Models\Foto::TIPO_CAPA);
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por os Trabalhos do Portfolio que estao ativos
      */
     public function scopeAtivos($query)
     {
@@ -102,16 +112,16 @@ class Profissional extends Model
     }
     
     /**
-     * Definindo um acessor para a URL da foto no cloudinary no tamanho certo que irão aparecer 240x240
+     * Definindo um acessor para a URL da foto no cloudinary no tamanho certo que irão aparecer 450x450 max
      */
-    public function getLinkFotoQuemSomosAttribute()
+    public function getLinkFotoListagemAttribute()
     {
-        if ($this->fotoListagem) {
+        if ($this->fotoListagem()->first()) {
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,g_center,h_240,w_240/"
-                . $this->fotoListagem->cloudinary_id
+                . "/image/upload/c_scale,w_600,q_auto/"
+                . $this->fotoListagem()->first()->cloudinary_id
                 . ".jpg";
         }
 
@@ -120,7 +130,25 @@ class Profissional extends Model
     }
 
     /**
-     * Relacao entre um profissional e os blocos de descricao que compoem a pagina interna do profissional
+     * Definindo um acessor para a URL da foto no cloudinary no tamanho certo que irão aparecer ~1200max
+     */
+    public function getLinkFotoCapaAttribute()
+    {
+        if ($this->fotoCapa()->first()) {
+
+            return "//res.cloudinary.com/"
+                . env('CLOUDINARY_CLOUD_NAME')
+                . "/image/upload/c_scale,w_1200,q_auto/"
+                . $this->fotoCapa()->first()->cloudinary_id
+                . ".jpg";
+        }
+
+        return '';
+
+    }
+
+    /**
+     * Relacao entre um trabalho do portfolio e os blocos de descricao que compoem a pagina interna do profissional
      *
      * @return void
      */
@@ -146,11 +174,13 @@ class Profissional extends Model
         $retorno = "";
 
         foreach ($this->blocosOrdenados as $Bloco) {
-            $retorno .= $Bloco->getHtmlFormatado();
+            $retorno .= '<div class="col-xs-12 bloco-descricao">'
+                .$Bloco->getHtmlFormatado() 
+                .'</div>';
         }
 
         return $retorno;
     }
 
-
+    
 }

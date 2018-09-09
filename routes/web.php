@@ -86,10 +86,15 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
 Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+
 Route::resource('admin-artigos', 'ArtigoController');
-
-
 Route::resource('grupoServicos', 'GrupoServicoController');
-
-
 Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
+Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
+Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
+
+
+Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
+Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
+Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
+Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');

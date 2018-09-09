@@ -23,6 +23,7 @@ class BlocoDescricao extends Model
     const TIPO_BOTAO = 3;
     const TIPO_LISTA = 4;
     const TIPO_IMAGEM = 5;
+    const TIPO_VIDEO = 6;
 
     /**
      * Array com valores dos inteiros e nomes de cada tipo 
@@ -33,7 +34,8 @@ class BlocoDescricao extends Model
         self::TIPO_TEXTO => 'TEXTO',
         self::TIPO_BOTAO => 'BOTAO',
         self::TIPO_LISTA => 'LISTA',
-        self::TIPO_IMAGEM => 'IMAGEM'
+        self::TIPO_IMAGEM => 'IMAGEM',
+        self::TIPO_VIDEO => 'VIDEO'
     ];
 
     public $table = 'bloco_descricaos';
@@ -195,6 +197,16 @@ class BlocoDescricao extends Model
             }
         }
 
+        //Se for do tipo video, retornar a view do tipo correspondente
+        if ($this->tipo == self::TIPO_VIDEO) {
+            $conteudo = $this->conteudo;
+            if ($conteudo) {
+                $view = view('bloco_descricaos.partials.html-'.$this->tipoTexto)
+                    ->with('url', $conteudo->url);
+
+                return $isAdmin ? $view->with('admin', true) : $view;
+            }
+        }
     }
     
 }

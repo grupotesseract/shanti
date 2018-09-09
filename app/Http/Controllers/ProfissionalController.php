@@ -133,14 +133,15 @@ class ProfissionalController extends AppBaseController
 
         if (empty($profissional)) {
             Flash::error('Profissional não encontrado');
-
             return redirect(route('profissionals.index'));
         }
 
         $profissional = $this->profissionalRepository->update($request->all(), $id);
 
         if ($request->file) {
-            $profissional->fotoListagem()->delete();
+            if ($profissional->fotoListagem()->first()) {
+                $profissional->fotoListagem->delete();
+            }
 
             $foto = $this->fotoRepository->uploadAndCreate($request);
             $profissional->fotoListagem()->save($foto);

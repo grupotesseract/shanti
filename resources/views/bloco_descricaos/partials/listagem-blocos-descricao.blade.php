@@ -20,7 +20,9 @@
         </li>
 
     @empty
-        <p> Não existem registros </p>
+        <li class="list-group-item text-center" style="border:none;margin-top:3rem;">
+            <strong> Essa página está sem seções de conteudo interno. Adicione utilizando os botões abaixo. </strong>
+        </li>
     @endforelse
 </ul>
 

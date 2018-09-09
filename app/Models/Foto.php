@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Foto extends Model
 {
-    use SoftDeletes;
+    const TIPO_CAPA = 1;
 
     public $table = 'fotos';
 
@@ -29,6 +29,7 @@ class Foto extends Model
         'image_path',
         'image_extension',
         'cloudinary_id',
+        'tipo',
         'owner_id',
         'owner_type'
     ];
@@ -62,8 +63,15 @@ class Foto extends Model
     {
         parent::boot();
 
-        /** Binding the delete model event to destroy the filesystem archive **/
+        static::deleting(function ($photo) {
+            \Log::info("\nAbout to destroy:");
+            \Log::info(json_encode($photo));
+            return \Cloudder::destroyImage($photo->cloudinary_id);
+        });
+
+        /** Deletando o arquivo do cloudinary  e do filesystem se existir **/
         static::deleted(function ($photo) {
+
             if (\File::exists($photo->fullPath)) {
                 \File::delete($photo->fullPath);
             }

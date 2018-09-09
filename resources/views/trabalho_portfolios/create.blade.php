@@ -12,7 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'trabalhoPortfolios.store']) !!}
+                    {!! Form::open(['route' => 'trabalhoPortfolios.store', 'files' => true]) !!}
 
                         @include('trabalho_portfolios.fields')
 
@@ -21,4 +21,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+@include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
 @endsection
