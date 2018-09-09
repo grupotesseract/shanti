@@ -1,4 +1,4 @@
 
 {{-- Campos de upload de foto --}}
-{!! Form::label('file', isset($label) ? $label : 'Foto para listagem:') !!}
-{!! Form::file('file', isset($extraAttrs) ? $extraAttrs : null) !!}
+{!! Form::label(isset($name) ? $name : 'file', isset($label) ? $label : 'Foto para listagem:') !!}
+{!! Form::file(isset($name) ? $name : 'file', isset($extraAttrs) ? $extraAttrs : null) !!}

@@ -29,14 +29,16 @@ class FotoRepository extends BaseRepository
      */
     public function uploadAndCreate($request)
     {
+        $request = is_array($request) ? $request : $request->all();
+
         //Testando se o file é valido
-        $file = $request->file('file');
+        $file = $request['file'];
         if ($file && $file->isValid()) {
 
             //Criando path inicial para direcionar o arquivo
             $destinationPath = public_path().'/uploads/';
             //Pega o formato da imagem
-            $extension = $request->file('file')->getClientOriginalExtension();
+            $extension = $file->getClientOriginalExtension();
 
             //usando o intervention para criar a imagem
             $filename = time();
@@ -47,14 +49,14 @@ class FotoRepository extends BaseRepository
             if ($upload_success) {
 
                 //adicionando as informações da foto na request
-                $request->request->add([
+                $request+=[
                     'image_name' => $filename,
                     'image_path' => $destinationPath,
                     'image_extension' => $extension,
-                ]);
+                ];
 
                 //Criando e persistindo no BD uma nova foto já associada ao user
-                $novaFoto = $this->model->create($request->all());
+                $novaFoto = $this->model->create($request);
 
                 return $novaFoto;
 

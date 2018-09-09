@@ -55,7 +55,6 @@ class BlocoDescricaoController extends AppBaseController
      */
     public function store(CreateBlocoDescricaoRequest $request)
     {
-
         $inputs = $this->blocoDescricaoRepository->preparaRequestParaProcessar($request);
         $blocoDescricao = $this->blocoDescricaoRepository->create($inputs);
 

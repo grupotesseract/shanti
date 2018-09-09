@@ -132,19 +132,53 @@ class BlocoDescricaoRepository extends BaseRepository
 
             //Removendo indice tipo pois ele se refereao tipo da imagem e nesse caso nao se aplica
             $request->request->remove('tipo');
-            $foto = $this->fotoRepository->uploadAndCreate($request);
 
-            //Upload p/ Cloudinary e delete local 
-            $publicId = "shanti_photo_".time();
-            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
-            $this->fotoRepository->deleteLocal($foto->id);
+            if (is_array($request->file)) {
+                $fotos = $request->file;
+                $file = array_shift($fotos);
+                $reqAll = $request->all();
+                $reqAll['file'] = $file;
 
-            //Adicionando o campo necessario na request
-            $request->request->add([
-                'json_conteudo' => [
-                    'src' => $foto->urlCloudinary,
-                ]
-            ]);
+                $fotoEsquerda = $this->fotoRepository->uploadAndCreate($reqAll);
+
+                //Upload p/ Cloudinary e delete local 
+                $publicId = "shanti_photo_".time();
+                $retorno = $this->fotoRepository->sendToCloudinary($fotoEsquerda, $publicId);
+                $this->fotoRepository->deleteLocal($fotoEsquerda->id);
+
+                //Criando segunda foto
+                $file = array_shift($fotos);
+                $reqAll['file'] = $file;
+                $fotoDireita = $this->fotoRepository->uploadAndCreate($reqAll);
+
+                //Upload p/ Cloudinary e delete local 
+                $publicId = "shanti_photo_".time();
+                $retorno = $this->fotoRepository->sendToCloudinary($fotoDireita, $publicId);
+                $this->fotoRepository->deleteLocal($fotoDireita->id);
+
+                //Adicionando o campo necessario na request
+                $request->request->add([
+                    'json_conteudo' => [
+                        'src' => [$fotoEsquerda->urlCloudinary, $fotoDireita->urlCloudinary],
+                    ]
+                ]);
+            }
+
+            else {
+                $foto = $this->fotoRepository->uploadAndCreate($request->all());
+
+                //Upload p/ Cloudinary e delete local 
+                $publicId = "shanti_photo_".time();
+                $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+                $this->fotoRepository->deleteLocal($foto->id);
+
+                //Adicionando o campo necessario na request
+                $request->request->add([
+                    'json_conteudo' => [
+                        'src' => $foto->urlCloudinary,
+                    ]
+                ]);
+            }
 
             $retorno = $request->all();
             $retorno['tipo'] = BlocoDescricao::TIPO_IMAGEM;
