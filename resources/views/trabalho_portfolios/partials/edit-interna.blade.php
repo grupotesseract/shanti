@@ -1,8 +1,14 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="col-xs-12 text-center">
-            {!! Form::label('fotoCapa', 'Foto de capa:') !!}<br>
-            <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoCapa}}" alt="Foto de capa do trabalho"/>
+            @if ($trabalhoPortfolio->linkFotoCapa)
+                {!! Form::label('fotoCapa', 'Foto de capa:') !!}<br>
+                <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoCapa}}" alt="Foto de capa do trabalho"/>
+            @else
+                <strong>Adicione uma foto de capa utilizando os botões abaixo. </strong>
+            @endif
+
+
         </div>
         <div class="col-xs-12 text-center">
            {!! Form::model($trabalhoPortfolio, ['route' => ['trabalhoPortfolios.trocaFotoCapa', $trabalhoPortfolio->id], 'files'=> true]) !!}
@@ -26,7 +32,7 @@
 
         <div class="col-xs-3"></div>
         <div class="col-xs-6 text-center">
-            <h3>{{$trabalhoPortfolio->nome}}</h5>
+            <h3>{{$trabalhoPortfolio->nome}}</h3>
             <p>{{$trabalhoPortfolio->descricao_listagem}}</p>
         </div>
         <div class="col-xs-3"></div>

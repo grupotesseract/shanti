@@ -82,7 +82,7 @@ class TrabalhoPortfolioController extends AppBaseController
             $this->fotoRepository->deleteLocal($foto->id);
         }
 
-        Flash::success('Trabalho do portfólio salvo com sucesso.');
+        Flash::success('Trabalho salvo com sucesso.');
         return redirect('/trabalhoPortfolios/'.$trabalhoPortfolio->id.'/edit');
     }
 
@@ -98,7 +98,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho do portfólio não encontrado!');
+            Flash::error('Trabalho não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -118,7 +118,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho do portfólio não encontrado!');
+            Flash::error('Trabalho não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
@@ -139,7 +139,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho do portfólio não encontrado!');
+            Flash::error('Trabalho não encontrado!');
             return redirect(route('trabalhoPortfolios.index'));
         }
 
@@ -159,7 +159,7 @@ class TrabalhoPortfolioController extends AppBaseController
             $this->fotoRepository->deleteLocal($foto->id);
         }
 
-        Flash::success('Trabalho do portfólio atualizado com sucesso.');
+        Flash::success('Trabalho atualizado com sucesso.');
 
         return redirect(route('trabalhoPortfolios.index'));
     }
@@ -176,14 +176,14 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho do portfólio não encontrado!');
+            Flash::error('Trabalho não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
         }
 
         $this->trabalhoPortfolioRepository->delete($id);
 
-        Flash::success('Trabalho Portfolio deleted successfully.');
+        Flash::success('Trabalho removido com sucesso.');
 
         return redirect(route('trabalhoPortfolios.index'));
     }
@@ -242,7 +242,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('trabalhoPortfolio não encontrado');
+            Flash::error('Trabalho não encontrado');
             return redirect(route('trabalhoPortfolios.index'));
         }
 
@@ -266,7 +266,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('trabalhoPortfolio não encontrado');
+            Flash::error('Trabalho não encontrado');
             return redirect(route('trabalhoPortfolios.index'));
         }
 
@@ -289,7 +289,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('trabalhoPortfolio não encontrado');
+            Flash::error('Trabalho não encontrado');
             return redirect(route('trabalhoPortfolios.index'));
         }
 
@@ -308,7 +308,7 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
-            Flash::error('Trabalho do portfólio não encontrado!');
+            Flash::error('Trabalho não encontrado!');
             return redirect(route('trabalhoPortfolios.index'));
         }
 
