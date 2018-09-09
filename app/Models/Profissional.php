@@ -145,7 +145,7 @@ class Profissional extends Model
     {
         $retorno = "";
 
-        foreach ($this->blocosDescricao as $Bloco) {
+        foreach ($this->blocosOrdenados as $Bloco) {
             $retorno .= $Bloco->getHtmlFormatado();
         }
 

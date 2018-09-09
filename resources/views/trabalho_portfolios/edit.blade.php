@@ -7,7 +7,7 @@
     }
 
     div.tab-content {
-        margin-top: 3.5rem;
+        margin-top: 1rem;
     }
 
     .center-center {
@@ -68,6 +68,7 @@
     </div>
 @endsection
 
-
-
    
+@section('scripts')
+    <script type="text/javascript" src="/js/blocos_descricao.js"></script>
+@endsection

@@ -140,14 +140,15 @@ class TrabalhoPortfolioController extends AppBaseController
 
         if (empty($trabalhoPortfolio)) {
             Flash::error('Trabalho do portfólio não encontrado!');
-
             return redirect(route('trabalhoPortfolios.index'));
         }
 
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->update($request->all(), $id);
 
         if ($request->file) {
-            $trabalhoPortfolio->fotoListagem()->first()->delete();
+            if ($trabalhoPortfolio->fotoListagem()->first()) {
+                $trabalhoPortfolio->fotoListagem()->first()->delete();
+            }
 
             $foto = $this->fotoRepository->uploadAndCreate($request);
             $trabalhoPortfolio->fotoListagem()->save($foto);
@@ -312,8 +313,12 @@ class TrabalhoPortfolioController extends AppBaseController
         }
 
         if ($request->file) {
-            $trabalhoPortfolio->fotoCapa->delete();
 
+            if ($trabalhoPortfolio->fotoCapa()->first()) {
+                $trabalhoPortfolio->fotoCapa()->first()->delete();
+            }
+
+            $request->request->add(['tipo' => \App\Models\Foto::TIPO_CAPA]);
             $foto = $this->fotoRepository->uploadAndCreate($request);
             $trabalhoPortfolio->fotoCapa()->save($foto);
 

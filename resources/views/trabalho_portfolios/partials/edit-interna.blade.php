@@ -2,7 +2,7 @@
     <div class="col-xs-12">
         <div class="col-xs-12 text-center">
             {!! Form::label('fotoCapa', 'Foto de capa:') !!}<br>
-            <img src="{{$trabalhoPortfolio->linkFotoListagem}}" alt="Foto de capa do trabalho"/>
+            <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoCapa}}" alt="Foto de capa do trabalho"/>
         </div>
         <div class="col-xs-12 text-center">
            {!! Form::model($trabalhoPortfolio, ['route' => ['trabalhoPortfolios.trocaFotoCapa', $trabalhoPortfolio->id], 'files'=> true]) !!}
@@ -14,7 +14,7 @@
                     'extraAttrs' => ['required']
                 ])
 
-                {!! Form::submit('Trocar Foto', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit("Trocar Foto", ['class' => 'btn btn-primary']) !!}
                 
             </div>
            
@@ -24,10 +24,12 @@
         </div>
 
 
-        <div class="col-xs-6">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6 text-center">
             <h3>{{$trabalhoPortfolio->nome}}</h5>
             <p>{{$trabalhoPortfolio->descricao_listagem}}</p>
         </div>
+        <div class="col-xs-3"></div>
     </div>
 
     <div class="col-xs-12">

@@ -5,8 +5,8 @@
 @endif
 
 {{-- Campos para o tipo VIDEO  --}}
-<div class="form-group col-sm-3">
-    {!! Form::label('url', 'Link do youtube:') !!}
+<div class="form-group col-sm-12">
+    {!! Form::label('url', 'Código do video no youtube. Ex: ') !!} https://www.youtube.com/watch?v=<strong style="color:red">WKK84yEBZoo</strong>
     {!! Form::text('url', isset($blocosDescricao) ? $blocosDescricao->getConteudo('url') : '', ['class' => 'form-control']) !!}
 </div>
 

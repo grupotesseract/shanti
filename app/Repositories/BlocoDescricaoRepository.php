@@ -129,10 +129,13 @@ class BlocoDescricaoRepository extends BaseRepository
         if ($this->requestTipoIgualA($request, BlocoDescricao::TIPO_IMAGEM)) {
             
             $this->fotoRepository = new FotoRepository(app());
+
+            //Removendo indice tipo pois ele se refereao tipo da imagem e nesse caso nao se aplica
+            $request->request->remove('tipo');
             $foto = $this->fotoRepository->uploadAndCreate($request);
 
             //Upload p/ Cloudinary e delete local 
-            $publicId = "shanti_profissional_".time();
+            $publicId = "shanti_photo_".time();
             $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
             $this->fotoRepository->deleteLocal($foto->id);
 
@@ -144,6 +147,7 @@ class BlocoDescricaoRepository extends BaseRepository
             ]);
 
             $retorno = $request->all();
+            $retorno['tipo'] = BlocoDescricao::TIPO_IMAGEM;
             unset($retorno['file']);
 
         }

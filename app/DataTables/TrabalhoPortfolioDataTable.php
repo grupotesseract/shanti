@@ -51,15 +51,8 @@ class TrabalhoPortfolioDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px'])
             ->parameters([
-                'dom'     => 'Bfrtip',
-                'order'   => [[0, 'desc']],
-                'buttons' => [
-                    'create',
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
-                ],
+                'dom'     => 'rt',
+                'order'   => [[0, 'desc']]
             ]);
     }
 

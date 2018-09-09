@@ -96,3 +96,5 @@ Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioControl
 
 Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
 Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
+Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
+Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');

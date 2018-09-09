@@ -130,6 +130,24 @@ class TrabalhoPortfolio extends Model
     }
 
     /**
+     * Definindo um acessor para a URL da foto no cloudinary no tamanho certo que irão aparecer ~1200max
+     */
+    public function getLinkFotoCapaAttribute()
+    {
+        if ($this->fotoCapa()->first()) {
+
+            return "//res.cloudinary.com/"
+                . env('CLOUDINARY_CLOUD_NAME')
+                . "/image/upload/c_scale,w_1200,q_auto/"
+                . $this->fotoCapa()->first()->cloudinary_id
+                . ".jpg";
+        }
+
+        return '';
+
+    }
+
+    /**
      * Relacao entre um trabalho do portfolio e os blocos de descricao que compoem a pagina interna do profissional
      *
      * @return void
@@ -146,6 +164,22 @@ class TrabalhoPortfolio extends Model
     public function getBlocosOrdenadosAttribute()
     {
         return $this->blocosDescricao()->orderBy('ordem')->get();
+    }
+
+    /**
+     * Acessor para o conteudo da pagina interna ja formatado
+     */
+    public function getConteudoPaginaInternaAttribute()
+    {
+        $retorno = "";
+
+        foreach ($this->blocosOrdenados as $Bloco) {
+            $retorno .= '<div class="col-xs-12 bloco-descricao">'
+                .$Bloco->getHtmlFormatado() 
+                .'</div>';
+        }
+
+        return $retorno;
     }
 
     

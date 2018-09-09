@@ -26,6 +26,9 @@
 
 </div>
 
+<div class="form-group col-sm-12">
+    <hr>
+</div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

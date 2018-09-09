@@ -14,8 +14,9 @@
             @foreach (\App\Models\TrabalhoPortfolio::ativos()->get() as $trabalhoPortfolio)
                 <div class="col-12 col-lg-5">
                     <a href="/portfolio/{{$trabalhoPortfolio->id}}">
-                        <div class="caixa">
+                        <div class="caixa" style="background-image:url('{{$trabalhoPortfolio->linkFotoListagem}}')">
                             <p>{{$trabalhoPortfolio->descricao_listagem}}</p>
+
                         </div>
                         <h5>{{$trabalhoPortfolio->nome}}</h5>
                     </a>
