@@ -21,3 +21,6 @@
     <a href="{!! route('trabalhoPortfolios.index') !!}"><i class="fa fa-briefcase"></i><span>Portfólio</span></a>
 </li>
 
+<li class="{{ Request::is('itemProgramacaos*') ? 'active' : '' }}">
+    <a href="{!! route('itemProgramacaos.index') !!}"><i class="fa fa-calendar"></i><span>Programação</span></a>
+</li>
