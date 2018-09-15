@@ -39,6 +39,7 @@ class ItemProgramacao extends Model
     public $fillable = [
         'nome',
         'tipo',
+        'breve_descricao_listagem',
         'descricao_listagem',
         'horario',
         'link_facebook',
@@ -53,6 +54,8 @@ class ItemProgramacao extends Model
      */
     protected $casts = [
         'nome' => 'string',
+        'descricao_listagem' => 'string',
+        'data_listagem' => 'string',
         'horario' => 'string',
         'link_facebook' => 'string',
         'ativo_listagem' => 'boolean'
@@ -95,6 +98,30 @@ class ItemProgramacao extends Model
         static::deleting(function ($model) {
             DeleteModelHelper::deleteRelationships($model);
         });
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeCursos($query)
+    {
+        return $query->where('tipo', self::TIPO_CURSO);
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeCursosSemData($query)
+    {
+        return $query->where('tipo', self::TIPO_CURSO_SEM_DATA);
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeEventos($query)
+    {
+        return $query->where('tipo', self::TIPO_EVENTO);
     }
 
     /**

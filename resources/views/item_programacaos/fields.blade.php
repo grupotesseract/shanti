@@ -16,29 +16,29 @@
     {!! Form::text('descricao_listagem', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Data Field -->
-<div class="form-group col-sm-2 hide campos-data">
-    {!! Form::label('data', 'Data:') !!}
-    {!! Form::date('data', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Horario Field -->
-<div class="form-group col-sm-2 hide campos-data">
-    {!! Form::label('horario', 'Horario:') !!}
-    {!! Form::time('horario', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Link Facebook Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('link_facebook', 'Link Facebook (opcional):') !!}
     {!! Form::text('link_facebook', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Horario Field -->
+<div class="form-group col-sm-3 hide campos-data">
+    {!! Form::label('horario', 'Horario (aparece na listagem)') !!}
+    {!! Form::text('horario', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Descricao Listagem Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     @include('fotos.partials.fields', [
         'label' => 'Foto da listagem:'
     ])
+</div>
+
+<!-- Breve descricao Field -->
+<div class="form-group col-sm-9">
+    {!! Form::label('breve_descricao_listagem', 'Breve descricao (opcional)') !!}
+    {!! Form::textarea('breve_descricao_listagem', null, ['class' => 'form-control', 'rows' => 3]) !!}
 </div>
 
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}

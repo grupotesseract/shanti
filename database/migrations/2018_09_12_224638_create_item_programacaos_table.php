@@ -17,6 +17,7 @@ class CreateItemProgramacaosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->smallInteger('tipo')->nullable();
+            $table->text('breve_descricao_listagem')->nullable();
             $table->string('descricao_listagem')->nullable();
             $table->string('horario')->nullable();
             $table->string('link_facebook')->nullable();

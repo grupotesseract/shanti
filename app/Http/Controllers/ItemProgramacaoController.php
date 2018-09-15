@@ -148,7 +148,7 @@ class ItemProgramacaoController extends AppBaseController
             if ($itemProgramacao->fotoListagem()->first()) {
                 $itemProgramacao->fotoListagem()->first()->delete();
             }
-
+            $input = $request->all();
             unset($input['tipo']);
             $foto = $this->fotoRepository->uploadAndCreate($input);
             $itemProgramacao->fotoListagem()->save($foto);
