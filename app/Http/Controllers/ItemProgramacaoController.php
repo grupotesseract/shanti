@@ -2,23 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\ItemProgramacaoDataTable;
+use Flash;
+use Response;
 use App\Http\Requests;
+use App\Repositories\FotoRepository;
+use App\Http\Controllers\AppBaseController;
+use App\DataTables\ItemProgramacaoDataTable;
+use App\Repositories\BlocoDescricaoRepository;
+use App\Repositories\ItemProgramacaoRepository;
 use App\Http\Requests\CreateItemProgramacaoRequest;
 use App\Http\Requests\UpdateItemProgramacaoRequest;
-use App\Repositories\ItemProgramacaoRepository;
-use Flash;
-use App\Http\Controllers\AppBaseController;
-use Response;
 
 class ItemProgramacaoController extends AppBaseController
 {
     /** @var  ItemProgramacaoRepository */
     private $itemProgramacaoRepository;
+    private $fotoRepository;
+    private $blocoRepository;
 
-    public function __construct(ItemProgramacaoRepository $itemProgramacaoRepo)
+    /**
+     * Construtor recebendo repos necessarios (comofaz identação com tantos repos?)
+     *
+     * @param ItemProgramacaoRepository $itemProgramacaoRepo
+     * @param FotoRepository $fotoRepo
+     * @param BlocoDescricaoRepository $blocoRepo
+     */
+    public function __construct(FotoRepository $fotoRepo, 
+        BlocoDescricaoRepository $blocoRepo,
+        ItemProgramacaoRepository $itemProgramacaoRepo)
     {
         $this->itemProgramacaoRepository = $itemProgramacaoRepo;
+        $this->fotoRepository = $fotoRepo;
+        $this->blocoRepository = $blocoRepo;
     }
 
     /**
@@ -55,8 +70,18 @@ class ItemProgramacaoController extends AppBaseController
 
         $itemProgramacao = $this->itemProgramacaoRepository->create($input);
 
-        Flash::success('Item Programacao saved successfully.');
+        if ($request->file) {
+            unset($input['tipo']);
+            $foto = $this->fotoRepository->uploadAndCreate($input);
+            $itemProgramacao->fotoListagem()->save($foto);
 
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_itemProgramacao_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
+        Flash::success('Programação criada com sucesso.');
         return redirect(route('itemProgramacaos.index'));
     }
 
@@ -72,7 +97,7 @@ class ItemProgramacaoController extends AppBaseController
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 
         if (empty($itemProgramacao)) {
-            Flash::error('Item Programacao not found');
+            Flash::error('Programação não encontrada');
 
             return redirect(route('itemProgramacaos.index'));
         }
@@ -92,7 +117,7 @@ class ItemProgramacaoController extends AppBaseController
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 
         if (empty($itemProgramacao)) {
-            Flash::error('Item Programacao not found');
+            Flash::error('Programação não encontrada');
 
             return redirect(route('itemProgramacaos.index'));
         }
@@ -113,15 +138,29 @@ class ItemProgramacaoController extends AppBaseController
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 
         if (empty($itemProgramacao)) {
-            Flash::error('Item Programacao not found');
-
+            Flash::error('Programação não encontrada');
             return redirect(route('itemProgramacaos.index'));
         }
 
         $itemProgramacao = $this->itemProgramacaoRepository->update($request->all(), $id);
 
-        Flash::success('Item Programacao updated successfully.');
+        if ($request->file) {
+            if ($itemProgramacao->fotoListagem()->first()) {
+                $itemProgramacao->fotoListagem()->first()->delete();
+            }
 
+            unset($input['tipo']);
+            $foto = $this->fotoRepository->uploadAndCreate($input);
+            $itemProgramacao->fotoListagem()->save($foto);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_itemProgramacao_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
+
+        Flash::success('Programação atualizada com sucesso.');
         return redirect(route('itemProgramacaos.index'));
     }
 
@@ -137,15 +176,158 @@ class ItemProgramacaoController extends AppBaseController
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 
         if (empty($itemProgramacao)) {
-            Flash::error('Item Programacao not found');
+            Flash::error('Programação não encontrada');
 
             return redirect(route('itemProgramacaos.index'));
         }
 
         $this->itemProgramacaoRepository->delete($id);
 
-        Flash::success('Item Programacao deleted successfully.');
+        Flash::success('Programação deleted successfully.');
 
         return redirect(route('itemProgramacaos.index'));
     }
+
+    /**
+     * Metodo que recebe o POST de ativar a exibição desse itemProgramacao em /quem-somos
+     *
+     * @param mixed $id
+     */
+    public function postAtivaListagem($id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada');
+
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        $retorno = $this->itemProgramacaoRepository->ativaTrabalho($itemProgramacao);
+        Flash::success('Trabalho ativado com sucesso.');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Metodo que recebe o POST de desativar a exibição dessa itemProgramacao em /quem-somos.
+     *
+     * @param mixed $id
+     */
+    public function postRemoveListagem($id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada');
+
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        $retorno = $this->itemProgramacaoRepository->desativaTrabalho($itemProgramacao);
+        Flash::success('Trabalho desativado com sucesso.');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Mostra a view de criacao de um novo BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - TrabalhoPortfolio
+     */
+    public function getCreateBlocoConteudo($id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada');
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        //Pegando a view de create do bloco de conteudo de acordo com o tipo e passando quem sera o 'owner'
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $itemProgramacao);
+
+        return view('bloco_descricaos.partials.create-bloco-conteudo')
+            ->with('formulario', $formulario);
+
+    }
+
+    /**
+     * Mostra a view de edição de um BlocoDescricao, de acordo com o tipo.
+     *
+     * Conta com o parametro 'tipo' na request
+     *
+     * @param mixed $id - itemProgramacao
+     */
+    public function getEditBlocoConteudo($id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada');
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        $Bloco = $this->blocoRepository->findWithoutFail(\Request::get('idBloco'));
+        $formulario = $this->blocoRepository->getViewFormularioPeloTipo(\Request::get('tipo'), $itemProgramacao, $Bloco);
+
+        return view('bloco_descricaos.partials.edit-bloco-conteudo')
+            ->with('formulario', $formulario);
+
+    }
+
+
+    /**
+     * Metodo para exibir a pagina interna de um trabalho do portfolio
+     *
+     * @return void
+     */
+    public function getShowPortfolio($id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada');
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        return view('pages.portfolio-interno')->with(["itemProgramacao" => $itemProgramacao]);
+    }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function postTrocaFotoCapa(FotoRequest $request, $id)
+    {
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            Flash::error('Programação não encontrada!');
+            return redirect(route('itemProgramacaos.index'));
+        }
+
+        if ($request->file) {
+            if ($itemProgramacao->fotoCapa()->first()) {
+                $itemProgramacao->fotoCapa()->first()->delete();
+            }
+
+            $request->request->add(['tipo' => \App\Models\Foto::TIPO_CAPA]);
+            $foto = $this->fotoRepository->uploadAndCreate($request);
+            $itemProgramacao->fotoCapa()->save($foto);
+
+            //Upload p/ Cloudinary e delete local 
+            $publicId = "shanti_itemProgramacao_".time();
+            $retorno = $this->fotoRepository->sendToCloudinary($foto, $publicId);
+            $this->fotoRepository->deleteLocal($foto->id);
+        }
+
+        Flash::success('Foto de capa atualizada com sucesso.');
+        return redirect()->back();
+    }
+    
 }
+

@@ -51,7 +51,7 @@ class TrabalhoPortfolio extends Model
      * @var array 
      */
     public $relacoesDependentes = [
-       'fotoListagem',
+       'fotos',
        'blocosDescricao' 
     ];
 

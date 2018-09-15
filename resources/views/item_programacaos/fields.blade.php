@@ -1,13 +1,19 @@
-<!-- Nome Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('nome', 'Nome:') !!}
-    {!! Form::text('nome', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Tipo Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('tipo', 'Tipo:') !!}
     {!! Form::select('tipo', [null => 'Tipo da programação', '1' => 'CURSO', '2' => 'CURSO SEM DATA', '3' => 'EVENTO'], null, ['class' => 'form-control tipo-select']) !!}
+</div>
+
+<!-- Nome Field -->
+<div class="form-group col-sm-5">
+    {!! Form::label('nome', 'Nome:') !!}
+    {!! Form::text('nome', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- descricao_listagem, Field -->
+<div class="form-group col-sm-4 hide campos-data">
+    {!! Form::label('descricao_listagem', 'Descrição (dentro da caixa vinho)') !!}
+    {!! Form::text('descricao_listagem', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Data Field -->
@@ -19,16 +25,14 @@
 <!-- Horario Field -->
 <div class="form-group col-sm-2 hide campos-data">
     {!! Form::label('horario', 'Horario:') !!}
-    {!! Form::text('horario', null, ['class' => 'form-control']) !!}
+    {!! Form::time('horario', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Link Facebook Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('link_facebook', 'Link Facebook:') !!}
+    {!! Form::label('link_facebook', 'Link Facebook (opcional):') !!}
     {!! Form::text('link_facebook', null, ['class' => 'form-control']) !!}
 </div>
-
-
 
 <!-- Descricao Listagem Field -->
 <div class="form-group col-sm-6">

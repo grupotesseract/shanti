@@ -17,8 +17,13 @@ class ItemProgramacaoDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'item_programacaos.datatables_actions');
+        return $dataTable->addColumn('nome', function ($model) {
+                return '<a href="/itemProgramacaos/'.$model->id.'/edit">'.$model->nome.'</a>';
+            })
+            ->addColumn('action', function ($model) {
+                return view('item_programacaos.datatables_actions')->with(['itemProgramacao' => $model, 'id' => $model->id]);
+            })
+            ->rawColumns(['nome', 'action']);
     }
 
     /**
@@ -42,17 +47,11 @@ class ItemProgramacaoDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '80px', 'title' => 'Ações'])
             ->parameters([
-                'dom'     => 'Bfrtip',
+                'dom'     => 'rt',
                 'order'   => [[0, 'desc']],
-                'buttons' => [
-                    'create',
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
-                ],
+                'language' => ['url' => '//cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json'],
             ]);
     }
 
@@ -65,9 +64,9 @@ class ItemProgramacaoDataTable extends DataTable
     {
         return [
             'nome',
-            'tipo',
+            'tipoTexto' => ['searchable' => false, 'orderable' => false, 'title' => 'Tipo'],
+            'descricao_listagem',
             'horario',
-            'link_facebook'
         ];
     }
 
