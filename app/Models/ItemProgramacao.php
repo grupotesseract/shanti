@@ -19,6 +19,8 @@ use App\Helpers\DeleteModelHelper;
  */
 class ItemProgramacao extends Model
 {
+    const ROUTE_RESOURCE = 'itemProgramacaos';
+
     public $table = 'item_programacaos';
 
     protected $dates = ['deleted_at'];

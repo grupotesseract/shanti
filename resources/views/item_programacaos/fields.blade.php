@@ -12,7 +12,7 @@
 
 <!-- descricao_listagem, Field -->
 <div class="form-group col-sm-4 hide campos-data">
-    {!! Form::label('descricao_listagem', 'Descrição (dentro da caixa vinho)') !!}
+    {!! Form::label('descricao_listagem', 'Breve Descrição (dentro da caixa vinho)') !!}
     {!! Form::text('descricao_listagem', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -24,7 +24,7 @@
 
 <!-- Horario Field -->
 <div class="form-group col-sm-3 hide campos-data">
-    {!! Form::label('horario', 'Horario (aparece na listagem)') !!}
+    {!! Form::label('horario', 'Horário (opcional)') !!}
     {!! Form::text('horario', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -37,7 +37,7 @@
 
 <!-- Breve descricao Field -->
 <div class="form-group col-sm-9">
-    {!! Form::label('breve_descricao_listagem', 'Breve descricao (opcional)') !!}
+    {!! Form::label('breve_descricao_listagem', 'Descrição (opcional)') !!}
     {!! Form::textarea('breve_descricao_listagem', null, ['class' => 'form-control', 'rows' => 3]) !!}
 </div>
 

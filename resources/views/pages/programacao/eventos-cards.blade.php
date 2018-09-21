@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-5">
         <div class="col-12 col-lg-5">
-            <a href="programacao-eventos-interno">
+            <a href="/programacao/{{$itemProgramacao->id}}">           
                 <p class="caption">{{$itemProgramacao->descricao_listagem}}</p>            
                 <img src="{{ $itemProgramacao->fotoListagem->first()->urlCloudinary }}">
             </a>

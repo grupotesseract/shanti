@@ -210,6 +210,7 @@
 }
 
 .capa-container {
+
     @include media-breakpoint-down(md) {
         padding: 0;
     }
@@ -217,18 +218,8 @@
     max-width: 1140px;
     padding: 0 15px;
 
-    .capa {
-        height: 500px;
-        border-radius: 5px;
-
-        @include media-breakpoint-down(md) {
-            height: 230px;
-            border-radius: 0;
-        }
-
-        background-image: url("/images/capa-home.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+    .capa-programacao {
+        width:100%;
+        border-radius: 10px;
     }	
 }

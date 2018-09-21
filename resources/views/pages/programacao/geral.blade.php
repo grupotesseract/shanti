@@ -13,13 +13,13 @@
 
     <ul class="nav justify-content-center nav-top">
       <li class="nav-item">
-        <a class="nav-link active" href="programacao-geral">Todos</a>
+        <a class="nav-link active" href="/programacao-geral">Todos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="programacao-cursos-agendados">Cursos</a>
+        <a class="nav-link" href="/programacao-cursos-agendados">Cursos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="programacao-eventos">Eventos</a>
+        <a class="nav-link" href="/programacao-eventos">Eventos</a>
       </li>
     </ul>
 

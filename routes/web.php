@@ -20,28 +20,6 @@ Route::get('servicos', 'ServicosController@getIndex');
 Route::get('servicos/{id}', 'ServicosController@getServico');
 
 
-/* Programação */
-Route::get('programacao-geral', function () {
-    return view('pages.programacao.geral');
-});
-Route::get('programacao-cursos-agendados', function () {
-    return view('pages.programacao.cursos-agendados');
-});
-Route::get('programacao-cursos-agendados-interno', function () {
-    return view('pages.programacao.cursos-agendados-interno');
-});
-Route::get('programacao-cursos-nao-agendados', function () {
-    return view('pages.programacao.cursos-nao-agendados');
-});
-Route::get('programacao-cursos-nao-agendados-interno', function () {
-    return view('pages.programacao.cursos-nao-agendados-interno');
-});
-Route::get('programacao-eventos', function () {
-    return view('pages.programacao.eventos');
-});
-Route::get('programacao-eventos-interno', function () {
-    return view('pages.programacao.eventos-interno');
-});
 
 
 /* Portfólio */
@@ -96,22 +74,42 @@ Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioControl
 
 Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
 Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
+
 Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
 Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::resource('itemProgramacaos', 'ItemProgramacaoController');
+
+
+
+/* Programação */
+Route::get('programacao-geral', function () {
+    return view('pages.programacao.geral');
+});
+Route::get('programacao-cursos-agendados', function () {
+    return view('pages.programacao.cursos-agendados');
+});
+Route::get('programacao-cursos-agendados-interno', function () {
+    return view('pages.programacao.cursos-agendados-interno');
+});
+Route::get('programacao-cursos-nao-agendados', function () {
+    return view('pages.programacao.cursos-nao-agendados');
+});
+Route::get('programacao-cursos-nao-agendados-interno', function () {
+    return view('pages.programacao.cursos-nao-agendados-interno');
+});
+Route::get('programacao-eventos', function () {
+    return view('pages.programacao.eventos');
+});
+Route::get('programacao-eventos-interno', function () {
+    return view('pages.programacao.eventos-interno');
+});
+
+Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
+Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
+Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
+
+Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->middleware('auth')->name('itemProgramacaos.show');
+
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Flash;
 use Response;
 use App\Http\Requests;
+use App\Http\Requests\FotoRequest;
 use App\Repositories\FotoRepository;
 use App\Http\Controllers\AppBaseController;
 use App\DataTables\ItemProgramacaoDataTable;
@@ -98,11 +99,10 @@ class ItemProgramacaoController extends AppBaseController
 
         if (empty($itemProgramacao)) {
             Flash::error('Programação não encontrada');
-
             return redirect(route('itemProgramacaos.index'));
         }
 
-        return view('item_programacaos.show')->with('itemProgramacao', $itemProgramacao);
+        return view('pages.programacao.interna')->with('itemProgramacao', $itemProgramacao);
     }
 
     /**
