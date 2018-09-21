@@ -182,7 +182,7 @@ class ItemProgramacao extends Model
                 . ".jpg";
         }
 
-        return '/images/500x300.png';
+        return '//via.placeholder.com/500x300';
 
     }
 
@@ -200,8 +200,7 @@ class ItemProgramacao extends Model
                 . ".jpg";
         }
 
-        return '';
-
+        return '//via.placeholder.com/1200x550';
     }
 
     /**
