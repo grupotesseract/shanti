@@ -46,48 +46,55 @@
 
 <div class="container w-75 mx-auto programacao-geral">
   <div class="row programacao-interno">
-    <div class="col">
-      <h5>{{$itemProgramacao->nome}}</h5>
+      <div class="col">
+          <h5>{{$itemProgramacao->nome}}</h5>
 
 
-      {!! $itemProgramacao->conteudoPaginaInterna !!}
+          {!! $itemProgramacao->conteudoPaginaInterna !!}
 
-      {{--
-      <p><span class="horario">27/02 | Terça</span><i class="far fa-clock fa-sm"></i> 16h00 às 20h00</p>
+          {{--
+              <p><span class="horario">27/02 | Terça</span><i class="far fa-clock fa-sm"></i> 16h00 às 20h00</p>
       <div class="col-xs-12"> <hr> </div>
       <div class="forms">
         <h5>INSCREVA-SE</h5>
         <p>Deixe seus dados e entraremos em contato.</p>
       </div>
-      --}}
+  --}}
 
-      @if ($itemProgramacao->tipo != \App\Models\ItemProgramacao::TIPO_EVENTO)
-          {{ Form::open(['url'=>'/contato-programacao', 'class' => 'mt-5'])}}
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Nome" id="nome-input">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email" id="email-input" aria-describedby="emailHelp" >
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Telefone" id="telefone-input">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" placeholder="Observação" id="observacao-inpt" rows="3"></textarea>
-            </div>
-            <div class="button">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-          {{ Form::close() }}
-      @endif
+  @if ($itemProgramacao->tipo != \App\Models\ItemProgramacao::TIPO_EVENTO)
+      {{ Form::open(['url'=> '/programacao/'.$itemProgramacao->id."/contato", 'class' => 'mt-5'])}}
+      <div class="form-group">
+          @include('flash::message')
+      </div>
 
-      @if ($itemProgramacao->link_facebook)
-        <a href="{{$itemProgramacao->link_facebook}}" target="_blank">
-            <h5 class="presenca">Confirme sua presença! <i class="fab fa-facebook-square fa-lg"></i></h5>
-        </a>
-      @endif
+      <div class="form-group">
+          {!! Form::text('nome', null, ['class' => 'form-control', 'id' => 'nome-input', 'placeholder' => 'Nome']) !!}
+      </div>
 
-    </div>
+      <div class="form-group">
+          {!! Form::email('email', null, ['class' => 'form-control', "placeholder" => "Email", 'id' => 'email-input', "aria-describedby"=>"emailHelp"]) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::text('telefone', null, ['class' => 'form-control', "placeholder" => "(99) 9 9999-9999", 'id' => 'telefone-input']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::textarea('observacao', null, ['class' => 'form-control', "placeholder" => "Mensagem", 'id' => 'observacao-input', 'rows' => 3]) !!}
+      </div>
+      <div class="button">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+      {{ Form::close() }}
+  @endif
+
+  @if ($itemProgramacao->link_facebook)
+      <a href="{{$itemProgramacao->link_facebook}}" target="_blank">
+          <h5 class="presenca">Confirme sua presença! <i class="fab fa-facebook-square fa-lg"></i></h5>
+      </a>
+  @endif
+
+      </div>
   </div>
 </div>
 @endsection

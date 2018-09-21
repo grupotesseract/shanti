@@ -13,6 +13,8 @@ use App\Repositories\BlocoDescricaoRepository;
 use App\Repositories\ItemProgramacaoRepository;
 use App\Http\Requests\CreateItemProgramacaoRequest;
 use App\Http\Requests\UpdateItemProgramacaoRequest;
+use Illuminate\Http\Request;
+
 
 class ItemProgramacaoController extends AppBaseController
 {
@@ -328,6 +330,41 @@ class ItemProgramacaoController extends AppBaseController
         Flash::success('Foto de capa atualizada com sucesso.');
         return redirect()->back();
     }
+
+
+    /**
+     * Post para enviar o email de uma inscricao de programacao
+     *
+     * @return void
+     */
+    public function postContatoProgramacao(Request $request, $id)
+    {
+        \Flash::success('Muito obrigado, em breve entraremos em contato.');
+
+        $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+
+            \Log::error("\n\n\n ##### \n\n\n ---> PROBLEMA TENTATIVA CONTATO <--- \n\n\n ");
+            \Log::info(json_encode($request));
+            \Log::error("\n\n\n ##### \n\n\n");
+            
+            return redirect()->back();
+        }
+
+        \Mail::send(
+            new \App\Mail\EmailContatoProgramacao(
+                $request->nome,
+                $request->email,
+                $request->telefone,
+                $request->observacao,
+                $itemProgramacao
+            )
+        );
+
+        return redirect()->back();
+    }
+    
     
 }
 

@@ -110,6 +110,7 @@ Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTroca
 Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
 Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
 
-Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->middleware('auth')->name('itemProgramacaos.show');
+Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
 
+Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
 
