@@ -125,7 +125,7 @@ class TrabalhoPortfolio extends Model
                 . ".jpg";
         }
 
-        return '';
+        return '//via.placeholder.com/450x450';
 
     }
 
@@ -143,7 +143,8 @@ class TrabalhoPortfolio extends Model
                 . ".jpg";
         }
 
-        return '';
+        return '//via.placeholder.com/1200x550';
+
 
     }
 

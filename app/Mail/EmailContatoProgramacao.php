@@ -42,7 +42,7 @@ class EmailContatoProgramacao extends Mailable
     {
         return $this
             ->from('contato@institutoshanti.com')
-            ->to('renatoo.agomes@gmail.com')
+            ->to('contato@institutoshanti.com')
             ->subject('♡ Shanti: Inscrição/Interesse em: '. $this->nomeProgramacao)
             ->view('emails.contato-programacao');
     }
