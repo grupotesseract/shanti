@@ -182,7 +182,7 @@ class ItemProgramacao extends Model
                 . ".jpg";
         }
 
-        return '';
+        return '/images/500x300.png';
 
     }
 

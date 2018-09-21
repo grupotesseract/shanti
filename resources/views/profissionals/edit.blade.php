@@ -64,6 +64,6 @@
 
 
 @section('scripts')
-    @include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
+    @include('summernote.builder', ['textAreaClass' =>"summernote"])
     <script type="text/javascript" src="/js/blocos_descricao.js"></script>
 @endsection

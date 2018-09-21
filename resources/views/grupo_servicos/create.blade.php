@@ -25,5 +25,5 @@
 @endsection
 
 @section('scripts')
-@include('ckeditor.builder', ['textAreaClass' =>"textarea-ck"])
+    @include('summernote.builder', ['textAreaClass' =>"summernote"])
 @endsection

@@ -154,7 +154,7 @@ class ProfissionalController extends AppBaseController
 
         Flash::success('Profissional atualizado com sucesso.');
 
-        return redirect(route('profissionals.index'));
+        return redirect()->back();
     }
 
     /**
