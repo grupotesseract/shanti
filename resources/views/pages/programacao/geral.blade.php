@@ -13,17 +13,33 @@
 
     <ul class="nav justify-content-center nav-top">
       <li class="nav-item">
-        <a class="nav-link active" href="programacao-geral">Todos</a>
+        <a class="nav-link active" href="/programacao-geral">Todos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="programacao-cursos-agendados">Cursos</a>
+        <a class="nav-link" href="/programacao-cursos-agendados">Cursos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="programacao-eventos">Eventos</a>
+        <a class="nav-link" href="/programacao-eventos">Eventos</a>
       </li>
     </ul>
 
-    @include('pages.programacao.cursos-agendados-cards')
+    @foreach(\App\Models\ItemProgramacao::ativos()->get() as $itemProgramacao)
+        @if ($itemProgramacao->tipo == \App\Models\ItemProgramacao::TIPO_CURSO)
+            @include('pages.programacao.cursos-agendados-cards', [
+                'itemProgramacao' => $itemProgramacao
+            ])
+        @endif
+        @if ($itemProgramacao->tipo == \App\Models\ItemProgramacao::TIPO_EVENTO)
+            @include('pages.programacao.eventos-cards', [
+                'itemProgramacao' => $itemProgramacao
+            ])
+        @endif
+        @if ($itemProgramacao->tipo == \App\Models\ItemProgramacao::TIPO_CURSO_SEM_DATA)
+            @include('pages.programacao.cursos-nao-agendados-cards', [
+                'itemProgramacao' => $itemProgramacao
+            ])
+        @endif
+    @endforeach
 </div>
 
 @endsection

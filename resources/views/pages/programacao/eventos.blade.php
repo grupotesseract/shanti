@@ -23,7 +23,13 @@
       </li>
     </ul>
 
-    @include('pages.programacao.eventos-cards')
+    @foreach(\App\Models\ItemProgramacao::ativos()->get() as $itemProgramacao)
+        @if ($itemProgramacao->tipo == \App\Models\ItemProgramacao::TIPO_EVENTO)
+            @include('pages.programacao.eventos-cards', [
+                'itemProgramacao' => $itemProgramacao
+            ])
+        @endif
+    @endforeach
 </div>
 
 @endsection

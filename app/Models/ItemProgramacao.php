@@ -6,25 +6,49 @@ use Eloquent as Model;
 use App\Helpers\DeleteModelHelper;
 
 /**
- * Class TrabalhoPortfolio
+ * Class ItemProgramacao
  * @package App\Models
- * @version September 7, 2018, 9:11 pm BRT
+ * @version September 12, 2018, 10:46 pm BRT
  *
  * @property string nome
- * @property string descricao_listagem
+ * @property smallInteger tipo
+ * @property string horario
+ * @property string link_facebook
+ * @property boolean ativo_listagem
+ * @property timestamp data
  */
-class TrabalhoPortfolio extends Model
+class ItemProgramacao extends Model
 {
-    //constance para obter o nome da resource que identifica as actions dos controllers a partir da classe
-    const ROUTE_RESOURCE = 'trabalhoPortfolios';
+    const ROUTE_RESOURCE = 'itemProgramacaos';
 
-    public $table = 'trabalho_portfolios';
+    public $table = 'item_programacaos';
+
+    protected $dates = ['deleted_at'];
+
+    const TIPO_CURSO = 1;   
+    const TIPO_CURSO_SEM_DATA = 2;   
+    const TIPO_EVENTO = 3;   
+
+    /**
+     * Array com valores dos inteiros e nomes de cada tipo 
+     */
+    const TIPOS = [
+        self::TIPO_CURSO => 'CURSO',
+        self::TIPO_CURSO_SEM_DATA => 'CURSO_SEM_DATA',
+        self::TIPO_EVENTO => 'EVENTO'
+    ];
 
     public $fillable = [
         'nome',
+        'tipo',
+        'breve_descricao_listagem',
         'descricao_listagem',
+        'horario',
+        'link_facebook',
         'ativo_listagem',
-    ]; 
+        'data'
+    ];
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -32,7 +56,11 @@ class TrabalhoPortfolio extends Model
      */
     protected $casts = [
         'nome' => 'string',
-        'descricao_listagem' => 'string'
+        'descricao_listagem' => 'string',
+        'data_listagem' => 'string',
+        'horario' => 'string',
+        'link_facebook' => 'string',
+        'ativo_listagem' => 'boolean'
     ];
 
     /**
@@ -42,8 +70,9 @@ class TrabalhoPortfolio extends Model
      */
     public static $rules = [
         'nome' => 'required',
-        'descricao_listagem' => 'required'
+        'tipo' => 'required'
     ];
+
 
     /**
      * Array de relacoesDependentes que devem ser deletadas caso essa Entidade seja deletada
@@ -51,8 +80,12 @@ class TrabalhoPortfolio extends Model
      * @var array 
      */
     public $relacoesDependentes = [
-       'fotos',
-       'blocosDescricao' 
+        'fotoListagem',
+        'blocosDescricao' 
+    ];
+
+    public $appends = [
+        'tipoTexto',
     ];
 
 
@@ -70,6 +103,30 @@ class TrabalhoPortfolio extends Model
     }
 
     /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeCursos($query)
+    {
+        return $query->where('tipo', self::TIPO_CURSO);
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeCursosSemData($query)
+    {
+        return $query->where('tipo', self::TIPO_CURSO_SEM_DATA);
+    }
+
+    /**
+     * Scope para aplicar na query filtrando por 
+     */
+    public function scopeEventos($query)
+    {
+        return $query->where('tipo', self::TIPO_EVENTO);
+    }
+
+    /**
      * Relação de polimorfica com fotos
      *
      * @return void
@@ -80,7 +137,7 @@ class TrabalhoPortfolio extends Model
     }
 
     /**
-     * Relação entre TrabalhoPortfolio e Foto da listagem
+     * Relação entre ItemProgramacao e Foto da listagem
      */
     public function fotoListagem()
     {
@@ -88,7 +145,7 @@ class TrabalhoPortfolio extends Model
     }
 
     /**
-     * Relação entre TrabalhoPortfolio e Foto de capa
+     * Relação entre ItemProgramacao e Foto de capa
      */
     public function fotoCapa()
     {
@@ -110,7 +167,7 @@ class TrabalhoPortfolio extends Model
     {
         return $this->ativo_listagem ? 'Sim' : 'Não';
     }
-    
+
     /**
      * Definindo um acessor para a URL da foto no cloudinary no tamanho certo que irão aparecer 450x450 max
      */
@@ -120,12 +177,12 @@ class TrabalhoPortfolio extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_600,q_auto/"
+                . "/image/upload/c_scale,w_500,q_auto/"
                 . $this->fotoListagem()->first()->cloudinary_id
                 . ".jpg";
         }
 
-        return '//via.placeholder.com/450x450';
+        return '//via.placeholder.com/500x300';
 
     }
 
@@ -144,8 +201,6 @@ class TrabalhoPortfolio extends Model
         }
 
         return '//via.placeholder.com/1200x550';
-
-
     }
 
     /**
@@ -157,7 +212,7 @@ class TrabalhoPortfolio extends Model
     {
         return $this->morphMany(\App\Models\BlocoDescricao::class, 'owner');
     }
-    
+
 
     /**
      * Acessor para obter os blocos de descricao ja ordenados
@@ -183,5 +238,13 @@ class TrabalhoPortfolio extends Model
         return $retorno;
     }
 
-    
+    /**
+     * Acessor para o nome do tipo mapeado a partir do integer do BD
+     */
+    public function getTipoTextoAttribute()
+    {
+        return $this->tipo ? self::TIPOS[$this->tipo] : '';
+    }
+
+
 }

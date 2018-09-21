@@ -13,13 +13,13 @@
 <!-- Descricao Grupo Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('descricao_grupo', 'Descricao Grupo:') !!}
-    {!! Form::textarea('descricao_grupo', null, ['class' => 'form-control textarea-ck']) !!}
+    {!! Form::textarea('descricao_grupo', null, ['class' => 'form-control summernote']) !!}
 </div>
 
 <!-- Descricao Servicos Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('descricao_servicos', 'Descricao Servicos:') !!}
-    {!! Form::textarea('descricao_servicos', null, ['class' => 'form-control textarea-ck']) !!}
+    {!! Form::textarea('descricao_servicos', null, ['class' => 'form-control summernote']) !!}
 </div>
 
 

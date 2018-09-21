@@ -1,0 +1,73 @@
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "nome",
+        "dbType": "string",
+        "validations": "required",
+        "htmlType": "text"
+    },
+    {
+        "name": "tipo",
+        "dbType": "smallInteger:nullable",
+        "validations": "required",
+        "htmlType": "select,CURSO:1,CURSO SEM DATA:2,EVENTO:3"
+    },
+    {
+        "name": "horario",
+        "dbType": "string:nullable",
+        "validations": "",
+        "htmlType": "text"
+    },
+    {
+        "name": "link_facebook",
+        "dbType": "string:nullable",
+        "validations": "",
+        "htmlType": "text"
+    },
+    {
+        "name": "ativo_listagem",
+        "inForm": false,
+        "searchable": false,
+        "primary": false,
+        "inIndex": false,
+        "dbType": "boolean"
+    },
+    {
+        "name": "data",
+        "dbType": "timestamp:nullable",
+        "htmlType": "date",
+        "inIndex": false
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

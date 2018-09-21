@@ -115,7 +115,7 @@ class Profissional extends Model
                 . ".jpg";
         }
 
-        return '';
+        return '//via.placeholder.com/240x240';
 
     }
 

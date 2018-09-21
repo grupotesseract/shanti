@@ -7,7 +7,7 @@
             <h3>{{$profissional->nome}}</h5>
             <p>{{$profissional->descricao_listagem}}</p>
 
-            {{-- 'Escapando' a descricao_interna, pois vem de um ckeditor --}}
+            {{-- 'Escapando' a descricao_interna, pois vem de um editor WYSWYG --}}
             {!! $profissional->descricao_interna !!}
         </div>
     </div>
