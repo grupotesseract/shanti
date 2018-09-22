@@ -19,7 +19,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Foto extends Model
 {
     const TIPO_CAPA = 1;
-
+    const TIPO_HOME_BG = 2;
+    const TIPO_HOME_CURSOS = 3;
+    const TIPO_HOME_EVENTOS = 4;
+    const TIPO_HOME_OUTROS = 5;
+    
     public $table = 'fotos';
 
     protected $dates = ['deleted_at'];
