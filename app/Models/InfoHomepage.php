@@ -127,12 +127,12 @@ class InfoHomepage extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_200,q_auto/"
+                . "/image/upload/c_crop,w_650,q_auto/"
                 . $this->fotoServicos()->first()->cloudinary_id
                 . ".jpg";
         }
 
-        return '//via.placeholder.com/200x200';
+        return '//via.placeholder.com/650x650';
     }
 
     
@@ -147,12 +147,12 @@ class InfoHomepage extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_200,q_auto/"
+                . "/image/upload/c_crop,w_650,q_auto/"
                 . $this->fotoCursos()->first()->cloudinary_id
                 . ".jpg";
         }
 
-        return '//via.placeholder.com/200x200';
+        return '//via.placeholder.com/650x650';
     }
 
     /**
@@ -166,12 +166,12 @@ class InfoHomepage extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_200,q_auto/"
+                . "/image/upload/c_crop,w_650,q_auto/"
                 . $this->fotoEventos()->first()->cloudinary_id
                 . ".jpg";
         }
 
-        return '//via.placeholder.com/200x200';
+        return '//via.placeholder.com/650x650';
     }
 
 }

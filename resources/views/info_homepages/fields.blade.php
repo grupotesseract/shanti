@@ -1,18 +1,13 @@
 <!-- Descricao Listagem Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('texto_destaque', 'Texto de destaque') !!}
-    {!! Form::text('texto_destaque', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Descricao Listagem Field -->
-<div class="form-group col-sm-4">
-    @include('fotos.partials.fields', [
-        'label' => 'Foto de perfil:'
-    ])
+<div class="form-group col-sm-12">
+    {!! Form::label('texto_destaque', 'Texto de destaque') !!} <span> (cor de fundo não funciona na Home, pode ser utilizada aqui para facilitar a visualização durante a edição)</span>
+    <div class="col-xs-4" style="margin-left:-15px;">
+    {!! Form::textarea('texto_destaque', $infoHomepage->texto_destaque, ['class' => 'form-control summernote']) !!}
+    </div>
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('infoHomepages.index') !!}" class="btn btn-default">Cancel</a>
+    <a href="/" class="btn btn-default">Cancelar</a>
 </div>

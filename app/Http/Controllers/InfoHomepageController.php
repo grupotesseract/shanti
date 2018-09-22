@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateInfoHomepageRequest;
-use App\Http\Requests\UpdateInfoHomepageRequest;
 use App\Repositories\InfoHomepageRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -30,10 +28,10 @@ class InfoHomepageController extends AppBaseController
     public function index(Request $request)
     {
         $this->infoHomepageRepository->pushCriteria(new RequestCriteria($request));
-        $infoHomepages = $this->infoHomepageRepository->all();
+        $infoHomepage = $this->infoHomepageRepository->all()->first();
 
         return view('info_homepages.index')
-            ->with('infoHomepages', $infoHomepages);
+            ->with('infoHomepage', $infoHomepage);
     }
 
     /**
@@ -47,61 +45,6 @@ class InfoHomepageController extends AppBaseController
     }
 
     /**
-     * Store a newly created InfoHomepage in storage.
-     *
-     * @param CreateInfoHomepageRequest $request
-     *
-     * @return Response
-     */
-    public function store(CreateInfoHomepageRequest $request)
-    {
-        $input = $request->all();
-
-        $infoHomepage = $this->infoHomepageRepository->create($input);
-
-        Flash::success('Info Homepage saved successfully.');
-        return redirect(route('infoHomepages.index'));
-    }
-
-    /**
-     * Display the specified InfoHomepage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $infoHomepage = $this->infoHomepageRepository->findWithoutFail($id);
-
-        if (empty($infoHomepage)) {
-            Flash::error('Info Homepage not found');
-            return redirect(route('infoHomepages.index'));
-        }
-
-        return view('info_homepages.show')->with('infoHomepage', $infoHomepage);
-    }
-
-    /**
-     * Show the form for editing the specified InfoHomepage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $infoHomepage = $this->infoHomepageRepository->findWithoutFail($id);
-
-        if (empty($infoHomepage)) {
-            Flash::error('Info Homepage not found');
-            return redirect(route('infoHomepages.index'));
-        }
-
-        return view('info_homepages.edit')->with('infoHomepage', $infoHomepage);
-    }
-
-    /**
      * Update the specified InfoHomepage in storage.
      *
      * @param  int              $id
@@ -109,19 +52,19 @@ class InfoHomepageController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateInfoHomepageRequest $request)
+    public function update($id, Request $request)
     {
         $infoHomepage = $this->infoHomepageRepository->findWithoutFail($id);
 
         if (empty($infoHomepage)) {
             Flash::error('Info Homepage not found');
-            return redirect(route('infoHomepages.index'));
+            return redirect()->back();
         }
 
         $infoHomepage = $this->infoHomepageRepository->update($request->all(), $id);
 
         Flash::success('Info Homepage updated successfully.');
-        return redirect(route('infoHomepages.index'));
+        return redirect('/informacoes-homepage');
     }
 
     /**

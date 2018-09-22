@@ -15,6 +15,7 @@ class CreateInfoHomepagesTable extends Migration
     {
         Schema::create('info_homepages', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('texto_destaque');
             $table->timestamps();
         });
     }
