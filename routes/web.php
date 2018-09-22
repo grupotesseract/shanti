@@ -109,8 +109,8 @@ Route::get('programacao-eventos-interno', function () {
 Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
 Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
 Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
-
 Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
-
 Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
+
+
 

@@ -60,7 +60,6 @@ class InfoHomepageController extends AppBaseController
         $infoHomepage = $this->infoHomepageRepository->create($input);
 
         Flash::success('Info Homepage saved successfully.');
-
         return redirect(route('infoHomepages.index'));
     }
 
@@ -77,7 +76,6 @@ class InfoHomepageController extends AppBaseController
 
         if (empty($infoHomepage)) {
             Flash::error('Info Homepage not found');
-
             return redirect(route('infoHomepages.index'));
         }
 
@@ -97,7 +95,6 @@ class InfoHomepageController extends AppBaseController
 
         if (empty($infoHomepage)) {
             Flash::error('Info Homepage not found');
-
             return redirect(route('infoHomepages.index'));
         }
 
@@ -118,14 +115,12 @@ class InfoHomepageController extends AppBaseController
 
         if (empty($infoHomepage)) {
             Flash::error('Info Homepage not found');
-
             return redirect(route('infoHomepages.index'));
         }
 
         $infoHomepage = $this->infoHomepageRepository->update($request->all(), $id);
 
         Flash::success('Info Homepage updated successfully.');
-
         return redirect(route('infoHomepages.index'));
     }
 
@@ -142,14 +137,13 @@ class InfoHomepageController extends AppBaseController
 
         if (empty($infoHomepage)) {
             Flash::error('Info Homepage not found');
-
             return redirect(route('infoHomepages.index'));
         }
 
         $this->infoHomepageRepository->delete($id);
 
         Flash::success('Info Homepage deleted successfully.');
-
         return redirect(route('infoHomepages.index'));
     }
+
 }
