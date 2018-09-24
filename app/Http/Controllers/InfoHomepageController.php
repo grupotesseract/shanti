@@ -57,36 +57,14 @@ class InfoHomepageController extends AppBaseController
         $infoHomepage = $this->infoHomepageRepository->findWithoutFail($id);
 
         if (empty($infoHomepage)) {
-            Flash::error('Info Homepage not found');
+            Flash::error('Informações da Home não encontradas!');
             return redirect()->back();
         }
 
         $infoHomepage = $this->infoHomepageRepository->update($request->all(), $id);
 
-        Flash::success('Info Homepage updated successfully.');
+        Flash::success('Informações da Home atualizadas com sucesso!');
         return redirect('/informacoes-homepage');
-    }
-
-    /**
-     * Remove the specified InfoHomepage from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $infoHomepage = $this->infoHomepageRepository->findWithoutFail($id);
-
-        if (empty($infoHomepage)) {
-            Flash::error('Info Homepage not found');
-            return redirect(route('infoHomepages.index'));
-        }
-
-        $this->infoHomepageRepository->delete($id);
-
-        Flash::success('Info Homepage deleted successfully.');
-        return redirect(route('infoHomepages.index'));
     }
 
 }

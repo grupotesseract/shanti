@@ -22,7 +22,7 @@
             </div>
         @endforeach
         <div class="col-12 col-lg-6">
-            <a href="/programacao-cursos-agendados">
+            <a href="/programacao-geral">
                 <h5>CURSOS, EVENTOS E OUTROS</h5>
                 <li><i class="fas fa-circle"></i></i>Astropsicologia</li>
                 <li><i class="fas fa-circle"></i></i>EFT - Técnica de Libertação Emocional</li>

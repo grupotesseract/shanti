@@ -14,10 +14,10 @@
             {!! Form::open(['route' => ['fotos.trocaFoto', $infoHomepage->fotoFundo->first()->id], 'files'=> true]) !!}
 
            {{-- Campo para upload da foto de capa--}}
-            <div class="container-form-capa">
+            <div class="container-form-capa text-center">
                 @include('fotos.partials.fields', [
                     'label' => ' ',
-                    'extraAttrs' => ['required']
+                    'extraAttrs' => ['required', 'style="display:inline-block"']
                 ])
 
                 {!! Form::hidden("tipo", \App\Models\Foto::TIPO_HOME_BG)!!}

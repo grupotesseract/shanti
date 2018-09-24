@@ -21,17 +21,17 @@
 
         <div class="row">
             <div class="col-12 col-lg-8 home-bola">
-                <a href="servicos-geral">
+                <a href="/servicos">
                     <img src="{{$infoHomepage->linkFotoServicos}}">
                     <h5>SERVIÇOS</h5>
                 </a>
 
-                <a href="programacao-cursos-agendados">
+                <a href="/programacao-cursos-agendados">
                     <img src="{{$infoHomepage->linkFotoCursos}}">
                     <h5>CURSOS</h5>
                 </a>
 
-                <a href="programacao-eventos">
+                <a href="/programacao-eventos">
                     <img src="{{$infoHomepage->linkFotoEventos}}">
                     <h5>EVENTOS</h5>
                 </a>

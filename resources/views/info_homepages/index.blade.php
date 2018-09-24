@@ -15,6 +15,11 @@
         justify-content: center;
         align-items: center;
     }
+    .container-form-capa input#file {
+        max-width: 49%;
+        display: inline-block;
+        margin-top: 3rem;
+    }
 </style>
 
 @endsection
