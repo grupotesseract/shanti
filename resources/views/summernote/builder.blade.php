@@ -22,6 +22,7 @@
       $(".{{ $textAreaClass }}").summernote({
          minHeight: 200,
          lang: 'pt-BR',
+         fontSizes: ['12', '14', '18', '20', '22', '24', '28', '36', '48'],
          toolbar: [
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['format', ['style']],

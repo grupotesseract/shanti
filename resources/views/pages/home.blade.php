@@ -3,15 +3,16 @@
 @section('content')
 
     <style type="text/css">
-.footer {
-    display: none !important;
-}
+        .footer {
+            display: none !important;
+        }
+        
     </style>
 
-    <div class="capa-home">
-        <div class="container">
-            <h1>“Você nunca está só ou desamparado. A mesma força que guia as estrelas guia você também.”</h1>
-            <h5>P. R. Sarkar</h5>
+	
+    <div class="capa-home" style="background-image: url('{{$infoHomepage->linkFotoFundo}}')">
+        <div class="container-textos">
+            {!! $infoHomepage->texto_destaque !!}
         </div>
     </div>
 
@@ -20,18 +21,18 @@
 
         <div class="row">
             <div class="col-12 col-lg-8 home-bola">
-                <a href="servicos-geral">
-                    <img src="http://res.cloudinary.com/tesseract/image/upload/c_crop,h_500,w_500,x_120,y_50/v1536504286/shanti/Servi%C3%A7os.jpg">
+                <a href="/servicos">
+                    <img src="{{$infoHomepage->linkFotoServicos}}">
                     <h5>SERVIÇOS</h5>
                 </a>
 
-                <a href="programacao-cursos-agendados">
-                    <img src="http://res.cloudinary.com/tesseract/image/upload/c_crop,h_500,w_500,x_350,y_150/v1536504304/shanti/cursos.jpg">
+                <a href="/programacao-cursos-agendados">
+                    <img src="{{$infoHomepage->linkFotoCursos}}">
                     <h5>CURSOS</h5>
                 </a>
 
-                <a href="programacao-eventos">
-                    <img src="http://res.cloudinary.com/tesseract/image/upload/c_crop,g_south,h_640,w_641/v1536504311/shanti/eventos.jpg">
+                <a href="/programacao-eventos">
+                    <img src="{{$infoHomepage->linkFotoEventos}}">
                     <h5>EVENTOS</h5>
                 </a>
             </div>

@@ -2,24 +2,33 @@
 
 .capa-home {
 	width: 100%;
-	background-image: url("/images/capa-home.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+        height: 60vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    .container-textos {
+        height: 60vh;
+        width: 40%;
+        float: left;
+        padding-top: 5vh;
+        padding-left: 12vw;
+        @include media-breakpoint-down(md) {
+            width: 90%;
+        }
 
-    h1 {
-    	color: $cor-branco;
-    	padding: 8rem 0 1rem 110px;
-    	font-size: 1.6rem;
-    	width: 430px;
-    	font-style: italic;
-    	margin: 0;
+        @include media-breakpoint-up(md) {
+            padding-top: 25vh;
+            padding-left: 10vw;
+            margin-left: 10vw;
+        }
+
     }
 
-    h5 {
-    	padding: 0 0 8rem 110px;
-    	color: $cor-branco;
-    	margin: 0;
+    //inserindo essa regra para que fique agradavel no editor mas nao dê problema no front
+    h1,h2,h3,h4,h5,h6,p,span,font {
+        background-color:transparent!important;
+        line-height:1.75rem;
     }
 }
 
@@ -60,6 +69,7 @@
 			img {
 				border-radius: 50%;
 				width: 160px;
+				height: 160px;
 				margin-top: 2rem;
 			}
 		}

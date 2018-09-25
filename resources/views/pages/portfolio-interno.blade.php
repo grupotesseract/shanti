@@ -25,7 +25,7 @@
             {!! $trabalhoPortfolio->conteudoPaginaInterna !!}
 
             <a href="/portfolio" class="botao-voltar">
-                <p>Voltar para o portifólio</p>
+                <p>Voltar para o portfólio</p>
             </a>
 
         </div>

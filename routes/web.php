@@ -2,7 +2,8 @@
 
 /* Home */
 Route::get('/', function () {
-    return view('pages.home');
+    $infoHomepage = \App\Models\InfoHomepage::first();
+    return view('pages.home')->with('infoHomepage', $infoHomepage);
 });
 
 /* O Espaço */
@@ -109,8 +110,12 @@ Route::get('programacao-eventos-interno', function () {
 Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
 Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
 Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
-
 Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
-
 Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
+
+Route::resource('infoHomepage', 'InfoHomepageController')->except(['create', 'store', 'destroy']);
+Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoHomepage.index');
+
+Route::post('/fotos/{id}/troca-foto', 'FotoController@postTrocaFoto')->name('fotos.trocaFoto');
+
 
