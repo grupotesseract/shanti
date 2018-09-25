@@ -1,6 +1,6 @@
 
 <!-- include summernote css/js -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 <script src="/summernote/summernote-custom.js"></script>
 <script src="/summernote/summernote-pt-BR.min.js"></script>
 
