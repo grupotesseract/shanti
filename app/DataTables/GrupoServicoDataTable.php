@@ -46,7 +46,7 @@ class GrupoServicoDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '80px', 'title'=>' '])
             ->parameters([
                 'dom'     => 'rt',
                 'order'   => [[0, 'desc']],
