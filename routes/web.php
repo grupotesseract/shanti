@@ -119,3 +119,8 @@ Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoH
 Route::post('/fotos/{id}/troca-foto', 'FotoController@postTrocaFoto')->name('fotos.trocaFoto');
 
 
+
+
+Route::resource('infoEspacos', 'InfoEspacoController');
+
+Route::resource('infoEspacos', 'InfoEspacoController');

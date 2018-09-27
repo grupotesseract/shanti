@@ -21,3 +21,11 @@
 <li class="{{ Request::is('itemProgramacaos*') ? 'active' : '' }}">
     <a href="{!! route('itemProgramacaos.index') !!}"><i class="fa fa-calendar"></i><span>Programação</span></a>
 </li>
+<li class="{{ Request::is('infoEspacos*') ? 'active' : '' }}">
+    <a href="{!! route('infoEspacos.index') !!}"><i class="fa fa-edit"></i><span>Info Espacos</span></a>
+</li>
+
+<li class="{{ Request::is('infoEspacos*') ? 'active' : '' }}">
+    <a href="{!! route('infoEspacos.index') !!}"><i class="fa fa-edit"></i><span>Info Espacos</span></a>
+</li>
+
