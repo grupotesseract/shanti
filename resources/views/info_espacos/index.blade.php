@@ -34,7 +34,7 @@
             <ul class="nav nav-tabs">
                 <li class="@if (\Request::get('tab') != 'tab_2') active @endif"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Textos</a></li>
                 <li class="@if (\Request::get('tab') == 'tab_2') active @endif"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Fotos</a></li>
-                <li class="pull-right"> <a target="_blank" href="/" class="btn btn-primary"> 
+                <li class="pull-right"> <a target="_blank" href="/espaco" class="btn btn-primary"> 
                         <i class="fa fa-eye"></i> Ver página</a>
                 </li>
             </ul>

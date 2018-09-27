@@ -55,6 +55,13 @@ class InfoEspaco extends Model
         return $this->morphMany(\App\Models\Foto::class, 'owner');
     }
 
+    /**
+     * Acessor para a lista de imagens em order aleatoria
+     */
+    public function getListaFotosAttribute()
+    {
+        return $this->fotos()->orderByRaw('RANDOM()')->get();
+    }
 
 
 }

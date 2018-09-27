@@ -8,7 +8,8 @@ Route::get('/', function () {
 
 /* O Espaço */
 Route::get('espaco', function () {
-    return view('pages.espaco');
+    $infoEspaco = \App\Models\InfoEspaco::first();
+    return view('pages.espaco')->with('infoEspaco', $infoEspaco);
 });
 
 /* Quem somos */
