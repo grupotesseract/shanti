@@ -115,12 +115,12 @@ Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoP
 
 Route::resource('infoHomepage', 'InfoHomepageController')->except(['create', 'store', 'destroy']);
 Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoHomepage.index');
-
 Route::post('/fotos/{id}/troca-foto', 'FotoController@postTrocaFoto')->name('fotos.trocaFoto');
+Route::post('/fotos/foto', 'FotoController@store')->name('fotos.store');
+Route::delete('/fotos/{id}', 'FotoController@destroy')->name('fotos.destroy');
 
 
+Route::resource('infoEspaco', 'InfoEspacoController')->except(['create', 'store', 'destroy']);
+Route::get('/informacoes-o-espaco', 'InfoEspacoController@index')->name('infoEspaco.index');
 
 
-Route::resource('infoEspacos', 'InfoEspacoController');
-
-Route::resource('infoEspacos', 'InfoEspacoController');

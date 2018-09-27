@@ -15,11 +15,10 @@ class CreateInfoEspacosTable extends Migration
     {
         Schema::create('info_espacos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('citacao')->nullable();
+            $table->text('citacao')->nullable();
             $table->string('autor')->nullable();
             $table->text('descricao')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

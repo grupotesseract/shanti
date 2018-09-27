@@ -30,78 +30,10 @@ class InfoEspacoController extends AppBaseController
     public function index(Request $request)
     {
         $this->infoEspacoRepository->pushCriteria(new RequestCriteria($request));
-        $infoEspacos = $this->infoEspacoRepository->all();
+        $infoEspaco = $this->infoEspacoRepository->all()->first();
 
         return view('info_espacos.index')
-            ->with('infoEspacos', $infoEspacos);
-    }
-
-    /**
-     * Show the form for creating a new InfoEspaco.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('info_espacos.create');
-    }
-
-    /**
-     * Store a newly created InfoEspaco in storage.
-     *
-     * @param CreateInfoEspacoRequest $request
-     *
-     * @return Response
-     */
-    public function store(CreateInfoEspacoRequest $request)
-    {
-        $input = $request->all();
-
-        $infoEspaco = $this->infoEspacoRepository->create($input);
-
-        Flash::success('Info Espaco saved successfully.');
-
-        return redirect(route('infoEspacos.index'));
-    }
-
-    /**
-     * Display the specified InfoEspaco.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $infoEspaco = $this->infoEspacoRepository->findWithoutFail($id);
-
-        if (empty($infoEspaco)) {
-            Flash::error('Info Espaco not found');
-
-            return redirect(route('infoEspacos.index'));
-        }
-
-        return view('info_espacos.show')->with('infoEspaco', $infoEspaco);
-    }
-
-    /**
-     * Show the form for editing the specified InfoEspaco.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $infoEspaco = $this->infoEspacoRepository->findWithoutFail($id);
-
-        if (empty($infoEspaco)) {
-            Flash::error('Info Espaco not found');
-
-            return redirect(route('infoEspacos.index'));
-        }
-
-        return view('info_espacos.edit')->with('infoEspaco', $infoEspaco);
+            ->with('infoEspaco', $infoEspaco);
     }
 
     /**
@@ -117,39 +49,15 @@ class InfoEspacoController extends AppBaseController
         $infoEspaco = $this->infoEspacoRepository->findWithoutFail($id);
 
         if (empty($infoEspaco)) {
-            Flash::error('Info Espaco not found');
-
+            Flash::error('Informações não encontradas');
             return redirect(route('infoEspacos.index'));
         }
 
         $infoEspaco = $this->infoEspacoRepository->update($request->all(), $id);
 
-        Flash::success('Info Espaco updated successfully.');
+        Flash::success('Informações da página Espaco atualizadas com sucesso.');
 
-        return redirect(route('infoEspacos.index'));
+        return redirect(route('infoEspaco.index'));
     }
 
-    /**
-     * Remove the specified InfoEspaco from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $infoEspaco = $this->infoEspacoRepository->findWithoutFail($id);
-
-        if (empty($infoEspaco)) {
-            Flash::error('Info Espaco not found');
-
-            return redirect(route('infoEspacos.index'));
-        }
-
-        $this->infoEspacoRepository->delete($id);
-
-        Flash::success('Info Espaco deleted successfully.');
-
-        return redirect(route('infoEspacos.index'));
-    }
 }

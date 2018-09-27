@@ -16,14 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class InfoEspaco extends Model
 {
-    use SoftDeletes;
-
     public $table = 'info_espacos';
     
-
-    protected $dates = ['deleted_at'];
-
-
     public $fillable = [
         'citacao',
         'autor',
@@ -50,5 +44,17 @@ class InfoEspaco extends Model
         
     ];
 
-    
+
+    /**
+     * Relação de polimorfica com fotos
+     *
+     * @return void
+     */
+    public function fotos()
+    {
+        return $this->morphMany(\App\Models\Foto::class, 'owner');
+    }
+
+
+
 }
