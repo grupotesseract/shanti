@@ -2,6 +2,10 @@
     <a href="{!! route('infoHomepage.index') !!}"><i class="fa fa-globe"></i><span>Home</span></a>
 </li>
 
+<li class="{{ Request::is('informacoes-o-espaco*') ? 'active' : '' }}">
+    <a href="{!! route('infoEspaco.index') !!}"><i class="fa fa-heart"></i><span>O Espaço</span></a>
+</li>
+
 <li class="{{ Request::is('profissionals*') ? 'active' : '' }}">
     <a href="{!! route('profissionals.index') !!}"><i class="fa fa-group"></i><span>Quem Somos</span></a>
 </li>
