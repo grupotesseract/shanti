@@ -22,10 +22,10 @@ class Artigo extends Model
 
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
         'nome',
-        'arquivo'
+        'arquivo',
+        'link'
     ];
 
     /**
@@ -45,7 +45,8 @@ class Artigo extends Model
      */
     public static $rules = [
         'nome' => 'required',
-        'arquivo' => 'required'
+        'arquivo' => 'required_without:link',
+        'link' => 'required_without:arquivo'
     ];
 
     public $appends = [

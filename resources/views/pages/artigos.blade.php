@@ -9,9 +9,9 @@
     </style>
 
     <div class="container artigos">
+        <h4>REFERÊNCIAS</h4>
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9">
-                <h4>ARTIGOS ____</h4>
 
                 <div class="tags">
                     <a href="/artigos/todos">
@@ -25,15 +25,6 @@
                     </a>
                     <a href="/artigos/naturologia">
                         <span class="{{ Request::is('artigos/naturologia') ? 'active' : '' }}">Naturologia</span>
-                    </a>
-                    <a href="/artigos/medicina">
-                        <span class="{{ Request::is('artigos/medicina') ? 'active' : '' }}">Medicina</span>
-                    </a>
-                    <a href="/artigos/grupos">
-                        <span class="{{ Request::is('artigos/grupos') ? 'active' : '' }}">Grupos</span>
-                    </a>
-                    <a href="/artigos/mantras">
-                        <span class="{{ Request::is('artigos/mantras') ? 'active' : '' }}">Mantras</span>
                     </a>
                 </div>
 

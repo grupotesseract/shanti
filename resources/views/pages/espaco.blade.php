@@ -32,7 +32,7 @@
             </div>
         <div class="row">
             <div class="col col-espaco">
-                <h4>O ESPAÇO __</h4>
+                <h4>O ESPAÇO</h4>
                 {!! $infoEspaco->descricao !!}
 
                 <blockquote class="blockquote text-center">
@@ -48,7 +48,7 @@
 
         <div class="row">
             <div class="col col-espaco">
-                <h4>O ESPAÇO __</h4>
+                <h4>O ESPAÇO</h4>
 
                 {!! $infoEspaco->descricao !!}
 

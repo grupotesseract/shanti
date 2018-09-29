@@ -3,7 +3,7 @@
     <div class="col">
     </div>
     <div class="col-6">
-      <h5>Yoga, Naturologia, Meditação Coletiva, Cursos,<br>Grupos de Estudos, Vivências Artísticas ...</h5>
+      <h5>Yoga, Meditação, Naturologia<br>Psicologia e Terapias</h5>
     </div>
     <div class="nav-media col align-self-center">
       <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank"><i class="fab fa-facebook-square"></i></a>
@@ -45,11 +45,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/portfolio">PORTIFÓLIO</a>
+          <a class="nav-link" href="/portfolio">PORTFÓLIO</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/artigos/todos">ARTIGOS</a>
+          <a class="nav-link" href="/artigos/todos">REFERÊNCIAS</a>
         </li>
 
         <li class="nav-item">

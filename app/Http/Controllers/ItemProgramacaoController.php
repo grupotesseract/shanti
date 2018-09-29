@@ -339,7 +339,7 @@ class ItemProgramacaoController extends AppBaseController
      */
     public function postContatoProgramacao(Request $request, $id)
     {
-        \Flash::success('Muito obrigado, em breve entraremos em contato.');
+        \Flash::success('Muito obrigado. Em breve entraremos em contato.');
 
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 

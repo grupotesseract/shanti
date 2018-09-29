@@ -162,6 +162,11 @@ class ArtigoController extends AppBaseController
         return view('pages.artigos')->with('artigos', $artigos); 
     }
 
+    /**
+     * Metodo para receber a request de download do artigo
+     *
+     * @param mixed $id
+     */
     public function downloadArtigo($id)
     {
         return $this->artigoRepository->downloadArtigo($id);
