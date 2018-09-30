@@ -11,7 +11,7 @@
 </li>
 
 <li class="{{ Request::is('admin-artigos*') ? 'active' : '' }}">
-    <a href="{!! route('admin-artigos.index') !!}"><i class="fa fa-book"></i><span>Artigos</span></a>
+    <a href="{!! route('admin-artigos.index') !!}"><i class="fa fa-book"></i><span>Referências</span></a>
 </li>
 
 <li class="{{ Request::is('grupoServicos*') ? 'active' : '' }}">

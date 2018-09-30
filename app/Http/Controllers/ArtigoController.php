@@ -52,12 +52,14 @@ class ArtigoController extends AppBaseController
     public function store(CreateArtigoRequest $request)
     {
         $input = $request->all();
-        $input['arquivo'] = $request->arquivo->store('artigos_artigos');
+        if ($input['tipo'] == \App\Models\Artigo::TIPO_ARQUIVO){
+            $input['arquivo'] = $request->arquivo->store('artigos_artigos');
+        }
+
         $artigo = $this->artigoRepository->create($input);
         $artigo->syncTags($input['tags']);
-
-        Flash::success('Artigo salvo com sucesso.');
-
+        
+        Flash::success('Referência salva com sucesso.');
         return redirect(route('admin-artigos.index'));
     }
 

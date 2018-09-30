@@ -63,6 +63,7 @@ class ArtigoDataTable extends DataTable
     {
         return [
             'nome',
+            'tipoTexto' => ['title' => 'Tipo', 'data' => 'tipoTexto', 'searchable'=> false, 'orderable' => false],
             'categorias' => ['title' => 'Categorias', 'data' => 'nomeTags']
         ];
     }
