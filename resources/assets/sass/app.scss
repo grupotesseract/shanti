@@ -1,4 +1,5 @@
 
+
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
@@ -7,3 +8,13 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "blocosConteudo";
+
+.nav-tabs {
+    background-color: rgba(60, 141, 188, 0.2)
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #74283C!important;
+}

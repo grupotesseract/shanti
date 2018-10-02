@@ -13,7 +13,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$faker = \Faker\Factory::create('pt_BR');
+$factory->define(App\Models\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,

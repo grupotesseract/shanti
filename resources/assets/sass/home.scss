@@ -1,0 +1,31 @@
+/** Adicionando scss do bootstrap para possibilitar mixins etc.. **/
+@import "~bootstrap/scss/bootstrap";
+
+/* Variables */
+@import "home-variables";
+/* Home Nav */
+@import "home-nav";
+/* Home Body */
+@import "home-body";
+/* Home Footer */
+@import "home-footer";
+
+/* Espaço */
+@import "espaco";
+/* Quem Somos */
+@import "quem-somos";
+/* Quem Somos Pessoal */
+@import "quem-somos-pessoal";
+/* Serviços Geral */
+@import "servicos-geral";
+/* Serviços Interna */
+@import "servicos-interno";
+/* Programação Geral */
+@import "programacao-geral";
+/* Portfolio */
+@import "portfolio";
+@import "portfolio-interno";
+/* Artigos */
+@import "artigos";
+/* Contato */
+@import "contato";

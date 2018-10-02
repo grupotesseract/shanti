@@ -1,0 +1,25 @@
+/* Home Variables */
+
+$font-exo: 'Exo', sans-serif;
+$font-sans: 'Open Sans', sans-serif;
+$font-merri: 'Merriweather', serif;
+
+$cor-vinho: #74283C;
+$cor-chumbo: #606060;
+$cor-cinza: #D8D8D8;
+$cor-branco: #FFFFFF;
+
+@include media-breakpoint-down(md) {
+	body {
+		padding-top: 99px;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-merri;
+}
+
+p, li {
+	color: $cor-chumbo;
+	font-family: $font-merri;
+}

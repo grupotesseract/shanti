@@ -173,6 +173,13 @@ return [
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,        
 
+        // Images, intervention para handling e Cloudder para o cloudinary
+        Intervention\Image\ImageServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
+
+        //WYSWYG Editor
+        Unisharp\Ckeditor\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -234,6 +241,9 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

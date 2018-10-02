@@ -1,0 +1,22 @@
+/* Espaço Body */
+
+.item-listagem {
+   width:80%;
+   display:inline-block;
+}
+
+#modalBody {
+    min-height:200px;
+}
+
+.container-video-youtube {
+    iframe {
+        width: 75%;
+        min-height:50vh;
+
+        @media screen and (max-width:768px) {
+            min-height:40vh;
+            width:100%;
+        }
+    }
+}

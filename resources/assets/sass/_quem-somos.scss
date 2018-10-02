@@ -1,0 +1,64 @@
+.quem-somos {
+    padding-bottom: 1rem;
+
+    h4 {
+        color: $cor-vinho;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .col {
+        text-align: center;
+        padding: 0 2rem;
+
+        a, a:visited, a:hover, a:active {
+            text-decoration: none;
+        }
+
+        img {
+            border-radius: 7px;
+        }
+
+        h5 {
+            font-size: 1.2rem;
+            width: 200px;
+            margin: 1rem auto 0.2rem;
+            color: $cor-chumbo;
+        }
+
+        h6 {
+            font-size: 0.9rem;
+            width: 200px;
+            margin: 0 auto 2rem;
+            color: $cor-chumbo;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .quem-somos {
+        h4 {
+            margin: 2rem 0;
+        }
+
+        .col {
+            padding: 0 10px;
+
+            img {
+                width: 120px !important;
+                height: 120px !important;
+            }
+
+            h5 {
+                font-size: 1rem;
+                margin-bottom: 0.4rem;
+                width: auto;
+            }
+
+            h6 {
+                font-size: 0.8rem;
+                width: auto;
+            }
+        }
+    }
+}

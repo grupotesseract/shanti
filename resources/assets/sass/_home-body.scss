@@ -1,0 +1,156 @@
+/* Home Body */
+
+.capa-home {
+	width: 100%;
+        height: 60vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    .container-textos {
+        height: 60vh;
+        width: 40%;
+        float: left;
+        padding-top: 5vh;
+        padding-left: 12vw;
+        @include media-breakpoint-down(md) {
+            width: 90%;
+        }
+
+        @include media-breakpoint-up(md) {
+            padding-top: 25vh;
+            padding-left: 10vw;
+            margin-left: 10vw;
+        }
+
+    }
+
+    //inserindo essa regra para que fique agradavel no editor mas nao dê problema no front
+    h1,h2,h3,h4,h5,h6,p,span,font {
+        background-color:transparent!important;
+        line-height:1.75rem;
+    }
+}
+
+.footer-home {
+	h4 {
+		font-weight: 600;
+		color: $cor-vinho;
+		text-align: center;
+		border: 2px solid $cor-cinza;
+		border-radius: 5px;
+		padding: 0.8rem 0;
+		margin: 1rem 0 0;
+	}
+
+	.col {
+		padding: 0;
+	}
+
+	a, a:visited, a:hover, a:active {
+		text-decoration: none;
+	}
+
+	.home-bola {
+		text-align: center;
+
+		a {
+			display: inline-block;
+			padding: 0 20px;
+
+			h5 {
+				font-weight: 700;
+				color: $cor-vinho;
+				text-align: center;
+				font-family: $font-exo;
+				margin: 1rem 0 2rem;
+			}
+
+			img {
+				border-radius: 50%;
+				width: 160px;
+				height: 160px;
+				margin-top: 2rem;
+			}
+		}
+	}
+
+	.footer-home-right {
+		text-align: left;
+
+		h6 {
+			margin-top: 0rem;
+			margin-bottom: 0.8rem;
+			color: $cor-vinho;
+			font-family: $font-merri;
+			font-weight: 600;
+			font-size: 1rem;
+			margin-left: 8px;
+		}
+
+		a, a:visited, a:hover, a:active {
+			color: $cor-vinho;
+			font-family: $font-merri;
+			font-size: 14px;
+			text-decoration: none;
+			line-height: 2;
+			display: block;
+
+			i {
+			    width: 35px;
+			    text-align: center;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.capa-home {
+		.container {
+			padding: 0 0 0 1.5rem;
+
+			h1 {
+				//width: 200px;
+	    		padding: 12rem 0 1rem 0;
+	    		font-size: 1.2rem;
+	    		width: 230px;
+			}
+
+			h5 {
+				padding: 0 0 1.5rem 0;
+				font-size: 1rem;
+			}			
+		}
+	}
+
+	.footer-home {
+    	padding-bottom: 1.5rem;
+    	padding-top: 1rem;
+
+		h4 {
+			font-size: 1rem;
+			margin-top: 1.5rem;
+		}
+
+		.home-bola {
+			margin-left: 0px;
+			padding: 0 20px;
+
+			a {
+				h5 {
+					margin-bottom: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 2rem;
+				}
+			}
+		}
+
+		.footer-home-right {
+			padding-top: 1.5rem;
+			padding-left: 1.5rem;
+    		border-top: 2px solid $cor-vinho;
+		}
+	}
+}
