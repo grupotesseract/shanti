@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Artigo
+            Adicionando nova referência
         </h1>
     </section>
     <div class="content">
@@ -21,4 +21,17 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+
+<script charset="utf-8">
+    //Quando trocar o select, esconde os campos condidicionais e mostra o da opcao selecionada
+    $('.tipo').change(function() {
+        var selected = $(this).find('option:selected');
+        $('.tipo-condicional').hide();
+        $('.show-'+selected.text()).show();
+    });
+</script>
+
 @endsection

@@ -4,19 +4,39 @@
     {!! Form::text('nome', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Arquivo Field -->
 <div class="form-group col-sm-6">
+    {!! Form::label('Categorias', 'Categorias da referência:') !!}
+    {{ Form::select('tags[]', [
+        '#yoga' => '#yoga',
+        '#meditacao' => '#meditação',
+        '#naturologia' => '#naturologia',
+        '#psicologia' => '#psicologia',
+        '#terapias' => '#terapias',
+        '#outros' => '#outros',
+    ], null, ['class' => 'select2 form-control', 'multiple' => 'multiple']) }}
+</div>
+<div class="clearfix"></div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('tipo', 'Tipo da referência:') !!}
+    {{ Form::select('tipo', [
+        '' => '',
+        1 => 'Arquivo',
+        2 => 'Link',
+    ], null, ['class' => 'tipo form-control']) }}
+</div>
+
+<!-- Arquivo Field -->
+<div class="form-group col-sm-6 tipo-condicional show-Arquivo" style="display:none">
     {!! Form::label('arquivo', 'Arquivo:') !!}
     {!! Form::file('arquivo') !!}
 </div>
-<div class="clearfix"></div>
 
-<div class="form-group col-sm-6">
-    {!! Form::label('Tags', 'Tags:') !!}
-    {{ Form::select('tags[]', ['#yoga' => '#yoga', '#terapia' => '#terapia', '#naturologia' => '#naturologia', '#medicina' =>'#medicina', '#grupos' =>'#grupos', '#mantras' =>'#mantras'], null, ['class' => 'select2 form-control', 'multiple' => 'multiple']) }}
+<!-- Arquivo Field -->
+<div class="form-group col-sm-6 tipo-condicional show-Link" style="display:none">
+    {!! Form::label('link', 'Link da referencia:') !!}
+    {!! Form::text('link', null, ['class' => 'form-control']) !!}
 </div>
-<div class="clearfix"></div>
-
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

@@ -9,7 +9,7 @@
 </style>
 
 <div class="container quem-somos">
-    <h4>QUEM SOMOS ____</h4>	
+    <h4>QUEM SOMOS</h4>	
     <div class="row">
         @foreach ($profissionais as $Profissional)
         <div class="col">

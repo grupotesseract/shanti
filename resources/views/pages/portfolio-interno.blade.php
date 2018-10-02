@@ -9,7 +9,7 @@
     </style>
 
     <div class="container portfolio-interno">
-        <h4>PORTFÓLIO ____</h4>
+        <h4>PORTFÓLIO</h4>
     </div>
 
     <div class="container-fluid w-75 text-center capa-container">

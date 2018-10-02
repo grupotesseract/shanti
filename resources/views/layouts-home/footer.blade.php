@@ -52,10 +52,10 @@
     <a class="nav-link" href="programacao-geral">PROGRAMAÇÃO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="portifolio">PORTIFÓLIO</a>
+    <a class="nav-link" href="portifolio">PORTFÓLIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="artigos">ARTIGOS</a>
+    <a class="nav-link" href="artigos">REFERÊNCIAS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="contato">CONTATO</a>

@@ -9,7 +9,7 @@
 </style>
 
 <div class="container quem-somos-pessoal">
-    <h4>QUEM SOMOS ____</h4>
+    <h4>QUEM SOMOS</h4>
     <div class="row">
         <div class="col-12 col-lg">
             <img class="foto-pessoal" src="{{ $profissional->linkFotoQuemSomos }}">

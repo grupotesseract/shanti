@@ -9,7 +9,7 @@
     </style>
 
     <div class="container portfolio">
-        <h4>PORTFÓLIO ____</h4>
+        <h4>PORTFÓLIO</h4>
         <div class="row justify-content-center">
             @foreach (\App\Models\TrabalhoPortfolio::ativos()->get() as $trabalhoPortfolio)
                 <div class="col-12 col-lg-5">

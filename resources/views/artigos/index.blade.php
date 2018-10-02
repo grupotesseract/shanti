@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1>Listagem de artigos</h1>
+        <h1>Listagem de referências</h1>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -19,7 +19,7 @@
                         <hr>
                     </div>
                     <div class="col-xs-12">
-                        <a class="btn btn-default" style="margin-top: 1rem;margin-bottom: 5px" href="{!! route('admin-artigos.create') !!}"> <i class="fa fa-plus"></i> Adicionar um novo artigo</a>
+                        <a class="btn btn-default" style="margin-top: 1rem;margin-bottom: 5px" href="{!! route('admin-artigos.create') !!}"> <i class="fa fa-plus"></i> Adicionar uma nova referência</a>
                     </div>
                     
             </div>

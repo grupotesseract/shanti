@@ -14,7 +14,7 @@
 
 @section('content')
 <div class="container programacao-geral">
-  <h4>PROGRAMAÇÃO ____</h4>
+  <h4>PROGRAMAÇÃO</h4>
 
   <ul class="nav justify-content-center nav-top">
     <li class="nav-item">
@@ -61,7 +61,6 @@
       </div>
   --}}
 
-  @if ($itemProgramacao->tipo != \App\Models\ItemProgramacao::TIPO_EVENTO)
       {{ Form::open(['url'=> '/programacao/'.$itemProgramacao->id."/contato", 'class' => 'mt-5'])}}
       <div class="form-group">
           @include('flash::message')
@@ -86,7 +85,6 @@
           <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
       {{ Form::close() }}
-  @endif
 
   @if ($itemProgramacao->link_facebook)
       <a href="{{$itemProgramacao->link_facebook}}" target="_blank">

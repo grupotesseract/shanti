@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="container programacao-geral contato">
-        <h4>CONTATO ____</h4>
+        <h4>CONTATO</h4>
 
         <div class="row programacao-interno justify-content-center">
             <div class="col col-lg-9">
@@ -49,7 +49,7 @@
                 </footer>
 
                 <div class="forms">
-                    <p>Ou se preferir, entre em contato pelo email ou deixe sua mensagem abaixo:</p>
+                    <p>Se preferir, entre em contato pelo email ou deixe sua mensagem abaixo:</p>
                 </div>
 
                 @include('flash::message')

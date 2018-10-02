@@ -9,7 +9,7 @@
 </style>
 
 <div class="container programacao-geral">
-    <h4>PROGRAMAÇÃO ____</h4>
+    <h4>PROGRAMAÇÃO</h4>
 
     <ul class="nav justify-content-center nav-top">
       <li class="nav-item">
