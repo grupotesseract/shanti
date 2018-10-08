@@ -1,16 +1,10 @@
 <?php
 
 /* Home */
-Route::get('/', function () {
-    $infoHomepage = \App\Models\InfoHomepage::first();
-    return view('pages.home')->with('infoHomepage', $infoHomepage);
-});
+Route::get('/', 'InfoHomepageController@getHome');
 
 /* O Espaço */
-Route::get('espaco', function () {
-    $infoEspaco = \App\Models\InfoEspaco::first();
-    return view('pages.espaco')->with('infoEspaco', $infoEspaco);
-});
+Route::get('espaco', 'InfoEspacoController@getEspaco');
 
 /* Quem somos */
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');
@@ -22,47 +16,20 @@ Route::get('servicos', 'ServicosController@getIndex');
 Route::get('servicos/{id}', 'ServicosController@getServico');
 
 /* Programação */
-Route::get('programacao-geral', function () {
-    return view('pages.programacao.geral');
-});
-Route::get('programacao-cursos-agendados', function () {
-    return view('pages.programacao.cursos-agendados');
-});
-Route::get('programacao-cursos-agendados-interno', function () {
-    return view('pages.programacao.cursos-agendados-interno');
-});
-Route::get('programacao-cursos-nao-agendados', function () {
-    return view('pages.programacao.cursos-nao-agendados');
-});
-Route::get('programacao-cursos-nao-agendados-interno', function () {
-    return view('pages.programacao.cursos-nao-agendados-interno');
-});
-Route::get('programacao-eventos', function () {
-    return view('pages.programacao.eventos');
-});
-Route::get('programacao-eventos-interno', function () {
-    return view('pages.programacao.eventos-interno');
-});
-
-
+Route::get('programacao-geral', 'ProgramacaoController@getProgramacaoGeral');
+Route::get('programacao-cursos-agendados', 'ProgramacaoController@getProgramacaoCursosAgendados');
+Route::get('programacao-cursos-nao-agendados', 'ProgramacaoController@getProgramacaoCursosNaoAgendados');
+Route::get('programacao-eventos', 'ProgramacaoController@getProgramacaoEventos');
 
 /* Portfólio */
-Route::get('portfolio', function () {
-    return view('pages.portfolio');
-});
-Route::get('portfolio-interno', function () {
-    return view('pages.portfolio-interno');
-});
+Route::get('portfolio', 'PortfolioController@getPortfolio');
+Route::get('portfolio-interno', 'PortfolioController@getPortfolioInterno');
 
-
-/* Artigos */
+/* Artigos -> 'referencias' no lugar de artigos  **/
 Route::get('artigos/{tag}', 'ArtigoController@indexHome');
 Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
-
-//add rotas c/ 'referencias' no lugar de artigos 
 Route::get('referencias/{tag}', 'ArtigoController@indexHome');
 Route::get('download/referencias/{id}', 'ArtigoController@downloadArtigo');
-
 
 /* Contato */
 Route::get('contato','ContatoController@getIndex'); 
@@ -86,7 +53,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
     Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
     Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@getAlteraOrdem')->name('bloco_descricaos.altera-ordem');
-
 
     Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
     Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');

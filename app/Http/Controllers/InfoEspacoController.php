@@ -60,4 +60,15 @@ class InfoEspacoController extends AppBaseController
         return redirect(route('infoEspaco.index'));
     }
 
+
+    /**
+     * Metodo para servir a pagina O Espaco
+     */
+    public function getEspaco()
+    {
+        $infoEspaco = \App\Models\InfoEspaco::first();
+        return view('pages.espaco')->with('infoEspaco', $infoEspaco);
+    }
+    
+
 }
