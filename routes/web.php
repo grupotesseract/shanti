@@ -20,10 +20,13 @@ Route::get('programacao-geral', 'ProgramacaoController@getProgramacaoGeral');
 Route::get('programacao-cursos-agendados', 'ProgramacaoController@getProgramacaoCursosAgendados');
 Route::get('programacao-cursos-nao-agendados', 'ProgramacaoController@getProgramacaoCursosNaoAgendados');
 Route::get('programacao-eventos', 'ProgramacaoController@getProgramacaoEventos');
+Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
+Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
 
 /* Portfólio */
 Route::get('portfolio', 'PortfolioController@getPortfolio');
 Route::get('portfolio-interno', 'PortfolioController@getPortfolioInterno');
+Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
 
 /* Artigos -> 'referencias' no lugar de artigos  **/
 Route::get('artigos/{tag}', 'ArtigoController@indexHome');
@@ -63,7 +66,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
     Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
 
-    Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
     Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
 
     Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
@@ -74,8 +76,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
     Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
     Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
-    Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
-    Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
 
     Route::resource('infoHomepage', 'InfoHomepageController')->except(['create', 'store', 'destroy']);
     Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoHomepage.index');
