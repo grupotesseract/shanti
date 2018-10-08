@@ -14,26 +14,23 @@
             <div class="col-12 col-lg-9">
 
                 <div class="tags">
-                    <a href="/artigos/todos">
-                        <span class="{{ Request::is('artigos/todos') ? 'active' : '' }}">Todos</span>
+                    <a href="/referencias/todos">
+                        <span class="{{ Request::is('referencias/todos') ? 'active' : '' }}">Todos</span>
                     </a>
-                    <a href="/artigos/yoga">
-                        <span class="{{ Request::is('artigos/yoga') ? 'active' : '' }}">Yoga</span>
+                    <a href="/referencias/yoga">
+                        <span class="{{ Request::is('referencias/yoga') ? 'active' : '' }}">Yoga</span>
                     </a>
-                    <a href="/artigos/meditacao">
-                        <span class="{{ Request::is('artigos/meditacao') ? 'active' : '' }}">Meditação</span>
+                    <a href="/referencias/meditacao">
+                        <span class="{{ Request::is('referencias/meditacao') ? 'active' : '' }}">Meditação</span>
                     </a>
-                    <a href="/artigos/naturologia">
-                        <span class="{{ Request::is('artigos/naturologia') ? 'active' : '' }}">Naturologia</span>
+                    <a href="/referencias/naturologia">
+                        <span class="{{ Request::is('referencias/naturologia') ? 'active' : '' }}">Naturologia</span>
                     </a>
-                    <a href="/artigos/psicologia">
-                        <span class="{{ Request::is('artigos/psicologia') ? 'active' : '' }}">Psicologia</span>
+                    <a href="/referencias/psicologia">
+                        <span class="{{ Request::is('referencias/psicologia') ? 'active' : '' }}">Psicologia</span>
                     </a>
-                    <a href="/artigos/terapias">
-                        <span class="{{ Request::is('artigos/terapias') ? 'active' : '' }}">Terapias</span>
-                    </a>
-                    <a href="/artigos/outros">
-                        <span class="{{ Request::is('artigos/outros') ? 'active' : '' }}">Outros</span>
+                    <a href="/referencias/espiritualidade">
+                        <span class="{{ Request::is('referencias/espiritualidade') ? 'active' : '' }}">Espiritualidade</span>
                     </a>
                 </div>
 

@@ -49,7 +49,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/artigos/todos">REFERÊNCIAS</a>
+          <a class="nav-link" href="/referencias/todos">REFERÊNCIAS</a>
         </li>
 
         <li class="nav-item">

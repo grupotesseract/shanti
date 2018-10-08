@@ -21,6 +21,28 @@ Route::get('profissional/{id}', 'QuemSomosController@getProfissional');
 Route::get('servicos', 'ServicosController@getIndex');
 Route::get('servicos/{id}', 'ServicosController@getServico');
 
+/* Programação */
+Route::get('programacao-geral', function () {
+    return view('pages.programacao.geral');
+});
+Route::get('programacao-cursos-agendados', function () {
+    return view('pages.programacao.cursos-agendados');
+});
+Route::get('programacao-cursos-agendados-interno', function () {
+    return view('pages.programacao.cursos-agendados-interno');
+});
+Route::get('programacao-cursos-nao-agendados', function () {
+    return view('pages.programacao.cursos-nao-agendados');
+});
+Route::get('programacao-cursos-nao-agendados-interno', function () {
+    return view('pages.programacao.cursos-nao-agendados-interno');
+});
+Route::get('programacao-eventos', function () {
+    return view('pages.programacao.eventos');
+});
+Route::get('programacao-eventos-interno', function () {
+    return view('pages.programacao.eventos-interno');
+});
 
 
 
@@ -36,6 +58,10 @@ Route::get('portfolio-interno', function () {
 /* Artigos */
 Route::get('artigos/{tag}', 'ArtigoController@indexHome');
 Route::get('download/artigos/{id}', 'ArtigoController@downloadArtigo');
+
+//add rotas c/ 'referencias' no lugar de artigos 
+Route::get('referencias/{tag}', 'ArtigoController@indexHome');
+Route::get('download/referencias/{id}', 'ArtigoController@downloadArtigo');
 
 
 /* Contato */
@@ -61,67 +87,37 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profissionals/{id}/edita-conteudo', 'ProfissionalController@getEditBlocoConteudo');
     Route::get('/blocoDescricaos/{id}/altera-ordem', 'BlocoDescricaoController@getAlteraOrdem')->name('bloco_descricaos.altera-ordem');
 
+
+    Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
+    Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
+
+    Route::resource('admin-artigos', 'ArtigoController');
+    Route::resource('grupoServicos', 'GrupoServicoController');
+    Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
+    Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
+    Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
+
+    Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
+    Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
+
+    Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
+    Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');
+
+    Route::resource('itemProgramacaos', 'ItemProgramacaoController');
+
+    Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
+    Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
+    Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
+    Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
+    Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
+
+    Route::resource('infoHomepage', 'InfoHomepageController')->except(['create', 'store', 'destroy']);
+    Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoHomepage.index');
+    Route::post('/fotos/{id}/troca-foto', 'FotoController@postTrocaFoto')->name('fotos.trocaFoto');
+    Route::post('/fotos/foto', 'FotoController@store')->name('fotos.store');
+    Route::delete('/fotos/{id}', 'FotoController@destroy')->name('fotos.destroy');
+
+    Route::resource('infoEspaco', 'InfoEspacoController')->except(['create', 'store', 'destroy']);
+    Route::get('/informacoes-o-espaco', 'InfoEspacoController@index')->name('infoEspaco.index');
+
 });
-
-
-Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
-Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
-
-Route::resource('admin-artigos', 'ArtigoController');
-Route::resource('grupoServicos', 'GrupoServicoController');
-Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
-Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
-Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
-
-
-Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
-Route::post('/portfolio/{id}/troca-capa', 'TrabalhoPortfolioController@postTrocaFotoCapa')->middleware('auth')->name('trabalhoPortfolios.trocaFotoCapa');
-
-Route::get('/trabalhoPortfolios/{id}/adiciona-conteudo', 'TrabalhoPortfolioController@getCreateBlocoConteudo');
-Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');
-
-
-Route::resource('itemProgramacaos', 'ItemProgramacaoController');
-
-
-
-/* Programação */
-Route::get('programacao-geral', function () {
-    return view('pages.programacao.geral');
-});
-Route::get('programacao-cursos-agendados', function () {
-    return view('pages.programacao.cursos-agendados');
-});
-Route::get('programacao-cursos-agendados-interno', function () {
-    return view('pages.programacao.cursos-agendados-interno');
-});
-Route::get('programacao-cursos-nao-agendados', function () {
-    return view('pages.programacao.cursos-nao-agendados');
-});
-Route::get('programacao-cursos-nao-agendados-interno', function () {
-    return view('pages.programacao.cursos-nao-agendados-interno');
-});
-Route::get('programacao-eventos', function () {
-    return view('pages.programacao.eventos');
-});
-Route::get('programacao-eventos-interno', function () {
-    return view('pages.programacao.eventos-interno');
-});
-
-Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
-Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');
-Route::get('/itemProgramacaos/{id}/edita-conteudo', 'ItemProgramacaoController@getEditBlocoConteudo');
-Route::get('/programacao/{id}', 'ItemProgramacaoController@show')->name('programacao.interna');
-Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoProgramacao');
-
-Route::resource('infoHomepage', 'InfoHomepageController')->except(['create', 'store', 'destroy']);
-Route::get('/informacoes-homepage', 'InfoHomepageController@index')->name('infoHomepage.index');
-Route::post('/fotos/{id}/troca-foto', 'FotoController@postTrocaFoto')->name('fotos.trocaFoto');
-Route::post('/fotos/foto', 'FotoController@store')->name('fotos.store');
-Route::delete('/fotos/{id}', 'FotoController@destroy')->name('fotos.destroy');
-
-
-Route::resource('infoEspaco', 'InfoEspacoController')->except(['create', 'store', 'destroy']);
-Route::get('/informacoes-o-espaco', 'InfoEspacoController@index')->name('infoEspaco.index');
-
-
