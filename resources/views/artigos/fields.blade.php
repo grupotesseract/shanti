@@ -11,8 +11,7 @@
         '#meditacao' => '#meditação',
         '#naturologia' => '#naturologia',
         '#psicologia' => '#psicologia',
-        '#terapias' => '#terapias',
-        '#outros' => '#outros',
+        '#espiritualidade' => '#espiritualidade',
     ], null, ['class' => 'select2 form-control', 'multiple' => 'multiple']) }}
 </div>
 <div class="clearfix"></div>
