@@ -133,6 +133,14 @@ class BlocoDescricaoRepository extends BaseRepository
             //Removendo indice tipo pois ele se refereao tipo da imagem e nesse caso nao se aplica
             $request->request->remove('tipo');
 
+            //guardando request para pos create da foto
+            $owner_id = $request->owner_id;
+            $owner_type = $request->owner_type;
+            
+            //Removendo indice owner_id e owner_type, pois os blocosDescricao só guardam a url
+            $request->request->remove('owner_id');
+            $request->request->remove('owner_type');
+
             if (is_array($request->file)) {
                 $fotos = $request->file;
                 $file = array_shift($fotos);
@@ -182,7 +190,10 @@ class BlocoDescricaoRepository extends BaseRepository
 
             $retorno = $request->all();
             $retorno['tipo'] = BlocoDescricao::TIPO_IMAGEM;
+            $retorno['owner_id'] = $owner_id;
+            $retorno['owner_type'] = $owner_type;
             unset($retorno['file']);
+            
 
         }
 
