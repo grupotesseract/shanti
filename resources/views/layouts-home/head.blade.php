@@ -1,4 +1,19 @@
 <head>
+
+
+@if (env('APP_ENV') == 'production')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61678141-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-61678141-6');
+    </script>
+@endif
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,4 +33,7 @@
     <!-- CSS/SASS -->
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/_blocosConteudo.css">
+
+    @yield('css')
+    
 </head>

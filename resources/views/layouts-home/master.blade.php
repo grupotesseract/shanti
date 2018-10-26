@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     @include('layouts-home.head')
-    @yield('css')
     <body>
     	@include('layouts-home.nav')
 
