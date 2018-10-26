@@ -49,7 +49,7 @@ class ItemProgramacaoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px', 'title' => 'Ações'])
             ->parameters([
-                'dom'     => 'rt',
+                'dom'     => 'frtip',
                 'order'   => [[0, 'desc']],
                 'language' => ['url' => '//cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json'],
             ]);

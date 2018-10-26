@@ -67,4 +67,16 @@ class InfoHomepageController extends AppBaseController
         return redirect('/informacoes-homepage');
     }
 
+    /**
+     * Metodo para servir a Homepage
+     *
+     * @return void
+     */
+    public function getHome()
+    {
+        $infoHomepage = \App\Models\InfoHomepage::first();
+        return view('pages.home')->with('infoHomepage', $infoHomepage);
+    }
+    
+
 }
