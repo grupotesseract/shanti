@@ -246,5 +246,16 @@ class ItemProgramacao extends Model
         return $this->tipo ? self::TIPOS[$this->tipo] : '';
     }
 
+    /**
+     * Acessor para o Link do facebook sem o https://
+     */
+    public function getURLFacebookAttribute()
+    {
+        return str_replace(
+            ['https://', 'http://'], 
+            ['',''], 
+            $this->attributes['link_facebook']
+        );
+    }
 
 }
