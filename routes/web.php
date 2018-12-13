@@ -46,6 +46,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 /** * Aplicando middlewares para as rotas do webadmin - Aqui entram as rotas que precisa estar logado */
 Route::middleware(['auth'])->group(function () {
     Route::get('admin', 'AdminController@index');
+
     Route::resource('profissionals', 'ProfissionalController');
 
     Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
@@ -62,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('admin-artigos', 'ArtigoController');
     Route::resource('grupoServicos', 'GrupoServicoController');
-    Route::resource('trabalhoPortfolios', 'TrabalhoPortfolioController');
+    Route::resource('   tfolios', 'TrabalhoPortfolioController');
     Route::post('trabalhoPortfolios/{id}/ativa-listagem', 'TrabalhoPortfolioController@postAtivaListagem')->middleware('auth');
     Route::post('trabalhoPortfolios/{id}/remove-listagem', 'TrabalhoPortfolioController@postRemoveListagem')->middleware('auth');
 
@@ -85,5 +86,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('infoEspaco', 'InfoEspacoController')->except(['create', 'store', 'destroy']);
     Route::get('/informacoes-o-espaco', 'InfoEspacoController@index')->name('infoEspaco.index');
-
 });
