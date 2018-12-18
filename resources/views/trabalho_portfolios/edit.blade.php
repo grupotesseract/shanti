@@ -2,6 +2,9 @@
 
 @section('css')
 
+<link href="{{ asset('css/cropper.css') }}" rel="stylesheet">
+<link href="{{ asset('css/cropper-style.css') }}" rel="stylesheet">
+
 <style>
     ul.nav li.active a {
         font-weight:bold;
@@ -86,4 +89,6 @@
    
 @section('scripts')
     <script type="text/javascript" src="/js/blocos_descricao.js"></script>
+    <script src="{{ asset('js/cropper.js') }}"></script>
+    <script src="{{ asset('js/cropper_config.js') }}"></script>
 @endsection

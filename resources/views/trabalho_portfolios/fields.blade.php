@@ -15,7 +15,7 @@
     <div class="col-xs-12 text-center">
         @if ($trabalhoPortfolio->linkFotoListagem)
             {!! Form::label('fotoCapa', 'Foto de listagem:') !!}<br>
-            <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoListagem}}" alt="Foto de capa do trabalho"/>
+            <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoListagem}}" alt="Foto de listagem do trabalho"/>
         @else
             <strong>Adicione uma foto de listagem utilizando os botões abaixo. </strong>
         @endif
