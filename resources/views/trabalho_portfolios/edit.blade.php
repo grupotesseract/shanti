@@ -2,7 +2,8 @@
 
 @section('css')
 
-<link href="{{ asset('css/cropper.css') }}" rel="stylesheet">
+<!-- Cropper.css -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.css'>
 <link href="{{ asset('css/cropper-style.css') }}" rel="stylesheet">
 
 <style>
@@ -89,6 +90,6 @@
    
 @section('scripts')
     <script type="text/javascript" src="/js/blocos_descricao.js"></script>
-    <script src="{{ asset('js/cropper.js') }}"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.js'></script>
     <script src="{{ asset('js/cropper_config.js') }}"></script>
 @endsection
