@@ -30,6 +30,8 @@
             'style' => 'margin-bottom: 10px'))
         !!}
 
+        <div id="myDiv" style="display: none">{{ $trabalhoPortfolio }}</div>
+
         {{-- <input name="file" type="file" id="file"> --}}
 
         <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
@@ -45,10 +47,6 @@
             Your browser does not support the HTML5 canvas element.
         </canvas>
     </div>
-
-    {{-- <p>
-        <input type="button" class="btn btn-lg btn-success" id="btnCrop" value="Enviar" />
-    </p> --}}
 
     <div id="result"></div>
 
@@ -66,6 +64,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('trabalhoPortfolios.index') !!}" class="btn btn-default">Cancelar</a>
+    {{-- <input type="button" class="btn btn-lg btn-success" id="btnSave" value="Salvar" /> --}}
+    {!! Form::submit('Salvar', ['class' => 'btn btn-lg btn-success']) !!}
+    <a href="{!! route('trabalhoPortfolios.index') !!}" class="btn btn-lg btn-default">Cancelar</a>
 </div>

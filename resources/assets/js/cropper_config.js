@@ -21,8 +21,31 @@ $('#fileInput').on('change', function () {
 
           $('#btnCrop').click(function () {
             // Get a string base 64 data url
-            var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toDataURL("image/png");
-            $result.append($('<img>').attr('src', croppedImageDataURL));
+            // var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toDataURL("image/png");
+            // $result.append($('<img>').attr('src', croppedImageDataURL));
+
+            postUrl = document.getElementById("myDiv");
+
+            console.log(postUrl.textContent);
+
+            // var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toBlob(function (blob) {
+            //   var formData = new FormData();
+
+            //   formData.append('croppedImage', blob);
+
+            //   $.ajax('/path/to/upload', {
+            //     method: "POST",
+            //     data: formData,
+            //     processData: false,
+            //     contentType: false,
+            //     success: function () {
+            //       console.log('Upload success');
+            //     },
+            //     error: function () {
+            //       console.log('Upload error');
+            //     }
+            //   });
+            // });
           });
 
           $('#btnRestore').click(function () {
@@ -38,11 +61,11 @@ $('#fileInput').on('change', function () {
     }
 
     else {
-      alert("Invalid file type! Please select an image file.");
+      alert("Tipo invalido! Por favor, selecione um arquivo do tipo imagem.");
     }
   }
   
   else {
-    alert('No file(s) selected.');
+    alert('Nenhum arquivo selecionado.');
   }
 });
