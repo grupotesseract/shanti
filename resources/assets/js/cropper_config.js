@@ -24,28 +24,30 @@ $('#fileInput').on('change', function () {
             // var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toDataURL("image/png");
             // $result.append($('<img>').attr('src', croppedImageDataURL));
 
-            postUrl = document.getElementById("myDiv");
+            patchUrl = document.getElementById("patchUrl");
 
-            console.log(postUrl.textContent);
+            console.log(patchUrl.textContent);
 
-            // var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toBlob(function (blob) {
-            //   var formData = new FormData();
+            var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toBlob(function (blob) {
+              console.log('im here');
 
-            //   formData.append('croppedImage', blob);
+              var formData = new FormData();
 
-            //   $.ajax('/path/to/upload', {
-            //     method: "POST",
-            //     data: formData,
-            //     processData: false,
-            //     contentType: false,
-            //     success: function () {
-            //       console.log('Upload success');
-            //     },
-            //     error: function () {
-            //       console.log('Upload error');
-            //     }
-            //   });
-            // });
+              formData.append('croppedImage', blob);
+
+              $.ajax(patchUrl, {
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function () {
+                  console.log('Upload success');
+                },
+                error: function () {
+                  console.log('Upload error');
+                }
+              });
+            });
           });
 
           $('#btnRestore').click(function () {

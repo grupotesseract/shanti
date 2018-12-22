@@ -30,7 +30,7 @@
             'style' => 'margin-bottom: 10px'))
         !!}
 
-        <div id="myDiv" style="display: none">{{ $trabalhoPortfolio }}</div>
+        <div id="patchUrl" style="display: none">{{ "/trabalhoPortfolios/" . $trabalhoPortfolio->id }}</div>
 
         {{-- <input name="file" type="file" id="file"> --}}
 
