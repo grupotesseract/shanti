@@ -1,73 +1,51 @@
-var canvas = $("#canvas"),
-  context = canvas.get(0).getContext("2d"),
-  $result = $('#result');
+window.bindCropperJS = function () {
 
-$('#fileInput').on('change', function () {
-  if (this.files && this.files[0]) {
-    if (this.files[0].type.match(/^image\//)) {
-      var reader = new FileReader();
+    var aspectRatio = $('#aspectRatio').val();
+    var formID = $('#formID').val();
+    var previewID = $('#previewID').val();
 
-      reader.onload = function (evt) {
-        var img = new Image();
+    $('#btnStartCrop').on('click', function() {
+        initCropper(previewID, aspectRatio);
+    });
 
-        img.onload = function () {
-          context.canvas.height = img.height;
-          context.canvas.width = img.width;
-          context.drawImage(img, 0, 0);
+    $('#btnCancelCrop').on('click', function() {
+        destroyCropper(previewID);
+    });
 
-          var cropper = canvas.cropper({
-            aspectRatio: 16 / 9
-          });
+    $('#btnConfirmCrop').on('click', function() {
+        swal({
+            title: 'Carregando...',
+            html: '<br><i class="fa fa-spin fa-spinner fa-3x"></i><br><br><br>',
+            showConfirmButton: false
+        });
 
-          $('#btnCrop').click(function () {
-            // Get a string base 64 data url
-            // var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toDataURL("image/png");
-            // $result.append($('<img>').attr('src', croppedImageDataURL));
+        let croppedImage = $(previewID).cropper('getCroppedCanvas').toDataURL('image/jpeg');
+        $(formID).find('input[type=file]').remove();
+        $(formID).append("<input name='file' type='hidden'/>");
+        $(formID).find('input[name=file]').val(croppedImage);
+        $(formID).submit();
+    });
+}
 
-            patchUrl = document.getElementById("patchUrl");
+function initCropper(previewID, aspectRatio) {
+    $(previewID).cropper({
+        aspectRatio: aspectRatio
+    });
+    $('input[type=file]').hide();
+    $('#btnStartCrop').hide();
+    $('#btnConfirmCrop').show();
+    $('#btnCancelCrop').show();
+}
 
-            console.log(patchUrl.textContent);
+function destroyCropper(previewID) {
+    $(previewID).cropper('destroy');
+    $('input[type=file]').show();
+    $('#btnStartCrop').show();
+    $('#btnConfirmCrop').hide();
+    $('#btnCancelCrop').hide();
+}
 
-            var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toBlob(function (blob) {
-              console.log('im here');
 
-              var formData = new FormData();
-
-              formData.append('croppedImage', blob);
-
-              $.ajax(patchUrl, {
-                method: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function () {
-                  console.log('Upload success');
-                },
-                error: function () {
-                  console.log('Upload error');
-                }
-              });
-            });
-          });
-
-          $('#btnRestore').click(function () {
-            canvas.cropper('reset');
-            $result.empty();
-          });
-        };
-
-        img.src = evt.target.result;
-      };
-
-      reader.readAsDataURL(this.files[0]);
-    }
-
-    else {
-      alert("Tipo invalido! Por favor, selecione um arquivo do tipo imagem.");
-    }
-  }
-  
-  else {
-    alert('Nenhum arquivo selecionado.');
-  }
+$(function () {
+    bindCropperJS();
 });

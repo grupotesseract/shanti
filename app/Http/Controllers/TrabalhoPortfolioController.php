@@ -145,6 +145,7 @@ class TrabalhoPortfolioController extends AppBaseController
 
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->update($request->all(), $id);
 
+
         if ($request->file) {
             if ($trabalhoPortfolio->fotoListagem()->first()) {
                 $trabalhoPortfolio->fotoListagem()->first()->delete();
@@ -161,7 +162,7 @@ class TrabalhoPortfolioController extends AppBaseController
 
         Flash::success('Trabalho atualizado com sucesso.');
 
-        return redirect(route('trabalhoPortfolios.index'));
+        return redirect()->back();
     }
 
     /**

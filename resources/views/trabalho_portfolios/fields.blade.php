@@ -10,49 +10,41 @@
     {!! Form::text('descricao_listagem', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Descricao Listagem Field -->
+<!-- Foto da Listagem Field -->
 <div class="form-group col-sm-12">
     <div class="col-xs-12 text-center">
-        @if ($trabalhoPortfolio->linkFotoListagem)
-            {!! Form::label('fotoCapa', 'Foto de listagem atual:') !!}<br>
-            <img style="max-width:100%"src="{{$trabalhoPortfolio->linkFotoListagem}}" alt="Foto de listagem do trabalho"/>
+        @if (isset($trabalhoPortfolio) && $trabalhoPortfolio->linkFotoListagem)
+            {!! Form::label('fotoListagem', 'Foto de listagem atual:') !!}<br>
+            <img id="foto-listagem" style="max-width:450px" src="{{$trabalhoPortfolio->linkFotoListagem}}" alt="Foto de listagem do trabalho"/>
         @else
-            <strong>Adicione uma foto de listagem utilizando os botões abaixo. </strong>
+            <strong>Adicione uma foto de listagem utilizando o botão abaixo. </strong>
         @endif
     </div>
     
-    <p>
-        {{-- Campos de upload de foto --}}
-        {!! Form::label(isset($name) ? $name : 'file', isset($label) ? $label : 'Foto para listagem:') !!}
-        {!! Form::file(isset($name) ? $name : 'file', array(
-            'class' => 'btn btn-lg btn-primary',
-            'id' => 'fileInput',
-            'style' => 'margin-bottom: 10px'))
-        !!}
+    <div class="col-xs-12 text-center" style="padding-top:2rem;">
+        @if (\Request::is('*edit*'))
+            @include('fotos.partials.fields', [
+                'label' => 'Foto da listagem:',
+                'extraAttrs' => [
+                    'class' =>  'btn btn-primary btn-lg',
+                    'style' =>  'display:inline;' 
+                ],
+                'comCropper' => true,
+                'aspectRatio' => 1,
+                'formID' => '#form-geral',
+                'previewID' => '#foto-listagem'
+            ])
+        @else
+            @include('fotos.partials.fields', [
+                'label' => 'Foto da listagem:',
+                'extraAttrs' => [
+                    'class' =>  'btn btn-primary btn-lg',
+                    'style' =>  'display:inline;' 
+                ]
+            ])
 
-        <div id="patchUrl" style="display: none">{{ "/trabalhoPortfolios/" . $trabalhoPortfolio->id }}</div>
-
-        {{-- <input name="file" type="file" id="file"> --}}
-
-        <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
-        {{-- <input type="file" name="file" class="btn btn-lg btn-primary" id="fileInput" style="margin-bottom: 10px"/> --}}
-
-        <input type="button" class="btn btn-lg btn-warning" id="btnCrop" value="Cortar Imagem" />
-
-        <input type="button" class="btn btn-lg btn-info" id="btnRestore" value="Desfazer" />
-    </p>
-
-    <div>
-        <canvas id="canvas">
-            Your browser does not support the HTML5 canvas element.
-        </canvas>
+        @endif
     </div>
-
-    <div id="result"></div>
-
-    {{-- @include('fotos.partials.fields', [
-        'label' => 'Foto da listagem:'
-    ]) --}}
 </div>
 
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}
@@ -64,7 +56,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {{-- <input type="button" class="btn btn-lg btn-success" id="btnSave" value="Salvar" /> --}}
-    {!! Form::submit('Salvar', ['class' => 'btn btn-lg btn-success']) !!}
-    <a href="{!! route('trabalhoPortfolios.index') !!}" class="btn btn-lg btn-default">Cancelar</a>
+    {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('trabalhoPortfolios.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
