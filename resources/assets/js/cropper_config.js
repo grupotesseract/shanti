@@ -1,25 +1,40 @@
 window.bindCropperJS = function () {
 
-    var aspectRatio = $('#aspectRatio').val();
-    var formID = $('#formID').val();
-    var previewID = $('#previewID').val();
+    $('.btnStartCrop').on('click', function(ev) {
+        console.log('.btnStartCrop clicked');
+        console.log(ev);
+        let aspectRatio = $(ev.target).data('aspectratio');
+        let previewID = $(ev.target).data('previewid');
+        let formID = $(ev.target).data('formid');
 
-    $('#btnStartCrop').on('click', function() {
-        initCropper(previewID, aspectRatio);
+        console.log(aspectRatio);
+        console.log(previewID);
+
+        initCropper(previewID, aspectRatio, formID);
     });
 
-    $('#btnCancelCrop').on('click', function() {
-        destroyCropper(previewID);
+    $('.btnCancelCrop').on('click', function(ev) {
+        console.log('.btnCancelCrop clicked');
+        console.log(ev);
+        let previewID = $(ev.target).data('previewid');
+        let formID = $(ev.target).data('formid');
+
+        destroyCropper(previewID, formID);
     });
 
-    $('#btnConfirmCrop').on('click', function() {
+    $('.btnConfirmCrop').on('click', function(ev) {
+        console.log('.btnConfirmCrop clicked');
+        console.log(ev);
+        let formID = $(ev.target).data('formid');
+        let previewID = $(ev.target).data('previewid');
+        let croppedImage = $(previewID).cropper('getCroppedCanvas').toDataURL('image/jpeg');
+
         swal({
             title: 'Carregando...',
             html: '<br><i class="fa fa-spin fa-spinner fa-3x"></i><br><br><br>',
             showConfirmButton: false
         });
 
-        let croppedImage = $(previewID).cropper('getCroppedCanvas').toDataURL('image/jpeg');
         $(formID).find('input[type=file]').remove();
         $(formID).append("<input name='file' type='hidden'/>");
         $(formID).find('input[name=file]').val(croppedImage);
@@ -27,25 +42,33 @@ window.bindCropperJS = function () {
     });
 }
 
-function initCropper(previewID, aspectRatio) {
+function initCropper(previewID, aspectRatio, formID) {
     $(previewID).cropper({
         aspectRatio: aspectRatio
     });
-    $('input[type=file]').hide();
-    $('#btnStartCrop').hide();
-    $('#btnConfirmCrop').show();
-    $('#btnCancelCrop').show();
+    $(formID).find('input[type=file]').hide();
+    $(formID).find('.btnStartCrop').hide();
+    $(formID).find('.btnConfirmCrop').show();
+    $(formID).find('.btnCancelCrop').show();
 }
 
-function destroyCropper(previewID) {
+function destroyCropper(previewID, formID) {
     $(previewID).cropper('destroy');
-    $('input[type=file]').show();
-    $('#btnStartCrop').show();
-    $('#btnConfirmCrop').hide();
-    $('#btnCancelCrop').hide();
+    $(formID).find('input[type=file]').show();
+    $(formID).find('.btnStartCrop').show();
+    $(formID).find('.btnConfirmCrop').hide();
+    $(formID).find('.btnCancelCrop').hide();
 }
 
 
 $(function () {
     bindCropperJS();
+    $('input[type=file]').on('change', function(el) {
+        swal({
+            title: 'Carregando...',
+            html: '<br><i class="fa fa-spin fa-spinner fa-3x"></i><br><br><br>',
+            showConfirmButton: false
+        });
+        $(el.target).parents('form').submit();
+    })
 });
