@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('css')
+
+<!-- Cropper.css -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.css'>
+<link href="{{ asset('css/cropper-style.css') }}" rel="stylesheet">
+
 <style>
     ul.nav li.active a {
         font-weight:bold;
@@ -42,7 +47,7 @@
                 <div class="tab-pane @if (\Request::get('tab') != 'tab_2') active @endif" id="tab_1">
                     @include('adminlte-templates::common.errors')
                     <div class="row">
-                        {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true]) !!}
+                        {!! Form::model($profissional, ['route' => ['profissionals.update', $profissional->id], 'method' => 'patch', 'files'=> true, 'id'=>'form-geral' ]) !!}
 
                         @include('profissionals.fields')
 
@@ -66,4 +71,19 @@
 @section('scripts')
     @include('summernote.builder', ['textAreaClass' =>"summernote"])
     <script type="text/javascript" src="/js/blocos_descricao.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.js'></script>
+    <script src="{{ asset('js/cropper_config.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
+<script>
+$(function () {
+    $('input[type=file]').on('change', function(el) {
+        swal({
+            title: 'Carregando...',
+            html: '<br><i class="fa fa-spin fa-spinner fa-3x"></i><br><br><br>',
+            showConfirmButton: false
+        });
+        $(el.target).parents('form').submit();
+    })
+});
+</script>
 @endsection
