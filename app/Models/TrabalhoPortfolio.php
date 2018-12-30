@@ -120,7 +120,7 @@ class TrabalhoPortfolio extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_600,q_auto/"
+                . "/image/upload/c_scale,w_450,q_auto/"
                 . $this->fotoListagem()->first()->cloudinary_id
                 . ".jpg";
         }

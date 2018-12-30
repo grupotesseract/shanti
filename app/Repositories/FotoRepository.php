@@ -33,7 +33,40 @@ class FotoRepository extends BaseRepository
 
         //Testando se o file é valido
         $file = $request['file'];
-        if ($file && $file->isValid()) {
+
+        if ($file && !is_object($file)) {
+        
+            $filename = time();
+            $image = \Image::make($file);
+            //Criando path inicial para direcionar o arquivo
+            $destinationPath = public_path().'/uploads/';
+            //Pega o formato da imagem
+            $extension = 'jpeg';
+            $upload_success = $image->save($destinationPath.$filename.'.'.$extension);
+            //Se o upload da foto ocorreu com sucesso
+            if ($upload_success) {
+
+                //adicionando as informações da foto na request
+                $request+=[
+                    'image_name' => $filename,
+                    'image_path' => $destinationPath,
+                    'image_extension' => $extension,
+                ];
+
+                //Criando e persistindo no BD uma nova foto já associada ao user
+                $novaFoto = $this->model->create($request);
+
+                return $novaFoto;
+
+                // Se nao tiver funcionado, retornar false no success para o js se manisfestar
+            } else {
+                return [
+                    'success' => false,
+                ];
+            }
+        }
+
+        else {
 
             //Criando path inicial para direcionar o arquivo
             $destinationPath = public_path().'/uploads/';

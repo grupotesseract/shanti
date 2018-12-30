@@ -70,7 +70,11 @@ class Foto extends Model
         static::deleting(function ($photo) {
             \Log::info("\nAbout to destroy:");
             \Log::info(json_encode($photo));
-            return \Cloudder::destroyImage($photo->cloudinary_id);
+            
+            return $photo->cloudinary_id 
+                ? \Cloudder::destroyImage($photo->cloudinary_id)
+                : true;
+
         });
 
         /** Deletando o arquivo do cloudinary  e do filesystem se existir **/

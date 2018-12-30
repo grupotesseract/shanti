@@ -163,7 +163,7 @@ class ItemProgramacaoController extends AppBaseController
 
 
         Flash::success('Programação atualizada com sucesso.');
-        return redirect(route('itemProgramacaos.index'));
+        return redirect()->back();
     }
 
     /**

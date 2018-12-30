@@ -17,6 +17,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5.0",
+        "predis/predis": "^1.1",
+        "shipping-docker/vessel": "^3.2",
         "spatie/laravel-tags": "^2.0",
         "yajra/laravel-datatables-buttons": "^3.0",
         "yajra/laravel-datatables-html": "^3.0",

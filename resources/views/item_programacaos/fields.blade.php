@@ -28,18 +28,47 @@
     {!! Form::text('horario', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Descricao Listagem Field -->
-<div class="form-group col-sm-3">
-    @include('fotos.partials.fields', [
-        'label' => 'Foto da listagem:'
-    ])
-</div>
-
 <!-- Breve descricao Field -->
 <div class="form-group col-sm-9">
     {!! Form::label('breve_descricao_listagem', 'Descrição (opcional)') !!}
     {!! Form::textarea('breve_descricao_listagem', null, ['class' => 'form-control', 'rows' => 3]) !!}
 </div>
+
+<div class="col-xs-12 text-center">
+    @if (isset($itemProgramacao) && $itemProgramacao->linkFotoListagem)
+        {!! Form::label('fotoListagem', 'Foto da listagem:') !!}<br>
+        <img id="foto-listagem" style="max-width:450px" src="{{$itemProgramacao->linkFotoListagem}}" alt="Foto do profissional"/>
+    @else
+        <strong>Adicione uma foto utilizando o botão abaixo. </strong>
+    @endif
+</div>
+
+<!-- Foto da listagem Field -->
+<div class="col-xs-12 text-center" style="padding-top:2rem;">
+    @if (\Request::is('*edit*'))
+        @include('fotos.partials.fields', [
+            'label' => 'Foto da listagem:',
+            'extraAttrs' => [
+                'class' =>  'btn btn-primary btn-lg',
+                'style' =>  'display:inline;' 
+            ],
+            'comCropper' => true,
+            'aspectRatio' => 1.67,
+            'formID' => '#form-geral',
+            'previewID' => '#foto-listagem'
+        ])
+    @else
+        @include('fotos.partials.fields', [
+            'label' => 'Foto da listagem:',
+            'extraAttrs' => [
+                'class' =>  'btn btn-primary btn-lg',
+                'style' =>  'display:inline;' 
+            ]
+        ])
+
+    @endif
+</div>
+
 
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}
 {!! Form::hidden('ativo_listagem',true) !!}

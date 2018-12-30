@@ -24,7 +24,7 @@ class FotoRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'required|max:8500'
+            'file' => 'required'
         ];
     }
 }

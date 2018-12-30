@@ -3,7 +3,7 @@
         <div class="col-xs-12 text-center">
             @if ($itemProgramacao->linkFotoCapa)
                 {!! Form::label('fotoCapa', 'Foto de capa:') !!}<br>
-                <img style="max-width:100%"src="{{$itemProgramacao->linkFotoCapa}}" alt="Foto de capa do trabalho"/>
+                <img style="max-width:100%"src="{{$itemProgramacao->linkFotoCapa}}" alt="Foto de capa do trabalho" id="foto-capa"/>
             @else
                 <strong>Adicione uma foto de capa utilizando os botões abaixo. </strong>
             @endif
@@ -11,18 +11,24 @@
 
         </div>
         <div class="col-xs-12 text-center">
-           {!! Form::model($itemProgramacao, ['route' => ['itemProgramacaos.trocaFotoCapa', $itemProgramacao->id], 'files'=> true]) !!}
+            {!! Form::model($itemProgramacao, ['route' => ['itemProgramacaos.trocaFotoCapa', $itemProgramacao->id], 'files'=> true, 'id'=>"form-foto-capa"]) !!}
 
            {{-- Campo para upload da foto de capa--}}
             <div class="container-form-capa">
                 @include('fotos.partials.fields', [
                     'label' => ' ',
-                    'extraAttrs' => ['required']
+                    'extraAttrs' => [
+                        'class' =>  'btn btn-primary btn-lg',
+                        'style' =>  'display:inline;',
+                        'required' =>  '' 
+                    ],
+                    'comCropper' => true,
+                    'aspectRatio' => 2.18,
+                    'formID' => '#form-foto-capa',
+                    'previewID' => '#foto-capa'
                 ])
-
-                {!! Form::submit("Trocar Foto", ['class' => 'btn btn-primary']) !!}
-                
             </div>
+
            
            
             {!! Form::close() !!}
