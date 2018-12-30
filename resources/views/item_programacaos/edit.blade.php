@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('css')
+    
+<!-- Cropper.css -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.css'>
+<link href="{{ asset('css/cropper-style.css') }}" rel="stylesheet">
+
 <style>
     ul.nav li.active a {
         font-weight:bold;
@@ -47,7 +52,7 @@
                 <div class="tab-pane @if (\Request::get('tab') != 'tab_2') active @endif" id="tab_1">
                     @include('adminlte-templates::common.errors')
                     <div class="row">
-                   {!! Form::model($itemProgramacao, ['route' => ['itemProgramacaos.update', $itemProgramacao->id], 'method' => 'patch', 'files'=> true]) !!}
+                        {!! Form::model($itemProgramacao, ['route' => ['itemProgramacaos.update', $itemProgramacao->id], 'method' => 'patch', 'files'=> true, 'id'=>"form-geral"]) !!}
 
                         @include('item_programacaos.fields')
 
@@ -89,4 +94,7 @@ setTimeout(function(){
 }, 50);
 
 </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('js/cropper_config.js') }}"></script>
 @endsection

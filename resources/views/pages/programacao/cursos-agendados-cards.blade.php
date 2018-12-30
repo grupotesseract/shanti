@@ -2,7 +2,7 @@
         <div class="col-12 col-lg-5">
             <a href="/programacao/{{$itemProgramacao->id}}">           
                 <p class="caption">{{$itemProgramacao->descricao_listagem}}</p>            
-                <img src="{{$itemProgramacao->fotoListagem->first()->urlCloudinary}}">
+                <img src="{{$itemProgramacao->linkFotoListagem}}">
             </a>
         </div>
         <div class="col-12 col-lg-5 align-self-end">            
