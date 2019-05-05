@@ -10,13 +10,26 @@
 		}
 	}
 
-	#map {
-		height: 400px;
-		@include media-breakpoint-down(md) {
-			height: 300px;
-		}
-		width: 100%;
-		border-radius: 5px;
+	#map-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            width: 100%;
+
+            iframe {
+                width: 760px;
+                height: 400px;
+                @include media-breakpoint-down(md) {
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                height: 300px;
+            }
+            border-radius: 5px;
 	}
 
 	.programacao-interno {
