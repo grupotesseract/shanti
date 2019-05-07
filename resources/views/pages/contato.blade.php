@@ -41,8 +41,12 @@
                         <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
                     </a>
 
-                    <a href="+55-14-98832-5849" target="_blank">
-                        <i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
+                    <a href="https://wa.me/5514996042081" target="_blank">
+                        <i class="fab fa-whatsapp fa-lg"></i>(14) 99604-2081 - João Maciel
+                    </a>
+
+                    <a href="https://wa.me/5514981434456" target="_blank">
+                        <i class="fab fa-whatsapp fa-lg"></i>(14) 98143-4456 - Fernanda Vasconcelos
                     </a>
 
                     <a href="mailto:contato@institutoshanti.com" target="_blank">
