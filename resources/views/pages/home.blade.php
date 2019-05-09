@@ -41,7 +41,7 @@
                 <h6>ONDE NOS ENCONTRAR</h6>
 
                 <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
-                    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
+                    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
                 </a>
 
 

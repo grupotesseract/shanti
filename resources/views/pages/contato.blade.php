@@ -20,7 +20,7 @@
                 </div>
                 <footer class="footer footer-pc">
                     <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
+                        <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
                     </a>
 
                     <br>
@@ -38,7 +38,7 @@
                 <footer class="footer footer-mobile">
                     <h6>INSTITUTO SHANTI</h6>
                     <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
-                        <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
+                        <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
                     </a>
 
                     <a href="https://wa.me/5514996042081" target="_blank">

@@ -1,7 +1,7 @@
 <footer class="footer footer-pc">
   <h6>INSTITUTO SHANTI</h6>
   <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
-    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
+    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
   </a>
 
   {{-- 
@@ -18,7 +18,7 @@
 <footer class="footer footer-mobile">
   <h6>INSTITUTO SHANTI</h6>
   <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
-    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-17 | Bauru - SP
+    <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
   </a>
   {{--
   <a href="tel:5514988325849" target="_blank">
@@ -47,16 +47,16 @@
     <a class="nav-link" href="/quem-somos">QUEM SOMOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/servicos-geral">SERVIÇOS</a>
+    <a class="nav-link" href="/servicos">SERVIÇOS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/programacao-geral">PROGRAMAÇÃO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/portifolio">PORTFÓLIO</a>
+    <a class="nav-link" href="/portfolio">PORTFÓLIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/artigos">REFERÊNCIAS</a>
+    <a class="nav-link" href="/referencias/todos">REFERÊNCIAS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/contato">CONTATO</a>
