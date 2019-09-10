@@ -5,6 +5,7 @@ Route::get('/', 'InfoHomepageController@getHome');
 
 /* O Espaço */
 Route::get('espaco', 'InfoEspacoController@getEspaco');
+Route::get('instituto', 'InfoEspacoController@getEspaco');
 
 /* Quem somos */
 Route::get('quem-somos', 'QuemSomosController@getIndex')->name('quem-somos');

@@ -7,7 +7,7 @@
     </div>
     <div class="nav-media col align-self-center">
       <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank"><i class="fab fa-facebook-square"></i></a>
-      <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/institutoshanti/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </header>
@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg {{ !$agent->isMobile() ?: 'fixed-top' }}">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="/images/logo-shanti.png">
+      <img src="/images/logo-shanti.png" alt="Logo Instituto Shanti">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/espaco">O ESPAÇO</a>
+          <a class="nav-link" href="/instituto">O INSTITUTO</a>
         </li>
 
         <li class="nav-item">
