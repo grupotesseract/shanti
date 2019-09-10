@@ -20,11 +20,11 @@
 
     .caixa {
         position: relative;
-        width: 290px;
+        width: auto;
         height: 290px;
         @include media-breakpoint-up(lg) {
-            width: 450px;
-            height: 450px;
+            width: auto;
+            height: 400px;
         }
         background-image: url("/images/projeto.jpg");
         background-repeat: no-repeat;

@@ -110,7 +110,7 @@ class Profissional extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_240,q_auto/"
+                . "/image/upload/"
                 . $this->fotoListagem->cloudinary_id
                 . ".jpg";
         }

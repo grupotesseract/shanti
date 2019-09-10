@@ -29,9 +29,6 @@
                     <a href="/referencias/psicologia">
                         <span class="{{ Request::is('referencias/psicologia') ? 'active' : '' }}">Psicologia</span>
                     </a>
-                    <a href="/referencias/espiritualidade">
-                        <span class="{{ Request::is('referencias/espiritualidade') ? 'active' : '' }}">Espiritualidade</span>
-                    </a>
                 </div>
 
                 @foreach($artigos as $artigo)

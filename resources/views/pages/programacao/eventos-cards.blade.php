@@ -1,11 +1,11 @@
 <div class="row justify-content-center mt-5">
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-5 align-self-center ">
             <a href="/programacao/{{$itemProgramacao->id}}">           
                 <p class="caption">{{$itemProgramacao->descricao_listagem}}</p>            
                 <img src="{{ $itemProgramacao->linkFotoListagem }}">
             </a>
         </div>
-        <div class="col-12 col-lg-5 align-self-end">            
+        <div class="col-12 col-lg-5 align-self-center">            
             <h5>{{$itemProgramacao->nome}}</h5>
             @if ($itemProgramacao->breve_descricao_listagem)
                 <p class="mt-3">{{$itemProgramacao->breve_descricao_listagem}}</p>

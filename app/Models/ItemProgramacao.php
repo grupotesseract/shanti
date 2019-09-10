@@ -177,7 +177,7 @@ class ItemProgramacao extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_500,q_auto/"
+                . "/image/upload/"
                 . $this->fotoListagem()->first()->cloudinary_id
                 . ".jpg";
         }
@@ -195,7 +195,7 @@ class ItemProgramacao extends Model
 
             return "//res.cloudinary.com/"
                 . env('CLOUDINARY_CLOUD_NAME')
-                . "/image/upload/c_scale,w_1200,q_auto/"
+                . "/image/upload/"
                 . $this->fotoCapa()->first()->cloudinary_id
                 . ".jpg";
         }

@@ -30,8 +30,8 @@
     <i class="fas fa-envelope fa-lg"></i>contato@institutoshanti.com<br>
   </a>
 
-  <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank">
-    <i class="fab fa-instagram fa-lg"></i>@Shanticienciacorpomente
+  <a href="https://www.instagram.com/institutoshanti/" target="_blank">
+    <i class="fab fa-instagram fa-lg"></i>@institutoshanti
   </a>
 
   <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
