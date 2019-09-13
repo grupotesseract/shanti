@@ -41,7 +41,7 @@
 
 <ul class="nav justify-content-center nav-pc">
   <li class="nav-item active">
-    <a class="nav-link" href="/espaco">O ESPAÇO</a>
+    <a class="nav-link" href="/instituto">O INSTITUTO</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/quem-somos">QUEM SOMOS</a>
@@ -62,7 +62,7 @@
     <a class="nav-link" href="/contato">CONTATO</a>
   </li>
   <li class="nav-item align-self-center">
-    <a href="https://www.instagram.com/explore/locations/1014091440/instituto-shanti/?hl=pt-br" target="_blank">
+    <a href="https://www.instagram.com/institutoshanti" target="_blank">
       <i class="fab fa-instagram fa-lg"></i>
     </a>
   </li>

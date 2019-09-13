@@ -47,7 +47,7 @@
 @else
 
     <div class="row">
-        <div class="col col-espaco">
+        <div class="col-5 col-espaco">
             <h4>O INSTITUTO</h4>
 
             {!! $infoEspaco->descricao !!}
@@ -58,7 +58,7 @@
             </blockquote>
         </div>
 
-        <div class="col-8 espaco-pc">
+        <div class="col-7 espaco-pc">
             <div id="carouselExampleIndicators" class="carousel slide carousel-espaco" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @forelse( $infoEspaco->listaFotos as $key => $foto)
