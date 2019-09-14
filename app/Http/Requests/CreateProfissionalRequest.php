@@ -25,6 +25,9 @@ class CreateProfissionalRequest extends FormRequest
      */
     public function rules()
     {
-        return Profissional::$rules;
+        $rules = Profissional::$rules;
+        $rules += [ 'url_amigavel' => 'required|unique:profissionals' ];
+
+        return $rules;
     }
 }

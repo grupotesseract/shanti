@@ -25,6 +25,9 @@ class UpdateTrabalhoPortfolioRequest extends FormRequest
      */
     public function rules()
     {
-        return TrabalhoPortfolio::$rules;
+        $rules = TrabalhoPortfolio::$rules;
+        $idTrabalhoPortfolio = \Request::segment(2);
+        $rules += [ 'url_amigavel' => 'required|unique:trabalho_portfolios,url_amigavel,'.$idTrabalhoPortfolio ];
+        return $rules;
     }
 }

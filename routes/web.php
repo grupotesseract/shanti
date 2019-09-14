@@ -26,7 +26,6 @@ Route::post('/programacao/{id}/contato', 'ItemProgramacaoController@postContatoP
 
 /* Portfólio */
 Route::get('portfolio', 'PortfolioController@getPortfolio');
-Route::get('portfolio-interno', 'PortfolioController@getPortfolioInterno');
 Route::get('/portfolio/{id}', 'TrabalhoPortfolioController@getShowPortfolio');
 
 /* Artigos -> 'referencias' no lugar de artigos  **/
@@ -49,10 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin', 'AdminController@index');
 
     Route::resource('profissionals', 'ProfissionalController');
-
-    Route::post('profissionals/{id}/ativa-listagem', 'ProfissionalController@postAtivaListagem')->middleware('auth');
-    Route::post('profissionals/{id}/remove-listagem', 'ProfissionalController@postRemoveListagem')->middleware('auth');
-
     Route::resource('blocoDescricaos', 'BlocoDescricaoController');
 
     Route::get('/profissionals/{id}/adiciona-conteudo', 'ProfissionalController@getCreateBlocoConteudo');
@@ -74,6 +69,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/trabalhoPortfolios/{id}/edita-conteudo', 'TrabalhoPortfolioController@getEditBlocoConteudo');
 
     Route::resource('itemProgramacaos', 'ItemProgramacaoController');
+    Route::post('itemProgramacaos/{id}/ativa-listagem', 'ItemProgramacaoController@postAtivaListagem')->middleware('auth');
+    Route::post('itemProgramacaos/{id}/remove-listagem', 'ItemProgramacaoController@postRemoveListagem')->middleware('auth');
 
     Route::post('/programacao/{id}/troca-capa', 'ItemProgramacaoController@postTrocaFotoCapa')->middleware('auth')->name('itemProgramacaos.trocaFotoCapa');
     Route::get('/itemProgramacaos/{id}/adiciona-conteudo', 'ItemProgramacaoController@getCreateBlocoConteudo');

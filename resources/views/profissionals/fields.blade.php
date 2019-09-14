@@ -1,13 +1,19 @@
 <!-- Nome Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('nome', 'Nome do profissional:') !!}
     {!! Form::text('nome', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Descricao Listagem Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-8">
     {!! Form::label('descricao_listagem', 'Função desempenhada') !!}
     {!! Form::text('descricao_listagem', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Url Amigavel Field -->
+<div class="form-group col-sm-8">
+    {!! Form::label('url_amigavel', 'Link Amigavel') !!} <span>Ex: https://institutoshanti.com/quem-somos/...</span>
+    {!! Form::text('url_amigavel', null, ['class' => 'form-control']) !!}
 </div>
 
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}

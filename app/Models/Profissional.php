@@ -16,7 +16,6 @@ use App\Helpers\DeleteModelHelper;
  */
 class Profissional extends Model
 {
-    //constance para obter o nome da resource que identifica as actions dos controllers a partir da classe
     const ROUTE_RESOURCE = 'profissionals';
 
     use SoftDeletes;
@@ -30,6 +29,7 @@ class Profissional extends Model
         'descricao_listagem',
         'descricao_interna',
         'ativo_listagem',
+        'url_amigavel',
     ];
 
     /**
@@ -50,7 +50,7 @@ class Profissional extends Model
     public static $rules = [
         'nome' => 'required',
         'descricao_listagem' => 'required',
-        'descricao_interna' => 'required'
+        'descricao_interna' => 'required',
     ];
 
     /**
@@ -151,6 +151,5 @@ class Profissional extends Model
 
         return $retorno;
     }
-
 
 }

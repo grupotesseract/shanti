@@ -25,6 +25,8 @@ class CreateTrabalhoPortfolioRequest extends FormRequest
      */
     public function rules()
     {
-        return TrabalhoPortfolio::$rules;
+        $rules = TrabalhoPortfolio::$rules;
+        $rules += [ 'url_amigavel' => 'required|unique:trabalho_portfolios'];
+        return $rules;
     }
 }

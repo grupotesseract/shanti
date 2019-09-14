@@ -42,6 +42,14 @@ class QuemSomosController extends Controller
     {
         $profissional = $this->profRepository->findWithoutFail($id);
 
+        if (empty($profissional)) {
+            $profissional = $this->profRepository->findByField('url_amigavel', $id)->first();
+        }
+
+        if (empty($profissional)) {
+            return redirect('/quem-somos');
+        }
+
         return view('pages.quem-somos-pessoal')->with([
             'profissional' => $profissional
         ]);     

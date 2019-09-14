@@ -13,7 +13,7 @@
         <div class="row justify-content-center">
             @foreach (\App\Models\TrabalhoPortfolio::ativos()->get() as $trabalhoPortfolio)
                 <div class="col-12 col-lg-5">
-                    <a href="/portfolio/{{$trabalhoPortfolio->id}}">
+                    <a href="/portfolio/{{$trabalhoPortfolio->url_amigavel}}">
                         <div class="caixa" style="background-image:url('{{$trabalhoPortfolio->linkFotoListagem}}')">
                             <p>{{$trabalhoPortfolio->descricao_listagem}}</p>
 

@@ -37,6 +37,7 @@
         </h1>
    </section>
    <div class="content">
+        @include('flash::message')
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="@if (\Request::get('tab') != 'tab_2') active @endif"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Informações gerais</a></li>

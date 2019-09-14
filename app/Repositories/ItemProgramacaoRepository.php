@@ -30,4 +30,38 @@ class ItemProgramacaoRepository extends BaseRepository
     {
         return ItemProgramacao::class;
     }
+
+    /**
+     * Retorna os  ativos.
+     *
+     * @return void
+     */
+    public function getAtivos()
+    {
+        return ItemProgramacao::ativos()->orderByRaw('RANDOM()')->get();
+    }
+
+    /**
+     * Ativa a exibição desse itemProgramacao para que passe a ser retornado via API.
+     *
+     * @return void
+     */
+    public function ativaTrabalho(ItemProgramacao $itemProgramacao)
+    {
+        return $itemProgramacao->update([
+            'ativo_listagem' => true,
+        ]);
+    }
+
+    /**
+     * Desativa a exibicao desse itemProgramacao para que passe a ser retornada via API.
+     *
+     * @return void
+     */
+    public function desativaTrabalho(ItemProgramacao $itemProgramacao)
+    {
+        return $itemProgramacao->update([
+            'ativo_listagem' => false,
+        ]);
+    }
 }

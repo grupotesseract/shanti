@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-5">
         <div class="col-12 col-lg-5  align-self-center">
-            <a href="/programacao/{{$itemProgramacao->id}}">           
+            <a href="/programacao/{{$itemProgramacao->url_amigavel}}">           
                 <img src="{{$itemProgramacao->linkFotoListagem}}">
             </a>
         </div>

@@ -46,7 +46,8 @@ class ItemProgramacao extends Model
         'horario',
         'link_facebook',
         'ativo_listagem',
-        'data'
+        'data',
+        'url_amigavel',
     ];
 
     /**

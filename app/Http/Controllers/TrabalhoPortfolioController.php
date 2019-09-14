@@ -98,6 +98,10 @@ class TrabalhoPortfolioController extends AppBaseController
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
 
         if (empty($trabalhoPortfolio)) {
+            $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findByField('url_amigavel', $id)->first();
+        }
+
+        if (empty($trabalhoPortfolio)) {
             Flash::error('Trabalho não encontrado!');
 
             return redirect(route('trabalhoPortfolios.index'));
@@ -288,6 +292,10 @@ class TrabalhoPortfolioController extends AppBaseController
     public function getShowPortfolio($id)
     {
         $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findWithoutFail($id);
+
+        if (empty($trabalhoPortfolio)) {
+            $trabalhoPortfolio = $this->trabalhoPortfolioRepository->findByField('url_amigavel', $id)->first();
+        }
 
         if (empty($trabalhoPortfolio)) {
             Flash::error('Trabalho não encontrado');

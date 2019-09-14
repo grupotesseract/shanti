@@ -15,7 +15,6 @@ use App\Helpers\DeleteModelHelper;
  */
 class TrabalhoPortfolio extends Model
 {
-    //constance para obter o nome da resource que identifica as actions dos controllers a partir da classe
     const ROUTE_RESOURCE = 'trabalhoPortfolios';
 
     public $table = 'trabalho_portfolios';
@@ -24,7 +23,9 @@ class TrabalhoPortfolio extends Model
         'nome',
         'descricao_listagem',
         'ativo_listagem',
-    ]; 
+        'url_amigavel',
+    ];
+
     /**
      * The attributes that should be casted to native types.
      *

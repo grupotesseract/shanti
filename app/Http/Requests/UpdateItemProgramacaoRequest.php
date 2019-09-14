@@ -25,6 +25,9 @@ class UpdateItemProgramacaoRequest extends FormRequest
      */
     public function rules()
     {
-        return ItemProgramacao::$rules;
+        $rules = ItemProgramacao::$rules;
+        $idItemProgramacao = \Request::segment(2);
+        $rules += [ 'url_amigavel' => 'required|unique:item_programacaos,url_amigavel,'.$idItemProgramacao ];
+        return $rules;
     }
 }

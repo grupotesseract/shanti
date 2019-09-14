@@ -15,7 +15,7 @@
         <div class="col">
             {{-- Voltar esse link após a página "quem-somos-pessoal" ficar pronta na área admin.
             <a href="/profissional/{{ $Profissional->id }}"> --}}
-            <a href="/quem-somos/{{$Profissional->id}}">
+            <a href="/quem-somos/{{$Profissional->url_amigavel}}">
                 <img src="{{ $Profissional->linkFotoQuemSomos }}">
                 <h5>{{ $Profissional->nome }}</h5>
                 <h6>{{ $Profissional->descricao_listagem }}</h6>

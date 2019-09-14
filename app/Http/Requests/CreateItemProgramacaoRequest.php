@@ -25,6 +25,8 @@ class CreateItemProgramacaoRequest extends FormRequest
      */
     public function rules()
     {
-        return ItemProgramacao::$rules;
+        $rules = ItemProgramacao::$rules;
+        $rules += [ 'url_amigavel' => 'required|unique:item_programacaos'];
+        return $rules;
     }
 }

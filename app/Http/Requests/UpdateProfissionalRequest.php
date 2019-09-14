@@ -25,6 +25,10 @@ class UpdateProfissionalRequest extends FormRequest
      */
     public function rules()
     {
-        return Profissional::$rules;
+        $rules = Profissional::$rules;
+        $idProfissional = \Request::segment(2);
+        $rules += [ 'url_amigavel' => 'required|unique:profissionals,url_amigavel,'.$idProfissional ];
+        return $rules;
+
     }
 }

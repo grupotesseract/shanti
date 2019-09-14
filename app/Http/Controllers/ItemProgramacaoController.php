@@ -100,6 +100,10 @@ class ItemProgramacaoController extends AppBaseController
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
 
         if (empty($itemProgramacao)) {
+            $itemProgramacao = $this->itemProgramacaoRepository->findByField('url_amigavel', $id)->first();
+        }
+
+        if (empty($itemProgramacao)) {
             Flash::error('Programação não encontrada');
             return redirect(route('itemProgramacaos.index'));
         }
@@ -289,6 +293,10 @@ class ItemProgramacaoController extends AppBaseController
     public function getShowPortfolio($id)
     {
         $itemProgramacao = $this->itemProgramacaoRepository->findWithoutFail($id);
+
+        if (empty($itemProgramacao)) {
+            $itemProgramacao = $this->itemProgramacaoRepository->findByField('url_amigavel', $id)->first();
+        }
 
         if (empty($itemProgramacao)) {
             Flash::error('Programação não encontrada');

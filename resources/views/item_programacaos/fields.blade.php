@@ -69,6 +69,12 @@
     @endif
 </div>
 
+<!-- Url Amigavel Field -->
+<div class="form-group col-sm-12" style="margin-top:3rem;">
+    {!! Form::label('url_amigavel', 'Link Amigavel') !!} <span>Ex: https://institutoshanti.com/programacao/...</span>
+    {!! Form::text('url_amigavel', null, ['class' => 'form-control']) !!}
+</div>
+
 
 {{-- Incluindo o campo ativo_listagem para ja iniciar ativo --}}
 {!! Form::hidden('ativo_listagem',true) !!}
