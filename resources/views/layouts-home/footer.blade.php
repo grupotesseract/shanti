@@ -37,6 +37,7 @@
   <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
     <i class="fab fa-facebook-square fa-lg"></i>/Shanticienciacorpomente
   </a>
+
 </footer>
 
 <ul class="nav justify-content-center nav-pc">
@@ -67,8 +68,13 @@
     </a>
   </li>
   <li class="nav-item align-self-center">
-    <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
+    <a href="https://www.facebook.com/InstitutoShantiBauru" target="_blank">
       <i class="fab fa-facebook-square fa-lg"></i>
+    </a>
+  </li>
+  <li class="nav-item align-self-center">
+    <a href="https://www.youtube.com/channel/UCczWUvzQJ-IuQdRkyU7DO7Q" target="_blank">
+      <i class="fab fa-youtube fa-lg"></i>
     </a>
   </li>
 </ul>

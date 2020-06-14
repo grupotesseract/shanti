@@ -53,8 +53,12 @@
                     <i class="fab fa-instagram fa-lg"></i>@InstitutoShanti
                 </a>
 
-                <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank">
-                    <i class="fab fa-facebook-square fa-lg"></i>/Shanticienciacorpomente
+                <a href="https://www.facebook.com/InstitutoShantiBauru" target="_blank">
+                    <i class="fab fa-facebook-square fa-lg"></i> /InstitutoShantiBauru/
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCczWUvzQJ-IuQdRkyU7DO7Q" target="_blank">
+                    <i class="fab fa-youtube fa-lg"></i> Canal Youtube Instituto Shanti
                 </a>
             </div>
         </div>

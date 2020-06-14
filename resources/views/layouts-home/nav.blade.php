@@ -6,8 +6,9 @@
       <h5>Yoga, Meditação, Naturologia<br>Psicologia e Terapias</h5>
     </div>
     <div class="nav-media col align-self-center">
-      <a href="https://www.facebook.com/Shanticienciacorpomente" target="_blank"><i class="fab fa-facebook-square"></i></a>
-      <a href="https://www.instagram.com/institutoshanti/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/institutoshanti/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/InstitutoShantiBauru" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://www.youtube.com/channel/UCczWUvzQJ-IuQdRkyU7DO7Q" target="_blank"> <i class="fab fa-youtube"></i></a>
     </div>
   </div>
 </header>
