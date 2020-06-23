@@ -27,6 +27,9 @@
                 <li><i class="fas fa-circle"></i></i>Astropsicologia</li>
                 <li><i class="fas fa-circle"></i></i>Aromaterapia</li>
                 <li><i class="fas fa-circle"></i></i>Meditação</li>
+                <li><i class="fas fa-circle"></i></i>Reiki</li>
+                <li><i class="fas fa-circle"></i></i>Sons do Yoga</li>
+                <li><i class="fas fa-circle"></i></i>Eventos Culturais</li>
             </a>
         </div>                
     </div>
