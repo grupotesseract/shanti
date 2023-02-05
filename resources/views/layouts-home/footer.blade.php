@@ -4,12 +4,6 @@
     <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
   </a>
 
-  {{-- 
-  <a href="tel:5514988325849" target="_blank">
-    <i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
-  </a>
-  --}}
-
   <a href="mailto:contato@institutoshanti.com" target="_blank">
     <i class="fas fa-envelope fa-lg"></i>contato@institutoshanti.com<br>
   </a>
@@ -20,11 +14,6 @@
   <a href="https://goo.gl/maps/hQrrviNq4jQ2" target="_blank">
     <i class="fas fa-map-marker-alt fa-lg"></i>Rua Maria José, 12-71 | Bauru - SP
   </a>
-  {{--
-  <a href="tel:5514988325849" target="_blank">
-    <i class="fas fa-phone-square fa-lg"></i>(14) 98832-5849
-  </a>
-  --}}
 
   <a href="mailto:contato@institutoshanti.com" target="_blank">
     <i class="fas fa-envelope fa-lg"></i>contato@institutoshanti.com<br>
@@ -96,7 +85,7 @@
     <a class="nav-link" href="/portfolio">PORTIFÓLIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/artigos">ARTIGOS</a>
+    <a class="nav-link" href="/referencias">REFERÊNCIAS</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/contato">CONTATO</a>

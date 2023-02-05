@@ -26,8 +26,8 @@
                     <a href="/referencias/naturologia">
                         <span class="{{ Request::is('referencias/naturologia') ? 'active' : '' }}">Naturologia</span>
                     </a>
-                    <a href="/referencias/psicologia">
-                        <span class="{{ Request::is('referencias/psicologia') ? 'active' : '' }}">Psicologia</span>
+                    <a href="/referencias/psicanalise">
+                        <span class="{{ Request::is('referencias/psicanalise') ? 'active' : '' }}">Psicanálise</span>
                     </a>
                 </div>
 

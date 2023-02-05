@@ -10,7 +10,7 @@
         '#yoga' => '#yoga',
         '#meditacao' => '#meditação',
         '#naturologia' => '#naturologia',
-        '#psicologia' => '#psicologia',
+        '#psicanalise' => '#psicanalise',
         '#espiritualidade' => '#espiritualidade',
     ], null, ['class' => 'select2 form-control', 'multiple' => 'multiple']) }}
 </div>

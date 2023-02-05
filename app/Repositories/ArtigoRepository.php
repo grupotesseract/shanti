@@ -51,6 +51,7 @@ class ArtigoRepository extends BaseRepository
     {
         $artigo = Artigo::find($id);
         preg_match("/\..*$/", $artigo->arquivo, $extensao);
-        return Storage::download($artigo->arquivo, $artigo->nome.$extensao[0]);
+        $filename = str_slug($artigo->nome).$extensao[0];
+        return Storage::download($artigo->arquivo, $filename);
     }
 }
